@@ -387,6 +387,7 @@ MonoBehaviour:
   _uiController: {fileID: 1302186865}
   _playerCharacter: {fileID: 440967762}
   _raft: {fileID: 1712198875}
+  _stream: {fileID: 1447228316}
 --- !u!4 &388627631
 Transform:
   m_ObjectHideFlags: 0
@@ -852,7 +853,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FloatDirection: {x: 0, y: 0, z: 0}
   StreamDirection: {x: 0, y: 0, z: 0}
+  StreamLerp: 10
+  FloatSpeed: 4
+  waveX:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  waveY:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  positionCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  SteeringDirection: {x: 0, y: 0, z: 0}
   Speed: 5
+  SteeringSpeed: 1
 --- !u!65 &610484575
 BoxCollider:
   m_ObjectHideFlags: 0

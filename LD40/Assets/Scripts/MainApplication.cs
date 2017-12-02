@@ -8,6 +8,8 @@ public class MainApplication : MonoBehaviour
     
     [SerializeField] private PlayerCharacter _playerCharacter;
     [SerializeField] private Transform _raft;
+    [SerializeField] private Stream _stream;
+
     
     private void Awake()
     {
@@ -19,5 +21,8 @@ public class MainApplication : MonoBehaviour
         {
             _uiController.HideInteractionButton();            
         });
+        
+        
+        _stream.GenerateStreamZones();
     }
 }

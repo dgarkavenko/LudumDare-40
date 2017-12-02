@@ -2,47 +2,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Raft : MonoBehaviour {
+public class Raft : Floating {
 
 	// Use this for initialization
 	void Start () {
 		
 	}
 
+	public Vector3 SteeringDirection = new Vector3();
 
-    public Vector3 FloatDirection = new Vector3(0,0,1);
-    public Vector3 StreamDirection = new Vector3(0,0,1);
     public float Speed;
 	// Update is called once per frame
 	void Update ()
 	{
 
-	    //Vector3 dir = FloatDirection;
+	  	base.Update();
+		
+		Debug.DrawRay(transform.position, SteeringDirection * 10, Color.red, Time.deltaTime);
 
-	    Collider[] colliders = Physics.OverlapBox(transform.position, new Vector3(3, 3, 3), transform.rotation, LayerMask.GetMask("Stream"));
-	    if (colliders.Length > 0)
-	    {
-	        StreamDirection = Vector3.zero;
-	        for (int i = 0; i < colliders.Length; i++)
-	        {
-	            var stream = colliders[i].gameObject.GetComponent<StreamZone>();
-                if(stream != null)
-                    StreamDirection += stream.Direction;
-	        }
-
-	        StreamDirection = StreamDirection.normalized;
-	        FloatDirection = Vector3.Lerp(FloatDirection, StreamDirection, Time.deltaTime * 10);
-	    }
-
+		SteeringDirection = transform.TransformDirection(new Vector3(_steer / 2, 0, 0));
+		
 	    if (StreamDirection.magnitude > 0)
 	    {
-	        Quaternion streamDirection = Quaternion.LookRotation(StreamDirection, Vector3.up);
+	        Quaternion streamDirection = Quaternion.LookRotation(FloatDirection + SteeringDirection, Vector3.up);
 
 	        transform.rotation = Quaternion.Lerp(transform.rotation, streamDirection, Time.deltaTime);
+		    
 	    }
 
-        transform.position += FloatDirection * Time.deltaTime * Speed;
-        //
+		Steer();
+        transform.position += (FloatDirection  + SteeringDirection) * Time.deltaTime * Speed;
+		Wiggle();
+	}
 
-    }
+
+	private float _steer;
+	public float SteeringSpeed = 1;
+	
+	public void Steer()
+	{
+		float steer = Input.GetKey(KeyCode.A) ? -1 :
+			Input.GetKey(KeyCode.D) ? 1 : 0;
+
+		_steer = Mathf.Lerp(_steer, steer, Time.deltaTime * SteeringSpeed);
+
+	}
 }
