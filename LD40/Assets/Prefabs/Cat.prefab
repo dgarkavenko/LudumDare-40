@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 4995917785151164}
   - component: {fileID: 212725099087181538}
   - component: {fileID: 114319170138162644}
+  - component: {fileID: 111120823029069498}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -120,6 +121,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!111 &111120823029069498
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1683689338321930}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 066495cf6edacb8489d92fa4b6e24bd0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 066495cf6edacb8489d92fa4b6e24bd0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114076710263364342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,7 +254,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8ad89ef8c7b73c344930c1325d22f79d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aec1ba49328b2cd4bbee106e554c10e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
