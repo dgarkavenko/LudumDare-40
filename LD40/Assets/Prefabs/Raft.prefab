@@ -731,7 +731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d225d8f9be778f84597d78d793b61253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 114702251205878360}
   _raft: {fileID: 4878741929558546}
   _characterController: {fileID: 143302620593854904}
   _spriteRenderer: {fileID: 212238183218481488}
@@ -824,113 +823,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c5a154a9ffb9e4d8669146300dc70f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FloatDirection: {x: 0, y: 0, z: 0}
-  StreamDirection: {x: 0, y: 0, z: 0}
-  StreamLerp: 10
-  FloatSpeed: 4
-  waveX:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 3.5117755
-      value: -3.2293708
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 4.97682
-      value: 1.0677712
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 6.184226
-      value: -4.604178
-      inSlope: -0.0055041164
-      outSlope: -0.0055041164
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 7.7093306
-      value: 7.787182
-      inSlope: 0.00059604645
-      outSlope: 0.00059604645
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 8.771044
-      value: -3.3089027
-      inSlope: -0.005364418
-      outSlope: -0.005364418
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 10.302242
-      value: 1.8565489
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 11.217356
-      value: -3.0735557
-      inSlope: 0.007942082
-      outSlope: 0.007942082
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 1
-    m_RotationOrder: 0
-  waveY:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  positionCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1.6227827
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1.4650447
-      value: 1.8101562
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 2.6724505
-      value: 1.5628351
-      inSlope: -0.0055041164
-      outSlope: -0.0055041164
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 4.197555
-      value: 2.103151
-      inSlope: 0.00059604645
-      outSlope: 0.00059604645
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 5.259268
-      value: 1.6193148
-      inSlope: -0.005364418
-      outSlope: -0.005364418
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 6.7904663
-      value: 1.8445501
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 7.7055807
-      value: 1.6295767
-      inSlope: 0.007942082
-      outSlope: 0.007942082
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 1
-    m_RotationOrder: 0
-  SteeringDirection: {x: 0, y: 0, z: 0}
+  Model: {fileID: 114777487319293738, guid: 833bfe4c13a3b4543b4ff5f69e0f08fd, type: 2}
+  Offset: {x: 0, y: 1, z: 0}
   Speed: 5
   SteeringSpeed: 1
 --- !u!114 &114940974974780796
@@ -944,13 +838,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8294f2f6e0dc9ad45be2ecfaff82c2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 114210453017405288}
   _pickUp: {fileID: 4326652117034500}
   _speed: 3
   _pickUpDistance: 1.2
   _cats:
   - {fileID: 114296925024059874}
   - {fileID: 114993642490418732}
+  _spriteRenderer: {fileID: 0}
+  _upSprite: {fileID: 0}
+  _upLeftSprite: {fileID: 0}
+  _upRightSprite: {fileID: 0}
+  _downSprite: {fileID: 0}
+  _leftSprite: {fileID: 0}
+  _rightSprite: {fileID: 0}
 --- !u!114 &114993642490418732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -962,7 +862,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d225d8f9be778f84597d78d793b61253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 114506160203795660}
   _raft: {fileID: 4878741929558546}
   _characterController: {fileID: 143470378226048422}
   _spriteRenderer: {fileID: 212821667653271586}

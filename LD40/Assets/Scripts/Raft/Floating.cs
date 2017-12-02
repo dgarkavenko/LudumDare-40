@@ -6,9 +6,13 @@ public class Floating : MonoBehaviour {
 
 	public Vector3 FloatDirection = new Vector3(0,0,1);
 	public Vector3 StreamDirection = new Vector3(0,0,1);
+	public Vector3 SteeringDirection;
+	public float StreamPower = 6;
+	public float SteerPower = 2;
 	public float StreamLerp = 10;
-	public float FloatSpeed = 4;
-	
+	public float Torque = 1;
+
+	public static float WaterLevel;
 	
 	public void Update()
 	{

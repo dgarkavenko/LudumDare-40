@@ -3,7 +3,7 @@ using System.Collections;
 
 [AddComponentMenu("AQUAS/Buoyancy")]
 [RequireComponent(typeof(Rigidbody))]
-public class AQUAS_Buoyancy : MonoBehaviour {
+public class AQUAS_Buoyancy : Floating {
 
     #region variables
     //<summary>
@@ -31,7 +31,7 @@ public class AQUAS_Buoyancy : MonoBehaviour {
     Vector3[] vertices;
     int[] triangles;
     Mesh mesh;
-    Rigidbody rb;
+    public Rigidbody rb;
 
     //<summary>
     //Additional variables for surface dynamics simulation
@@ -58,15 +58,21 @@ public class AQUAS_Buoyancy : MonoBehaviour {
     //Balance factor must not be zero, because it's used as a divisor
     //Check if balance factor is zero and run AddForce Method on fixed time frame
     //</summary>
-	void FixedUpdate () {
+	public virtual void FixedUpdate () {
 
             if (balanceFactor.x < 0.001f){balanceFactor.x = 0.001f;}
             if (balanceFactor.y < 0.001f){balanceFactor.y = 0.001f;}
             if (balanceFactor.z < 0.001f){balanceFactor.z = 0.001f;}
 
         AddForce();
-
 	}
+
+    private float _steer;
+    
+    public void Steer(float steer)
+    {
+        _steer = steer;
+    }
 
     //<summary>
     //The Update method dynamically alters the effective water density according to parameters given
@@ -74,10 +80,14 @@ public class AQUAS_Buoyancy : MonoBehaviour {
     //</summary>
     void Update()
     {
-
+        base.Update();
         regWaterDensity = waterDensity;
         maxWaterDensity = regWaterDensity + regWaterDensity * 0.5f * dynamicSurface;
         effWaterDensity = ((maxWaterDensity - regWaterDensity) / 2) + regWaterDensity + Mathf.Sin(Time.time * bounceFrequency) * (maxWaterDensity - regWaterDensity) / 2;
+
+        var SumDirection = FloatDirection * StreamPower;
+        rb.AddForce(SumDirection);
+	    
     }
 
     //<summary>
@@ -88,7 +98,7 @@ public class AQUAS_Buoyancy : MonoBehaviour {
     //Apply calculated forces at the center points of the mesh triangles
     //Debug if required
     //</summary>
-    void AddForce() {
+    protected void AddForce() {
 
         //Iterate through the triangles
         for (int i = 0; i < triangles.Length; i += 3)
@@ -111,7 +121,6 @@ public class AQUAS_Buoyancy : MonoBehaviour {
                 if (useBalanceFactor)
                 {
                     rb.AddForceAtPosition(new Vector3(0, updrift, 0), transform.TransformPoint(new Vector3(transform.InverseTransformPoint(Center(p1, p2, p3)).x / (balanceFactor.x * transform.localScale.x * 1000), transform.InverseTransformPoint(Center(p1, p2, p3)).y / (balanceFactor.y * transform.localScale.x * 1000), transform.InverseTransformPoint(Center(p1, p2, p3)).z / (balanceFactor.z * transform.localScale.x * 1000))));
-
                 }
                 else
                 {
@@ -180,4 +189,5 @@ public class AQUAS_Buoyancy : MonoBehaviour {
         float c = Vector3.Distance(new Vector3(transform.TransformPoint(p3).x, Center(p1, p2, p3).y, transform.TransformPoint(p3).z), new Vector3(transform.TransformPoint(p1).x, Center(p1, p2, p3).y, transform.TransformPoint(p1).z));
         return (a * c * Mathf.Sin(Vector3.Angle(new Vector3(transform.TransformPoint(p2).x, Center(p1, p2, p3).y, transform.TransformPoint(p2).z) - new Vector3(transform.TransformPoint(p1).x, Center(p1, p2, p3).y, transform.TransformPoint(p1).z), new Vector3(transform.TransformPoint(p3).x, Center(p1, p2, p3).y, transform.TransformPoint(p3).z) - new Vector3(transform.TransformPoint(p1).x, Center(p1, p2, p3).y, transform.TransformPoint(p1).z)) * Mathf.Deg2Rad)) / 2;
     }
+
 }

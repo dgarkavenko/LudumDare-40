@@ -2,40 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Raft : Floating 
-{
-	public Vector3 SteeringDirection = new Vector3();
-	public float Speed;
+public class Raft : MonoBehaviour {
 
-	private void LateUpdate ()
+	public SteeringBuoy Model;
+	public Vector3 Offset;
+    public float Speed;
+	// Update is called once per frame
+
+	void Start()
 	{
-		Debug.DrawRay(transform.position, SteeringDirection * 10, Color.red, Time.deltaTime);
-
-		SteeringDirection = transform.TransformDirection(new Vector3(_steer / 2, 0, 0));
+		Model = SteeringBuoy.Instantiate(Model);
+		Model.transform.position = transform.position;
+		Model.transform.rotation = transform.rotation;
 		
-	    if (StreamDirection.magnitude > 0)
-	    {
-	        Quaternion streamDirection = Quaternion.LookRotation(FloatDirection + SteeringDirection, Vector3.up);
+	}
+	
+	void LateUpdate ()
+	{
+		transform.SetPositionAndRotation(Model.transform.position + Model.transform.TransformDirection(Offset), Model.transform.rotation);
+		float steer = Input.GetKey(KeyCode.A) ? -1 :
+			Input.GetKey(KeyCode.D) ? 1 : 0;
 
-	        transform.rotation = Quaternion.Lerp(transform.rotation, streamDirection, Time.deltaTime);
-		    
-	    }
-
-		Steer();
-        transform.position += (FloatDirection  + SteeringDirection) * Time.deltaTime * Speed;
-		Wiggle();
+		_steer = Mathf.Lerp(_steer, steer, Time.deltaTime * SteeringSpeed);
+		Model.SteeringDirection = transform.TransformDirection(new Vector3(_steer, 0, 0));
 	}
 
 
 	private float _steer;
 	public float SteeringSpeed = 1;
 	
-	public void Steer()
-	{
-		float steer = Input.GetKey(KeyCode.A) ? -1 :
-			Input.GetKey(KeyCode.D) ? 1 : 0;
-
-		_steer = Mathf.Lerp(_steer, steer, Time.deltaTime * SteeringSpeed);
-
-	}
 }
