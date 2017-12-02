@@ -12,8 +12,16 @@ public class CatKeyController : MonoBehaviour
 		var x = Input.GetAxis("Horizontal") * 0.1f;
 		var y = Input.GetAxis("Vertical") * 0.1f;
 
-		if (x > Mathf.Epsilon || y > Mathf.Epsilon) {
-			_cat.Move(new Vector2(x, y));
+		var walkingCat = _cat.State as Cat.Walking;
+
+		if (walkingCat != null) {
+			if (x > Mathf.Epsilon || y > Mathf.Epsilon)
+				walkingCat.Move(new Vector2(x, y));
+
+			if (Input.GetKeyDown(KeyCode.Space)) {
+				walkingCat.PossibleAttackTarget?.Attack();
+				walkingCat.NearbyFight?.Join();
+			}
 		}
 	}
 }

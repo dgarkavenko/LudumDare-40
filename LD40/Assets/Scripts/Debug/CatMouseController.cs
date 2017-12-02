@@ -10,7 +10,7 @@ public class CatMouseController : MonoBehaviour
 			RaycastHit hit;
 
 			if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f, LayerMask.GetMask("Raft"))) {
-				_controlledCat.SetWaypoint(hit.point);
+				(_controlledCat.State as Cat.Walking)?.SetWaypoint(hit.point);
 			}
 		}
 	}
