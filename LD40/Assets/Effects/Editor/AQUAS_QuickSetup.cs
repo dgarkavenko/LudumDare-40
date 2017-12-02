@@ -104,7 +104,7 @@ public class AQUAS_QuickSetup : EditorWindow {
         
         //Add the AQUAS prefab to the scene
         
-        GameObject aquasPrefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/AQUAS/Prefabs/AQUASWater.prefab", typeof(GameObject));
+        GameObject aquasPrefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Effects/AQUAS/Prefabs/AQUASWater.prefab", typeof(GameObject));
         
         //Check if AQUAS is already in the scene
         if (GameObject.Find("AQUAS Waterplane") != null)
@@ -152,10 +152,10 @@ public class AQUAS_QuickSetup : EditorWindow {
             }
 
             //Add caustics
-            GameObject primaryCausticsPrefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/AQUAS/Prefabs/PrimaryCausticsProjector.prefab", typeof(GameObject));
+            GameObject primaryCausticsPrefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Effects/AQUAS/Prefabs/PrimaryCausticsProjector.prefab", typeof(GameObject));
             GameObject primaryCausticsObj = Instantiate(primaryCausticsPrefab);
             primaryCausticsObj.name = "PrimaryCausticsProjector";
-            GameObject secondaryCausticsPrefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/AQUAS/Prefabs/SecondaryCausticsProjector.prefab", typeof(GameObject));
+            GameObject secondaryCausticsPrefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Effects/AQUAS/Prefabs/SecondaryCausticsProjector.prefab", typeof(GameObject));
             GameObject secondaryCausticsObj = Instantiate(secondaryCausticsPrefab);
             secondaryCausticsObj.name = "SecondaryCausticsProjector";
 
@@ -189,7 +189,7 @@ public class AQUAS_QuickSetup : EditorWindow {
     void AddUnderwaterEffects()
     {
 
-        GameObject underwaterPrefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/AQUAS/Prefabs/UnderWaterCameraEffects.prefab", typeof(GameObject));
+        GameObject underwaterPrefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Effects/AQUAS/Prefabs/UnderWaterCameraEffects.prefab", typeof(GameObject));
 
         //Check if AQUAS is already in the scene
         if (GameObject.Find("AQUAS Waterplane") == null)

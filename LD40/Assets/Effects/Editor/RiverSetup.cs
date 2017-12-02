@@ -116,7 +116,7 @@ public class AQUAS_RiverSetup : EditorWindow {
             aquasObj.transform.localScale = new Vector3(terrainBounds * 0.1f, terrainBounds * 0.1f, terrainBounds * 0.1f);
             DestroyImmediate(aquasObj.GetComponent<MeshCollider>());
             aquasObj.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-            aquasObj.GetComponent<Renderer>().material = (Material)AssetDatabase.LoadAssetAtPath("Assets/AQUAS/Materials/Water/Desktop&Web/River.mat", typeof(Material));
+            aquasObj.GetComponent<Renderer>().material = (Material)AssetDatabase.LoadAssetAtPath("Assets/Effects/AQUAS/Materials/Water/Desktop&Web/River.mat", typeof(Material));
             aquasObj.AddComponent<AQUAS_Reflection>();
             aquasObj.AddComponent<AQUAS_RenderQueueEditor>();
 
@@ -148,10 +148,10 @@ public class AQUAS_RiverSetup : EditorWindow {
             }
 
             //Add caustics
-            GameObject primaryCausticsPrefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/AQUAS/Prefabs/PrimaryCausticsProjector.prefab", typeof(GameObject));
+            GameObject primaryCausticsPrefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Effects/AQUAS/Prefabs/PrimaryCausticsProjector.prefab", typeof(GameObject));
             GameObject primaryCausticsObj = Instantiate(primaryCausticsPrefab);
             primaryCausticsObj.name = "PrimaryCausticsProjector";
-            GameObject secondaryCausticsPrefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/AQUAS/Prefabs/SecondaryCausticsProjector.prefab", typeof(GameObject));
+            GameObject secondaryCausticsPrefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Effects/AQUAS/Prefabs/SecondaryCausticsProjector.prefab", typeof(GameObject));
             GameObject secondaryCausticsObj = Instantiate(secondaryCausticsPrefab);
             secondaryCausticsObj.name = "SecondaryCausticsProjector";
 
@@ -212,7 +212,7 @@ public class AQUAS_RiverSetup : EditorWindow {
 
         //Cache the material from the river plane and set the material with the reference texture on it
         Material cachedMaterial = waterPlane.GetComponent<UnityEngine.Renderer>().sharedMaterial;
-        Material referenceTexMat = (Material)AssetDatabase.LoadAssetAtPath("Assets/AQUAS/Materials/RiverRef.mat", typeof(Material));
+        Material referenceTexMat = (Material)AssetDatabase.LoadAssetAtPath("Assets/Effects/AQUAS/Materials/RiverRef.mat", typeof(Material));
         waterPlane.GetComponent<UnityEngine.Renderer>().sharedMaterial = referenceTexMat;
         #endregion
 
@@ -261,7 +261,7 @@ public class AQUAS_RiverSetup : EditorWindow {
     void AddUnderwaterEffects()
     {
 
-        GameObject underwaterPrefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/AQUAS/Prefabs/UnderWaterCameraEffects.prefab", typeof(GameObject));
+        GameObject underwaterPrefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Effects/AQUAS/Prefabs/UnderWaterCameraEffects.prefab", typeof(GameObject));
 
         //Check if AQUAS is already in the scene
         if (GameObject.Find("AQUAS Waterplane") == null)
