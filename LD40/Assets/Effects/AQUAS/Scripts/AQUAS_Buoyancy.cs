@@ -42,12 +42,15 @@ public class AQUAS_Buoyancy : Floating {
     #endregion
 
 
-    public System.Action<Collision> OnCollisionEnterAction;
+    public System.Action<Collision, FloatingController> OnCollisionEnterAction;
 
     private void OnCollisionEnter(Collision other)
     {
+
+        var floating = other.gameObject.GetComponent<Floating>();
+
         if (OnCollisionEnterAction != null)
-            OnCollisionEnterAction(other);
+            OnCollisionEnterAction(other, floating == null ? null : floating.Controller);
     }
 
     //<summary>
@@ -62,7 +65,7 @@ public class AQUAS_Buoyancy : Floating {
         regWaterDensity = waterDensity;
         maxWaterDensity = regWaterDensity + regWaterDensity * 0.5f * dynamicSurface;
     }
-	
+
 	//<summary>
     //Balance factor must not be zero, because it's used as a divisor
     //Check if balance factor is zero and run AddForce Method on fixed time frame
@@ -77,7 +80,7 @@ public class AQUAS_Buoyancy : Floating {
 	}
 
     private float _steer;
-    
+
     public void Steer(float steer)
     {
         _steer = steer;
@@ -96,7 +99,7 @@ public class AQUAS_Buoyancy : Floating {
 
         var SumDirection = FloatDirection * StreamPower;
         rb.AddForce(SumDirection);
-	    
+
     }
 
     //<summary>
@@ -184,7 +187,7 @@ public class AQUAS_Buoyancy : Floating {
     //<summary>
     //Get the normal of a triangle in world space
     //</summary>
-    Vector3 Normal(Vector3 p1, Vector3 p2, Vector3 p3) { 
+    Vector3 Normal(Vector3 p1, Vector3 p2, Vector3 p3) {
         Vector3 normal = Vector3.Cross(transform.TransformPoint(p2) - transform.TransformPoint(p1), transform.TransformPoint(p3) - transform.TransformPoint(p1)).normalized;
         return normal;
     }

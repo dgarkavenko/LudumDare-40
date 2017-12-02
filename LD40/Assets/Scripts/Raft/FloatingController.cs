@@ -13,16 +13,24 @@ public class FloatingController : MonoBehaviour
 		Model.transform.position = transform.position;
 		Model.transform.rotation = transform.rotation;
 		Model.OnCollisionEnterAction += OnCollisionEnterAction;
-
+		Model.Controller = this;
 	}
 
-	public virtual void OnCollisionEnterAction(Collision obj)
+	public virtual void OnCollisionEnterAction(Collision arg1, FloatingController arg2)
 	{
-		throw new System.NotImplementedException();
+
 	}
 
 	public virtual void LateUpdate()
 	{
 		transform.SetPositionAndRotation(Model.transform.position + Model.transform.TransformDirection(Offset), Model.transform.rotation);
+	}
+
+	private void OnDestroy()
+	{
+		Model.OnCollisionEnterAction -= OnCollisionEnterAction;
+
+		if(Model != null)
+			Destroy(Model);
 	}
 }

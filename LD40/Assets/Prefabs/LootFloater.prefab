@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23713482870015970}
   - component: {fileID: 54005417186404598}
   - component: {fileID: 114777487319293738}
-  - component: {fileID: 65728232369467688}
+  - component: {fileID: 65658201484267558}
   m_Layer: 8
   m_Name: LootFloater
   m_TagString: Untagged
@@ -38,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1262828688463778}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.316, y: 0, z: -0.548}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.316, y: 2.64, z: 8.55}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -92,7 +92,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1262828688463778}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 5
   m_Drag: 0.2
   m_AngularDrag: 0.5
   m_UseGravity: 1
@@ -100,7 +100,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65728232369467688
+--- !u!65 &65658201484267558
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -126,31 +126,13 @@ MonoBehaviour:
   FloatDirection: {x: 0, y: 0, z: 1}
   StreamDirection: {x: 0, y: 0, z: 1}
   SteeringDirection: {x: 0, y: 0, z: 0}
-  StreamPower: 5
+  StreamPower: 0
   SteerPower: 0
   StreamLerp: 10
   Torque: 600
-  waveX:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  waveY:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  positionCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   waterLevel: 1
   waterDensity: 5
-  useBalanceFactor: 0
+  useBalanceFactor: 1
   balanceFactor: {x: 0.1, y: 0.1, z: 0.1}
   dynamicSurface: 0.255
   bounceFrequency: 1.53

@@ -12,8 +12,11 @@ public class Floating : MonoBehaviour {
 	public float StreamLerp = 10;
 	public float Torque = 1;
 
+	public FloatingController Controller { get; set; }
+
+
 	public static float WaterLevel;
-	
+
 	public void Update()
 	{
 		Collider[] colliders = Physics.OverlapBox(transform.position, new Vector3(3, 3, 3), transform.rotation, LayerMask.GetMask("Stream"));
@@ -32,5 +35,5 @@ public class Floating : MonoBehaviour {
 		}
 
 	}
-	
+
 }

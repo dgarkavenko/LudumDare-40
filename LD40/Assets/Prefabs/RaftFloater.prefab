@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 54005417186404598}
   - component: {fileID: 114777487319293738}
   - component: {fileID: 65147504618224702}
-  m_Layer: 8
+  m_Layer: 21
   m_Name: RaftFloater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.9, y: 1, z: 1}
+  m_Size: {x: 1.9, y: 1.2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114777487319293738
 MonoBehaviour:
@@ -130,24 +130,6 @@ MonoBehaviour:
   SteerPower: 10
   StreamLerp: 10
   Torque: 600
-  waveX:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  waveY:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  positionCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   waterLevel: 1
   waterDensity: 5
   useBalanceFactor: 0

@@ -21,4 +21,17 @@ public class Raft : FloatingController
 		_steer = Mathf.Lerp(_steer, steer, Time.deltaTime * SteeringSpeed);
 		Model.SteeringDirection = transform.TransformDirection(new Vector3(_steer, 0, 0));
 	}
+
+	public System.Action OnDrowningCatCollision;
+
+	override public void OnCollisionEnterAction(Collision arg1, FloatingController arg2)
+	{
+		if (arg2 is DrowningCat && OnDrowningCatCollision != null)
+		{
+			OnDrowningCatCollision();
+			Destroy(arg2.gameObject);
+		}
+
+
+	}
 }
