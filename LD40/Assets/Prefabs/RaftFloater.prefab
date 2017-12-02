@@ -126,8 +126,8 @@ MonoBehaviour:
   FloatDirection: {x: 0, y: 0, z: 1}
   StreamDirection: {x: 0, y: 0, z: 1}
   SteeringDirection: {x: 0, y: 0, z: 0}
-  StreamPower: 10
-  SteerPower: 10
+  StreamPower: 25
+  SteerPower: 15
   StreamLerp: 10
   Torque: 600
   waterLevel: 1
