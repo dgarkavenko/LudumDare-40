@@ -32,17 +32,5 @@ public class Floating : MonoBehaviour {
 		}
 
 	}
-
-	public AnimationCurve waveX;
-	public AnimationCurve waveY;
-	public AnimationCurve positionCurve;
-
-	public void Wiggle()
-	{
-		float t = transform.position.z / 4;
-		
-		transform.eulerAngles = new Vector3(waveX.Evaluate(t), transform.eulerAngles.y, waveY.Evaluate(t));
-		transform.position = new Vector3(transform.position.x, positionCurve.Evaluate(t), transform.position.z);
-	}
 	
 }

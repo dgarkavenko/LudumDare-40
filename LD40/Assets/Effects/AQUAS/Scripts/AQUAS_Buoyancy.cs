@@ -41,6 +41,15 @@ public class AQUAS_Buoyancy : Floating {
     float maxWaterDensity;
     #endregion
 
+
+    public System.Action<Collision> OnCollisionEnterAction;
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (OnCollisionEnterAction != null)
+            OnCollisionEnterAction(other);
+    }
+
     //<summary>
     //cache object info at start and set max water density for surface dynamics simulation
     //</summary>
