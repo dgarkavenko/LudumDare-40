@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour
 {
+    [SerializeField] private SixWayMovement _sixWayMovement;
     [SerializeField] private Transform _pickUp;
 
     [SerializeField] private float _speed = 3;
@@ -11,17 +12,7 @@ public class PlayerCharacter : MonoBehaviour
 
     [SerializeField] private List<Cat> _cats = new List<Cat>();
 
-    [SerializeField] private SpriteRenderer _spriteRenderer;
-
-    [SerializeField] private Sprite _upSprite;
-    [SerializeField] private Sprite _upLeftSprite;
-    [SerializeField] private Sprite _upRightSprite;
-
-    [SerializeField] private Sprite _downSprite;
-    [SerializeField] private Sprite _leftSprite;
-    [SerializeField] private Sprite _rightSprite;
-
-    public Transform PickUpPoint => _pickUp;
+   public Transform PickUpPoint => _pickUp;
 
     private Action _onInteractionEnter;
     private Action _onInteractionExit;
@@ -30,6 +21,8 @@ public class PlayerCharacter : MonoBehaviour
 
     private float _xScale;
     private float _zScale;
+
+    private bool _facedUp;
 
     public void Init(float xScale, float zScale, Action onInteractionEnter, Action onInteractionExit)
     {
@@ -45,7 +38,10 @@ public class PlayerCharacter : MonoBehaviour
         var x = Input.GetAxis("Horizontal");
         var z = Input.GetAxis("Vertical");
 
-        SetWolfSprite(x, z);
+        if (z != 0)
+            _facedUp = z > 0;
+
+        _sixWayMovement.SetSprite(_facedUp, x);
 
         var cam = Camera.main;
 
@@ -78,91 +74,6 @@ public class PlayerCharacter : MonoBehaviour
                 }
             }
         }
-    }
-
-    private void SetWolfSprite(float x, float z)
-    {
-        if (x == 0 && z == 0) return;
-
-        if (x > 0)
-        {
-
-        }
-        else if (x < 0)
-        {
-
-        }
-        else
-        {
-
-        }
-
-        if (z > 0)
-        {
-
-        }
-        else if (z < 0)
-        {
-
-        }
-        else
-        {
-
-        }
-//        if (z > 0)
-//        {
-//            if (x == 0)
-//            {
-//                _spriteRenderer.sprite = _upSprite;
-//                return;
-//            }
-//
-//            if (x > 0)
-//            {
-//                _spriteRenderer.sprite = _upRightSprite;
-//                return;
-//            }
-//
-//            if (x < 0)
-//            {
-//                _spriteRenderer.sprite = _upLeftSprite;
-//                return;
-//            }
-//
-//            return;
-//        }
-//
-//        if (z < 0)
-//        {
-//            if (x == 0)
-//            {
-//                _spriteRenderer.sprite = _downSprite;
-//                return;
-//            }
-//
-//            if (x > 0)
-//            {
-//                _spriteRenderer.sprite = _rightSprite;
-//                return;
-//            }
-//
-//            if (x < 0)
-//            {
-//                _spriteRenderer.sprite = _leftSprite;
-//                return;
-//            }
-//        }
-//
-//        if (x > 0)
-//        {
-//            _spriteRenderer.sprite = _rightSprite;
-//            return;
-//        }
-//
-//        if (x < 0)
-//        {
-//            _spriteRenderer.sprite = _leftSprite;
-//        }
     }
 
     private void Update()
