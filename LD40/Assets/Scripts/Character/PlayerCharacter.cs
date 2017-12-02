@@ -10,9 +10,9 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] private float _speed = 3;
     [SerializeField] private float _pickUpDistance = 3;
 
-    [SerializeField] private List<Cat> _cats = new List<Cat>();
+    private readonly List<Cat> _cats = new List<Cat>();
 
-   public Transform PickUpPoint => _pickUp;
+    public Transform PickUpPoint => _pickUp;
 
     private Action _onInteractionEnter;
     private Action _onInteractionExit;

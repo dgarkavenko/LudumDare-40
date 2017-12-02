@@ -5,29 +5,31 @@ using UnityEngine;
 public class MainApplication : MonoBehaviour
 {
     [SerializeField] private UIController _uiController;
-    
+
     [SerializeField] private PlayerCharacter _playerCharacter;
-    [SerializeField] private Transform _raft;
+    [SerializeField] private Raft _raft;
     [SerializeField] private Stream _stream;
-    
+
+    public PlayerCharacter PlayerCharacter { get; private set; }
+
     private void Awake()
     {
-        _uiController.Init(_playerCharacter.PickUpPoint);
-        
-        _playerCharacter.Init(_raft.localScale.x / 2, _raft.localScale.z / 2, () =>
+        PlayerCharacter = Instantiate(_playerCharacter, _raft.transform);
+        PlayerCharacter.Init(_raft.ViewTransform.localScale.x / 2, _raft.ViewTransform .localScale.z / 2, () =>
             {
                 _uiController.ShowInteractionButton();
-            }, 
+            },
             () =>
             {
-                _uiController.HideInteractionButton();            
+                _uiController.HideInteractionButton();
             });
-        
+
+        _uiController.Init(PlayerCharacter.PickUpPoint);
         _stream.GenerateStreamZones();
     }
 
     public void PickCat(Cat cat)
     {
-        _playerCharacter.CatPicked(cat);
+        PlayerCharacter.CatPicked(cat);
     }
 }

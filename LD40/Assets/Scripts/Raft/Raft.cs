@@ -3,13 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Raft : FloatingController {
+public class Raft : FloatingController
+{
+	[SerializeField] private Transform _view;
 
-	// Update is called once per frame
 	private float _steer;
 	public float SteeringSpeed = 1;
 
-	override public void LateUpdate()
+	public Transform ViewTransform => _view;
+
+	public override void LateUpdate()
 	{
 		base.LateUpdate();
 		float steer = Input.GetKey(KeyCode.A) ? -1 :
