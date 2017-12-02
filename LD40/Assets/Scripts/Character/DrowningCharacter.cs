@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrowningCharacter : MonoBehaviour
+public class DrowningCharacter : Character
 {
     [SerializeField] private Transform _interactionPoint;
     

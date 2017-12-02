@@ -7,11 +7,11 @@ public class MainApplication : MonoBehaviour
     [SerializeField] private UIController _uiController;
     
     [SerializeField] private PlayerCharacter _playerCharacter;
-    [SerializeField] private Transform _quad;
+    [SerializeField] private Transform _raft;
     
     private void Awake()
     {
-        _playerCharacter.Init(_quad.localScale.x / 2, _quad.localScale.y / 2, arg =>
+        _playerCharacter.Init(_raft.localScale.x / 2, _raft.localScale.z / 2, arg =>
         {
             _uiController.ShowInteractionButton(RectTransformUtility.WorldToScreenPoint(Camera.main, arg));
         }, 

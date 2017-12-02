@@ -1,10 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
-public class PlayerCharacter : MonoBehaviour
+public class PlayerCharacter : Character
 {
-    [SerializeField] private View _view;
-    
     private Vector3 _destination;
 
     private float _xScale;
@@ -24,36 +22,22 @@ public class PlayerCharacter : MonoBehaviour
         _onInteractionExit = onInteractionExit;
     }
     
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
+        
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * 3.0f;
         var z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
 
         transform.Translate(x, 0, z);
-
-//        if (Input.GetKey(KeyCode.Mouse0))
-//        {
-//            var playerPlane = new Plane(Vector3.up, transform.position);
-//            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-//            var hitDistance = 0.0f;
-//
-//            if (playerPlane.Raycast(ray, out hitDistance))
-//            {
-//                _destination = ray.GetPoint(hitDistance);
-//
-//                _navMeshAgent.SetDestination(_destination);
-//            }
-//        }
         
-        var clampedPosition = transform.position;
+        var clampedPosition = transform.localPosition;
         
-        clampedPosition.x = Mathf.Clamp(transform.position.x, -_xScale, _xScale);
-        clampedPosition.z = Mathf.Clamp(transform.position.z, -_zScale, _zScale);
+        clampedPosition.x = Mathf.Clamp(transform.localPosition.x, -_xScale, _xScale);
+        clampedPosition.z = Mathf.Clamp(transform.localPosition.z, -_zScale, _zScale);
         
-        transform.position = clampedPosition;
+        transform.localPosition = clampedPosition;
         
-        _view.transform.LookAt(_view.transform.position + Camera.main.transform.rotation * Vector3.forward, Camera.main.transform.rotation * Vector3.up);
-
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (_victim != null)
