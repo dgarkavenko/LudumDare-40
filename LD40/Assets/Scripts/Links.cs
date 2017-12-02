@@ -7,6 +7,7 @@ public class Links : MonoBehaviour
     public Sprite CatWalkingSprite;
     public Sprite CatHangingSprite;
     public Sprite CatDraggedSprite;
+    public Cat Cat;
 
     private void Awake()
     {

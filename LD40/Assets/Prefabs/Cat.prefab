@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114076710263364342}
   - component: {fileID: 114286912786772854}
   m_Layer: 11
-  m_Name: CatVictim
+  m_Name: Cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,9 +146,6 @@ MonoBehaviour:
   _raft: {fileID: 0}
   _characterController: {fileID: 143105972891742652}
   _spriteRenderer: {fileID: 212725099087181538}
-  _walkingSprite: {fileID: 21300000, guid: d3c6cf04a9590a84bba90587b99bce29, type: 3}
-  _hangingSprite: {fileID: 21300000, guid: 2630379807b0d1a4d997c9b667621905, type: 3}
-  _draggedSprite: {fileID: 21300000, guid: ebfe300b2db17784daaa0ed5c7ceb7ca, type: 3}
   _renderer: {fileID: 212725099087181538}
   _collider: {fileID: 136586521181061642}
   SlopeLimit: 1
