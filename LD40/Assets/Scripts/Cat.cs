@@ -57,6 +57,11 @@ public class Cat : MonoBehaviour
             Waypoint = null;
     }
 
+    public void PickKitty()
+    {
+        Destroy(gameObject);
+    }
+    
     private void OnDrawGizmos()
     {
         if (Waypoint != null) {
