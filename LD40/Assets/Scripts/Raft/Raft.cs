@@ -15,6 +15,7 @@ public class Raft : MonoBehaviour {
 		Model.transform.position = transform.position;
 		Model.transform.rotation = transform.rotation;
 		
+		
 	}
 	
 	void LateUpdate ()
@@ -25,6 +26,11 @@ public class Raft : MonoBehaviour {
 
 		_steer = Mathf.Lerp(_steer, steer, Time.deltaTime * SteeringSpeed);
 		Model.SteeringDirection = transform.TransformDirection(new Vector3(_steer, 0, 0));
+	}
+
+	public void OnCollisionEnter(Collision other)
+	{
+		var cat = other.gameObject.GetComponent<DrowningCat>();
 	}
 
 

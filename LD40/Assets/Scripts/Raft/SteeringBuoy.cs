@@ -22,7 +22,6 @@ public class SteeringBuoy : AQUAS_Buoyancy {
 		var cross = Vector3.Cross(t, f);
 		Debug.DrawRay(rb.transform.position, f * 5, Color.green, Time.fixedDeltaTime);
 		Debug.DrawRay(rb.transform.position, t * 5, Color.red, Time.fixedDeltaTime);
-		Debug.Log(cross);
 	    
 		rb.AddRelativeTorque(new Vector3(0,-cross.y * Torque,0));
 	}
