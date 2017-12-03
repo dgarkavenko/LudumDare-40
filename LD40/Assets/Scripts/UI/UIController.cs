@@ -23,7 +23,8 @@ public class UIController : MonoBehaviour
 
         _restartButton.onClick.AddListener(() =>
         {
-            SceneManager.LoadScene("Main");
+            SceneManager.LoadScene("Main", LoadSceneMode.Single);
+            SceneManager.LoadScene("Level", LoadSceneMode.Additive);
         });
 
         _exitButton.onClick.AddListener(() =>
@@ -70,9 +71,9 @@ public class UIController : MonoBehaviour
         _catCounter.text = catCount.ToString();
     }
 
-    public void StartInteraction(Action callback)
+    public void StartInteraction(float time, Action callback)
     {
-        _interactionButton.StartInteraction(callback);
+        _interactionButton.StartInteraction(time, callback);
     }
 
     public void ShowInteractionButton()

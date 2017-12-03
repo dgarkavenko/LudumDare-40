@@ -23,9 +23,9 @@ public class MainApplication : MonoBehaviour
             {
                 _uiController.HideInteractionButton();
             },
-            arg =>
+            (time, arg) =>
             {
-                _uiController.StartInteraction(arg);
+                _uiController.StartInteraction(time, arg);
             },
             arg =>
             {

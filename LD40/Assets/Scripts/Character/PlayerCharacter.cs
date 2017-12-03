@@ -12,7 +12,7 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] private float _pickUpDistance = 3;
 
     private readonly List<Cat> _cats = new List<Cat>();
-    private Action _interaction;
+    private KeyValuePair<float, Action> _interaction;
     private Cat _savedCat;
 
     public Transform PickUpPoint => _pickUp;
@@ -21,7 +21,7 @@ public class PlayerCharacter : MonoBehaviour
     private Action _onInteractionEnter;
     private Action _onInteractionExit;
 
-    private Action<Action> _onInteraction;
+    private Action<float, Action> _onInteraction;
     private Action<bool> _raftControl;
 
     private float _xScale;
@@ -30,7 +30,7 @@ public class PlayerCharacter : MonoBehaviour
     private bool _facedUp;
     private bool _controlRaft;
 
-    public void Init(RaftStick stick, float xScale, float zScale, Action onInteractionEnter, Action onInteractionExit, Action<Action> onInteraction, Action<bool> raftControl)
+    public void Init(RaftStick stick, float xScale, float zScale, Action onInteractionEnter, Action onInteractionExit, Action<float, Action> onInteraction, Action<bool> raftControl)
     {
         _stick = stick;
 
@@ -40,7 +40,7 @@ public class PlayerCharacter : MonoBehaviour
         _onInteractionEnter = onInteractionEnter;
         _onInteractionExit = () =>
         {
-            _interaction = null;
+            _interaction = new KeyValuePair<float, Action>(0, null);
 
             onInteractionExit();
         };
@@ -79,11 +79,11 @@ public class PlayerCharacter : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (_interaction != null)
+            if (_interaction.Value != null)
             {
-                _onInteraction(() =>
+                _onInteraction(_interaction.Key, () =>
                 {
-                    _interaction();
+                    _interaction.Value();
                 });
             }
         }
@@ -105,27 +105,27 @@ public class PlayerCharacter : MonoBehaviour
 
         if (Vector3.Distance(transform.position, _stick.transform.position) <= _pickUpDistance)
         {
-            if (_interaction != null) return;
+            if (_interaction.Value != null) return;
 
             _onInteractionEnter();
 
             if (!_controlRaft)
             {
-                _interaction = () =>
+                _interaction = new KeyValuePair<float, Action>(.2f, () =>
                 {
                     _controlRaft = true;
                     _raftControl(true);
                     _onInteractionExit();
-                };
+                });
             }
             else
             {
-                _interaction = () =>
+                _interaction = new KeyValuePair<float, Action>(0.5f, () =>
                 {
                     _controlRaft = false;
                     _raftControl(false);
                     _onInteractionExit();
-                };
+                });
             }
 
             return;
@@ -147,10 +147,18 @@ public class PlayerCharacter : MonoBehaviour
 
         if (fight != null)
         {
-            _interaction = () => fight.Stop();
+            _interaction = new KeyValuePair<float, Action>(0.8f, () =>
+            {
+                fight.Stop();
+            });
         }
-        else if (cat.State is Cat.Hanging) {
-            _interaction = cat.PickKitty;
+        else
+        {
+            _interaction = new KeyValuePair<float, Action>(.5f, () =>
+            {
+                _cats.Remove(cat);
+                cat.PickKitty();
+            });
         }
     }
 

@@ -26,7 +26,7 @@ public class InteractionButton : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, RectTransformUtility.WorldToScreenPoint(Camera.main, _point.position), 5f);
     }
 
-    public void StartInteraction(Action callback)
+    public void StartInteraction(float time, Action callback)
     {
         if (!_view.activeSelf)
         {
@@ -40,7 +40,7 @@ public class InteractionButton : MonoBehaviour
             _interaction = null;
         }
 
-        _interaction = StartCoroutine(Co_Wait(1, callback));
+        _interaction = StartCoroutine(Co_Wait(time, callback));
     }
 
     private IEnumerator Co_Wait(float time, Action callback)
@@ -49,7 +49,7 @@ public class InteractionButton : MonoBehaviour
 
         while (t < time)
         {
-            _filler.fillAmount = t;
+            _filler.fillAmount += Time.deltaTime / time;
 
             t += Time.deltaTime;
 
