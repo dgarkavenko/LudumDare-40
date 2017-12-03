@@ -18,11 +18,11 @@ public class InteractionButton : MonoBehaviour
         _filler.fillAmount = 0;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (_point == null) return;
 
-        transform.position = RectTransformUtility.WorldToScreenPoint(Camera.main, _point.position);
+        transform.position = Vector3.Lerp(transform.position, RectTransformUtility.WorldToScreenPoint(Camera.main, _point.position), 5f);
     }
 
     public void StartInteraction(Action callback)

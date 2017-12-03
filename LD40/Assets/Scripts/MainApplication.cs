@@ -16,7 +16,7 @@ public class MainApplication : MonoBehaviour
     private void Awake()
     {
         PlayerCharacter = Instantiate(_playerCharacter, _raft.transform);
-        PlayerCharacter.Init(_raft.ViewTransform.localScale.x / 2, _raft.ViewTransform .localScale.z / 2, () =>
+        PlayerCharacter.Init(_raft.RaftStick, _raft.ViewTransform.localScale.x / 2, _raft.ViewTransform .localScale.z / 2, () =>
             {
                 _uiController.ShowInteractionButton();
             },
@@ -27,6 +27,10 @@ public class MainApplication : MonoBehaviour
             arg =>
             {
                 _uiController.StartInteraction(arg);
+            },
+            arg =>
+            {
+                _raft.SetControlStatus(arg);
             });
 
         _uiController.Init(PlayerCharacter.PickUpPoint);
