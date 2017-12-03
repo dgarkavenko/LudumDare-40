@@ -70,8 +70,9 @@ public class CatSpawner : MonoBehaviour
 		_main.PickCat(cat);
 	}
 
-	private void OnDrowningCatCollision(Vector3 point)
+	private void OnDrowningCatCollision(Cat cat, Vector3 pos)
 	{
-		SpawnCat();
+		cat.State = new Cat.Hanging();
+		//cat.transform.position = pos;
 	}
 }

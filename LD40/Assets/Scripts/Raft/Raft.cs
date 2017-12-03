@@ -12,7 +12,7 @@ public class Raft : FloatingController
 	public Transform ViewTransform => _view;
 	public RaftStick RaftStick => _raftStick;
 
-	public Action<Vector3> OnDrowningCatCollision;
+	public Action<Cat, Vector3> OnDrowningCatCollision;
 	private bool _playerControl;
 
 	public override void LateUpdate()
@@ -35,9 +35,8 @@ public class Raft : FloatingController
 		_playerControl = value;
 	}
 
-	override public void OnCollisionEnterAction(Collision arg1, FloatingController arg2)
+	public override void OnCollisionEnterAction(Collision arg1, FloatingController arg2)
 	{
-
 		if (arg2 == null)
 		{
 			Debug.Log("Collision with static: " + arg1.impulse.magnitude + " impulse");
@@ -51,11 +50,9 @@ public class Raft : FloatingController
 				arg2.Model.rb.AddForce(Vector3.down * Model.rb.mass / arg2.Model.rb.mass, ForceMode.Impulse);
 			}
 		}
-		else if (arg2 is DrowningCat && OnDrowningCatCollision != null)
+		else if (arg2 is DrowningCat)
 		{
-			OnDrowningCatCollision(arg1.contacts[0].point);
-			Destroy(arg2.gameObject);
+			OnDrowningCatCollision?.Invoke(arg2.GetComponent<Cat>(), arg1.contacts[0].point);
 		}
-
 	}
 }
