@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1784949709555146}
+  m_IsPrefabParent: 1
+--- !u!1 &1784949709555146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4883972609667680}
+  - component: {fileID: 114388037871063450}
+  m_Layer: 0
+  m_Name: Links
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4883972609667680
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1784949709555146}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114388037871063450
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1784949709555146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d606998d63a16384ab517b3a757ab625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CatDraggedSprite: {fileID: 21300000, guid: 7d2cda1ebe060b04882262c646caa2d7, type: 3}
+  Cats:
+  - {fileID: 114745639894769580, guid: 6009ea0c0401d8e4cbdd4ed1f134e54e, type: 2}
+  - {fileID: 114528248685157854, guid: afb5c320876dc3a4a828740cec927606, type: 2}
+  - {fileID: 114901907475262278, guid: 13ed31c7b6b3ffc40aa3cb4d4f977148, type: 2}
+  - {fileID: 114989559303871714, guid: 6f31e01d9df6f97438b472ae4aba3bae, type: 2}
+  - {fileID: 114652682892034440, guid: a9e5e407c138bea418a0ba64d162cd20, type: 2}
+  - {fileID: 114730977955852736, guid: 4e229557bd46a50439c0a377df783d06, type: 2}
+  FightView: {fileID: 114941438835955886, guid: ecc45c39c791ec6479b12079e39c0dab,
+    type: 2}

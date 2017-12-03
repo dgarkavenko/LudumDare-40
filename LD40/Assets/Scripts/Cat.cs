@@ -4,7 +4,7 @@ using UnityEngine;
 public class Cat : MonoBehaviour
 {
     [SerializeField] public Transform _raft;
-    [SerializeField] private SixWayMovement _sixWayMovement;
+    [SerializeField] private CatMovement _sixWayMovement;
     [SerializeField] private CharacterController _characterController;
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
@@ -230,15 +230,6 @@ public class Cat : MonoBehaviour
     {
         _renderer.enabled = !(_state is Fighting);
 
-        if (_state is Walking)
-            return _sixWayMovement.GetSprite(FaceUp, X);
-        if (_state is Hanging)
-            return Links.Instance.CatHangingSprite;
-        if (_state is BeingDragged)
-            return Links.Instance.CatDraggedSprite;
-        if (_state is Fighting)
-            return Links.Instance.CatDraggedSprite;
-
-        throw new ArgumentOutOfRangeException();
+        return _sixWayMovement.GetSprite(FaceUp, X, _state);
     }
 }
