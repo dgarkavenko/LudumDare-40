@@ -26,12 +26,23 @@ public class Raft : FloatingController
 
 	override public void OnCollisionEnterAction(Collision arg1, FloatingController arg2)
 	{
-		if (arg2 is DrowningCat && OnDrowningCatCollision != null)
+
+		if (arg2 == null)
+		{
+			Debug.Log("Collision with static");
+			Debug.Log(arg1.impulse.magnitude);
+
+			for (int i = 0; i < arg1.contacts.Length; i++)
+			{
+				var p = arg1.contacts[i].point;
+				Debug.Log(transform.InverseTransformPoint(p));
+			}
+
+		}
+		else if (arg2 is DrowningCat && OnDrowningCatCollision != null)
 		{
 			OnDrowningCatCollision();
 			Destroy(arg2.gameObject);
 		}
-
-
 	}
 }

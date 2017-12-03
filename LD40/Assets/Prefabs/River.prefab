@@ -60,8 +60,9 @@ MonoBehaviour:
   - {fileID: 1990358404067182, guid: f3d3104e11b71ac4dbc026f2e4f1df43, type: 2}
   - {fileID: 1624401965322480, guid: eecb2cae3fdc3c44bb99ebe769f0c69d, type: 2}
   MinMaxRiverWidth: {x: 25, y: 35}
-  MinMaxIslandStepPerSpline: {x: 0.1, y: 0.2}
+  MinMaxIslandStepPerSpline: {x: 0.03, y: 0.15}
   MinMaxIslandScale: {x: 0.9, y: 1.1}
+  MinMaxIslandRotation: {x: -30, y: 30}
   BankCenterJitter: {x: -5, y: 5}
   WaterLevel: 1
 --- !u!114 &114980572820708536
@@ -84,7 +85,10 @@ MonoBehaviour:
   - {x: 14.4113, y: 0, z: 83.29387}
   - {x: 14.748491, y: 0, z: 101.91876}
   - {x: 15.085683, y: 0, z: 120.543655}
-  - {x: 93.35641, y: 0, z: 117.04883}
-  - {x: 94.35641, y: 0, z: 117.04883}
-  modes: 00000000000000000200000000000000
+  - {x: -29.89661, y: 0, z: 161.05594}
+  - {x: 15.134333, y: 0, z: 180.767}
+  - {x: 41.45344, y: 0, z: 190.5395}
+  - {x: 59.559963, y: 0, z: 271.17334}
+  - {x: 60.559963, y: 0, z: 271.17334}
+  modes: 0000000000000000020000000000000000000000
   loop: 0

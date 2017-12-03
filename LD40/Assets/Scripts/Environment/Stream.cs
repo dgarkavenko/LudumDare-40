@@ -47,7 +47,7 @@ public class Stream : MonoBehaviour
             {
                 var center = spline.GetPoint(i);
                 Vector3 direction = spline.GetDirection(i);
-                var cross = Vector3.Cross(Vector3.up, direction).normalized;
+                var cross = new Vector3(-direction.z, 0, direction.x).normalized;
                 
                 Debug.DrawRay(center, cross * 20, Color.green, 20);
                 

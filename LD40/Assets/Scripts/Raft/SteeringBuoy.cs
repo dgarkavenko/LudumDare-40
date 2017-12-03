@@ -14,6 +14,9 @@ public class SteeringBuoy : AQUAS_Buoyancy {
 		AddForce();
 		
 		var SumDirection = FloatDirection * StreamPower + SteeringDirection * SteerPower;
+
+		SumDirection = SumDirection.normalized * StreamPower;
+		
 		rb.AddForce(SumDirection);
 
 		var f = transform.forward;
