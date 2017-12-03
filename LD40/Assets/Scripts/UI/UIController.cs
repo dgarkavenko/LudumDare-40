@@ -69,8 +69,6 @@ public class UIController : MonoBehaviour
 
         var distance = Vector3.Distance(_point.position, _target.position);
 
-        Debug.Log("Start: " + _startDistance + " dist: " + distance + " sum: " + (_startDistance - distance));
-
         _slider.value = _startDistance - distance;
     }
 

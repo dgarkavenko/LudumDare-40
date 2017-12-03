@@ -6,6 +6,7 @@ public class Raft : FloatingController
 	[SerializeField] private Transform _view;
 	[SerializeField] private RaftStick _raftStick;
 	[SerializeField] private Transform _stickPivot;
+	[SerializeField] private Transform _mastPivot;
 
 	private float _health = 100;
 
@@ -30,7 +31,9 @@ public class Raft : FloatingController
 		}
 
 		_steer = Mathf.Lerp(_steer, steer, Time.deltaTime * SteeringSpeed);
+
 		_stickPivot.transform.localRotation = Quaternion.Euler(0, 0, Mathf.Clamp(_steer + transform.rotation.y * 100, -30, 50));
+		_mastPivot.transform.localRotation = Quaternion.Euler(0, 0, -Mathf.Clamp(_steer + transform.rotation.y * 100, -30, 50));
 
 		Model.SteeringDirection = transform.TransformDirection(new Vector3(_steer, 0, 0));
 	}

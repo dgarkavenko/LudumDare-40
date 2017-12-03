@@ -1,21 +1,38 @@
 fileFormatVersion: 2
-guid: ee644a1d9b472dc46b4aca4bc2b4451b
-timeCreated: 1512222507
+guid: 3d9d65fc217dd804094c32ecdb170534
+timeCreated: 1512329779
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cylinder047
+    100000: helm
+    100002: mast
+    100004: //RootNode
+    100006: raft 1
+    100008: sail
+    400000: helm
+    400002: mast
+    400004: //RootNode
+    400006: raft 1
+    400008: sail
+    2300000: helm
+    2300002: mast
+    2300004: raft 1
+    2300006: sail
+    3300000: helm
+    3300002: mast
+    3300004: raft 1
+    3300006: sail
+    4300000: sail
+    4300002: raft
+    4300004: helm
+    4300006: mast
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: 21 - Default
-    second: {fileID: 2100000, guid: 3f474aa11f798c94f9daaf82f5d1874a, type: 2}
+      name: 22 - Default
+    second: {fileID: 2100000, guid: 92e984b279e9ac846add6ec12e7efe99, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
