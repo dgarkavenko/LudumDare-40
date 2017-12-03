@@ -675,7 +675,7 @@ MonoBehaviour:
   CatWalkingSprite: {fileID: 21300000, guid: aec1ba49328b2cd4bbee106e554c10e1, type: 3}
   CatHangingSprite: {fileID: 21300000, guid: a2c1582133c4c3441b4e714a30f78e1f, type: 3}
   CatDraggedSprite: {fileID: 21300000, guid: 7d2cda1ebe060b04882262c646caa2d7, type: 3}
-  Cat: {fileID: 114159149800815932, guid: f6f50889142dc3e4d8dd904671a51735, type: 2}
+  Cat: {fileID: 114389407653211792, guid: f6f50889142dc3e4d8dd904671a51735, type: 2}
   FightView: {fileID: 114941438835955886, guid: ecc45c39c791ec6479b12079e39c0dab,
     type: 2}
 --- !u!4 &370206545
@@ -841,6 +841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _raft: {fileID: 1712198875}
   _main: {fileID: 388627630}
+  Raft: {fileID: 1173030888}
 --- !u!4 &582513889
 Transform:
   m_ObjectHideFlags: 0
