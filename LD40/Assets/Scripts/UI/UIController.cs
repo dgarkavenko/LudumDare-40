@@ -15,6 +15,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _exitButton;
 
+    [SerializeField] private CatUi _catUiTemplate;
+
     private Transform _point;
     private Transform _target;
 
@@ -104,5 +106,12 @@ public class UIController : MonoBehaviour
     public void HideInteractionButton()
     {
         _interactionButton.Hide();
+    }
+
+    public void CreateCatUi(Cat cat)
+    {
+        var catUi = Instantiate(_catUiTemplate, transform);
+        catUi.Cat = cat;
+        catUi.gameObject.SetActive(true);
     }
 }

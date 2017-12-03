@@ -67,6 +67,7 @@ public class CatSpawner : MonoBehaviour
 
 		cat.State = new Cat.Walking(cat);
 		cat.MainApplication = _main;
+		_main._uiController.CreateCatUi(cat);
 		_main.PickCat(cat);
 	}
 

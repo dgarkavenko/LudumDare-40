@@ -250,8 +250,8 @@ public class Cat : MonoBehaviour
 #if UNITY_EDITOR
     private void OnGUI()
     {
-        var pos = Camera.main.WorldToScreenPoint(transform.position);
-        GUI.Label(new Rect(pos.x - 40f, Screen.height - pos.y - 50f, 200, 200), $"  {Name} -- {_state.GetType().Name}");
+//        var pos = Camera.main.WorldToScreenPoint(transform.position);
+//        GUI.Label(new Rect(pos.x - 40f, Screen.height - pos.y - 50f, 200, 200), $"  {Name} -- {_state.GetType().Name}");
     }
 #endif
 

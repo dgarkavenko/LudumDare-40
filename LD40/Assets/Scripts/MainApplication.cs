@@ -5,7 +5,7 @@ public class MainApplication : MonoBehaviour
 {
     [SerializeField] private Transform _target;
     [SerializeField] private CameraController _cameraController;
-    [SerializeField] private UIController _uiController;
+    [SerializeField] public UIController _uiController;
 
     [SerializeField] private PlayerCharacter _playerCharacter;
     [SerializeField] private Raft _raft;
