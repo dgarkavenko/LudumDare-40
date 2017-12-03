@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -576,7 +576,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 141830462}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5, y: 13.1, z: -18.9}
+  m_LocalPosition: {x: -2.5, y: 1, z: -18.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 610484573}
@@ -758,7 +758,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4060376545939070, guid: 49956deb696e2d34589fd1bd0e408eeb, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -11.49
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4060376545939070, guid: 49956deb696e2d34589fd1bd0e408eeb, type: 2}
       propertyPath: m_LocalPosition.z
@@ -784,11 +784,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114911846756157670, guid: 49956deb696e2d34589fd1bd0e408eeb,
-        type: 2}
-      propertyPath: _view
-      value: 
-      objectReference: {fileID: 1712198875}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 49956deb696e2d34589fd1bd0e408eeb, type: 2}
   m_IsPrefabParent: 0
@@ -1400,6 +1395,31 @@ Prefab:
     - target: {fileID: 224809683751773952, guid: 3093bd3fcb517d14087360ade90d6369,
         type: 2}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224346270002681704, guid: 3093bd3fcb517d14087360ade90d6369,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224346270002681704, guid: 3093bd3fcb517d14087360ade90d6369,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224888557878584216, guid: 3093bd3fcb517d14087360ade90d6369,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224888557878584216, guid: 3093bd3fcb517d14087360ade90d6369,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224888557878584216, guid: 3093bd3fcb517d14087360ade90d6369,
+        type: 2}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -149,7 +149,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1555416455424204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.15, y: 0, z: 17.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4878741929558546}
@@ -396,5 +396,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Model: {fileID: 114777487319293738, guid: 833bfe4c13a3b4543b4ff5f69e0f08fd, type: 2}
   Offset: {x: 0, y: 1, z: 0}
-  _view: {fileID: 0}
+  _view: {fileID: 4878741929558546}
   SteeringSpeed: 1
