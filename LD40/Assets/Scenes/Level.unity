@@ -2183,6 +2183,17 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -0.432
       objectReference: {fileID: 0}
+    - target: {fileID: 114631243044484166, guid: beb139c6257103348aaf7f28ed526c3b,
+        type: 2}
+      propertyPath: _modelPrefab
+      value: 
+      objectReference: {fileID: 114777487319293738, guid: 9e9685b75a0cbfd4595e548623fa9f66,
+        type: 2}
+    - target: {fileID: 114631243044484166, guid: beb139c6257103348aaf7f28ed526c3b,
+        type: 2}
+      propertyPath: Model
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: beb139c6257103348aaf7f28ed526c3b, type: 2}
   m_IsPrefabParent: 0
@@ -5600,6 +5611,17 @@ Prefab:
     - target: {fileID: 1908311909718564, guid: 6dfe61979ef440947b82b772d20d9295, type: 2}
       propertyPath: m_Name
       value: Tree Trunk (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114396012233536360, guid: 6dfe61979ef440947b82b772d20d9295,
+        type: 2}
+      propertyPath: _modelPrefab
+      value: 
+      objectReference: {fileID: 114777487319293738, guid: 9e9685b75a0cbfd4595e548623fa9f66,
+        type: 2}
+    - target: {fileID: 114396012233536360, guid: 6dfe61979ef440947b82b772d20d9295,
+        type: 2}
+      propertyPath: Model
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6dfe61979ef440947b82b772d20d9295, type: 2}
@@ -16260,6 +16282,17 @@ Prefab:
       propertyPath: m_Name
       value: Log 2 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 114631243044484166, guid: beb139c6257103348aaf7f28ed526c3b,
+        type: 2}
+      propertyPath: _modelPrefab
+      value: 
+      objectReference: {fileID: 114777487319293738, guid: 9e9685b75a0cbfd4595e548623fa9f66,
+        type: 2}
+    - target: {fileID: 114631243044484166, guid: beb139c6257103348aaf7f28ed526c3b,
+        type: 2}
+      propertyPath: Model
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: beb139c6257103348aaf7f28ed526c3b, type: 2}
   m_IsPrefabParent: 0
@@ -25091,6 +25124,17 @@ Prefab:
       propertyPath: m_Name
       value: Tree Trunk (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 114396012233536360, guid: 6dfe61979ef440947b82b772d20d9295,
+        type: 2}
+      propertyPath: _modelPrefab
+      value: 
+      objectReference: {fileID: 114777487319293738, guid: 9e9685b75a0cbfd4595e548623fa9f66,
+        type: 2}
+    - target: {fileID: 114396012233536360, guid: 6dfe61979ef440947b82b772d20d9295,
+        type: 2}
+      propertyPath: Model
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6dfe61979ef440947b82b772d20d9295, type: 2}
   m_IsPrefabParent: 0
@@ -27224,6 +27268,17 @@ Prefab:
     - target: {fileID: 1908311909718564, guid: 6dfe61979ef440947b82b772d20d9295, type: 2}
       propertyPath: m_Name
       value: Tree Trunk (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114396012233536360, guid: 6dfe61979ef440947b82b772d20d9295,
+        type: 2}
+      propertyPath: _modelPrefab
+      value: 
+      objectReference: {fileID: 114777487319293738, guid: 9e9685b75a0cbfd4595e548623fa9f66,
+        type: 2}
+    - target: {fileID: 114396012233536360, guid: 6dfe61979ef440947b82b772d20d9295,
+        type: 2}
+      propertyPath: Model
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6dfe61979ef440947b82b772d20d9295, type: 2}
@@ -29666,6 +29721,17 @@ Prefab:
     - target: {fileID: 1879910439966044, guid: beb139c6257103348aaf7f28ed526c3b, type: 2}
       propertyPath: m_Name
       value: Log 2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114631243044484166, guid: beb139c6257103348aaf7f28ed526c3b,
+        type: 2}
+      propertyPath: _modelPrefab
+      value: 
+      objectReference: {fileID: 114777487319293738, guid: 9e9685b75a0cbfd4595e548623fa9f66,
+        type: 2}
+    - target: {fileID: 114631243044484166, guid: beb139c6257103348aaf7f28ed526c3b,
+        type: 2}
+      propertyPath: Model
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: beb139c6257103348aaf7f28ed526c3b, type: 2}
@@ -39702,6 +39768,17 @@ Prefab:
       propertyPath: m_Name
       value: Tree Trunk (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 114396012233536360, guid: 6dfe61979ef440947b82b772d20d9295,
+        type: 2}
+      propertyPath: _modelPrefab
+      value: 
+      objectReference: {fileID: 114777487319293738, guid: 9e9685b75a0cbfd4595e548623fa9f66,
+        type: 2}
+    - target: {fileID: 114396012233536360, guid: 6dfe61979ef440947b82b772d20d9295,
+        type: 2}
+      propertyPath: Model
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6dfe61979ef440947b82b772d20d9295, type: 2}
   m_IsPrefabParent: 0
@@ -41040,6 +41117,17 @@ Prefab:
     - target: {fileID: 1879910439966044, guid: beb139c6257103348aaf7f28ed526c3b, type: 2}
       propertyPath: m_Name
       value: Log 2 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114631243044484166, guid: beb139c6257103348aaf7f28ed526c3b,
+        type: 2}
+      propertyPath: _modelPrefab
+      value: 
+      objectReference: {fileID: 114777487319293738, guid: 9e9685b75a0cbfd4595e548623fa9f66,
+        type: 2}
+    - target: {fileID: 114631243044484166, guid: beb139c6257103348aaf7f28ed526c3b,
+        type: 2}
+      propertyPath: Model
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: beb139c6257103348aaf7f28ed526c3b, type: 2}
@@ -47391,6 +47479,17 @@ Prefab:
       propertyPath: m_Name
       value: Log 2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 114631243044484166, guid: beb139c6257103348aaf7f28ed526c3b,
+        type: 2}
+      propertyPath: _modelPrefab
+      value: 
+      objectReference: {fileID: 114777487319293738, guid: 9e9685b75a0cbfd4595e548623fa9f66,
+        type: 2}
+    - target: {fileID: 114631243044484166, guid: beb139c6257103348aaf7f28ed526c3b,
+        type: 2}
+      propertyPath: Model
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: beb139c6257103348aaf7f28ed526c3b, type: 2}
   m_IsPrefabParent: 0
@@ -48032,6 +48131,17 @@ Prefab:
     - target: {fileID: 1908311909718564, guid: 6dfe61979ef440947b82b772d20d9295, type: 2}
       propertyPath: m_Name
       value: Tree Trunk (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114396012233536360, guid: 6dfe61979ef440947b82b772d20d9295,
+        type: 2}
+      propertyPath: _modelPrefab
+      value: 
+      objectReference: {fileID: 114777487319293738, guid: 9e9685b75a0cbfd4595e548623fa9f66,
+        type: 2}
+    - target: {fileID: 114396012233536360, guid: 6dfe61979ef440947b82b772d20d9295,
+        type: 2}
+      propertyPath: Model
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6dfe61979ef440947b82b772d20d9295, type: 2}
@@ -51426,6 +51536,17 @@ Prefab:
     - target: {fileID: 4100243294326058, guid: beb139c6257103348aaf7f28ed526c3b, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114631243044484166, guid: beb139c6257103348aaf7f28ed526c3b,
+        type: 2}
+      propertyPath: _modelPrefab
+      value: 
+      objectReference: {fileID: 114777487319293738, guid: 9e9685b75a0cbfd4595e548623fa9f66,
+        type: 2}
+    - target: {fileID: 114631243044484166, guid: beb139c6257103348aaf7f28ed526c3b,
+        type: 2}
+      propertyPath: Model
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: beb139c6257103348aaf7f28ed526c3b, type: 2}
@@ -60483,6 +60604,17 @@ Prefab:
     - target: {fileID: 1879910439966044, guid: beb139c6257103348aaf7f28ed526c3b, type: 2}
       propertyPath: m_Name
       value: Log 2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114631243044484166, guid: beb139c6257103348aaf7f28ed526c3b,
+        type: 2}
+      propertyPath: _modelPrefab
+      value: 
+      objectReference: {fileID: 114777487319293738, guid: 9e9685b75a0cbfd4595e548623fa9f66,
+        type: 2}
+    - target: {fileID: 114631243044484166, guid: beb139c6257103348aaf7f28ed526c3b,
+        type: 2}
+      propertyPath: Model
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: beb139c6257103348aaf7f28ed526c3b, type: 2}

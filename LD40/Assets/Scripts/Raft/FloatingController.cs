@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class FloatingController : MonoBehaviour
 {
 	[SerializeField] private AQUAS_Buoyancy _modelPrefab;
-	public AQUAS_Buoyancy Model;
+	[NonSerialized] public AQUAS_Buoyancy Model;
 	public Vector3 Offset;
 
 	public virtual void Start()
