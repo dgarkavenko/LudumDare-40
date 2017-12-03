@@ -93,9 +93,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1262828688463778}
   serializedVersion: 2
-  m_Mass: 60
+  m_Mass: 80
   m_Drag: 0.2
-  m_AngularDrag: 0.25
+  m_AngularDrag: 0.2
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   FloatDirection: {x: 0, y: 0, z: 1}
   StreamDirection: {x: 0, y: 0, z: 1}
   SteeringDirection: {x: 0, y: 0, z: 0}
-  StreamPower: 30
+  StreamPower: 45
   SteerPower: 20
   StreamLerp: 10
   Torque: 600

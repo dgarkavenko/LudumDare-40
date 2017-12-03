@@ -41,6 +41,7 @@ public class PlayerCharacter : MonoBehaviour
         _onInteractionExit = () =>
         {
             _interaction = new KeyValuePair<float, Action>(0, null);
+            _savedCat = null;
 
             onInteractionExit();
         };
@@ -138,6 +139,7 @@ public class PlayerCharacter : MonoBehaviour
     private void SetSavedCat(Cat cat)
     {
         if (_savedCat == cat) return;
+        if (!(cat.State is Cat.Fighting) && !(cat.State is Cat.Hanging)) return;
 
         _savedCat = cat;
 
@@ -154,11 +156,7 @@ public class PlayerCharacter : MonoBehaviour
         }
         else
         {
-            _interaction = new KeyValuePair<float, Action>(.5f, () =>
-            {
-                _cats.Remove(cat);
-                cat.PickKitty();
-            });
+            _interaction = new KeyValuePair<float, Action>(.5f, cat.PickKitty);
         }
     }
 
