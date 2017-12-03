@@ -4,6 +4,7 @@ using UnityEngine;
 public class Cat : MonoBehaviour
 {
     [SerializeField] public Transform _raft;
+    [SerializeField] private SixWayMovement _sixWayMovement;
     [SerializeField] private CharacterController _characterController;
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
@@ -16,6 +17,9 @@ public class Cat : MonoBehaviour
     public float MaxSpeed = 0.01f;
 
     public abstract class CatState { };
+
+    public bool FaceUp { get; set; }
+    public float X { get; set; }
 
     public class Walking : CatState
     {
@@ -62,6 +66,13 @@ public class Cat : MonoBehaviour
 
         public void Move(Vector3 direction2D)
         {
+            Cat.X = direction2D.x;
+
+            if (direction2D.z != 0)
+                Cat.FaceUp = direction2D.z > 0;
+
+            Cat.UpdateVisuals();
+
             var clampedDirection = Vector2.ClampMagnitude(new Vector2(direction2D.x, direction2D.z), Cat.MaxSpeed);
             var direction3D = new Vector3(clampedDirection.x, -1, clampedDirection.y);
 
@@ -226,7 +237,7 @@ public class Cat : MonoBehaviour
         _renderer.enabled = !(_state is Fighting);
 
         if (_state is Walking)
-            return Links.Instance.CatWalkingSprite;
+            return _sixWayMovement.GetSprite(FaceUp, X);
         if (_state is Hanging)
             return Links.Instance.CatHangingSprite;
         if (_state is BeingDragged)

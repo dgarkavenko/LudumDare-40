@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private SixWayMovement _sixWayMovement;
     [SerializeField] private Transform _pickUp;
 
@@ -41,7 +42,7 @@ public class PlayerCharacter : MonoBehaviour
         if (z != 0)
             _facedUp = z > 0;
 
-        _sixWayMovement.SetSprite(_facedUp, x);
+        _spriteRenderer.sprite = _sixWayMovement.GetSprite(_facedUp, x);
 
         var cam = Camera.main;
 
