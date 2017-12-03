@@ -23,6 +23,8 @@ public class CatSpawner : MonoBehaviour
 		"Trevor",
 	};
 
+	private int _catNumber;
+
 	private void Shuffle(List<string> texts)
 	{
 		for (int t = 0; t < texts.Count; t++ )
@@ -52,9 +54,17 @@ public class CatSpawner : MonoBehaviour
 		cat.transform.localPosition = new Vector3(position.x, Cat.RaftSurfaceY, position.y);
 		var brain = cat.gameObject.AddComponent<CatBrain>();
 		brain.Cat = cat;
-		var nameIndex = Random.Range(0, _catNames.Count);
-		cat.Name = _catNames[nameIndex];
-		_catNames.RemoveAt(nameIndex);
+
+		_catNumber++;
+
+		if (_catNames.Count > 0) {
+			var nameIndex = Random.Range(0, _catNames.Count);
+			cat.Name = _catNames[nameIndex];
+			_catNames.RemoveAt(nameIndex);
+		} else {
+			cat.Name = $"Cat {_catNumber}";
+		}
+
 		cat.State = new Cat.Walking(cat);
 		cat.MainApplication = _main;
 		_main.PickCat(cat);
