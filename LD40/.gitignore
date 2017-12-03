@@ -1,5 +1,6 @@
 # Unity cache folders
 /Library/
+/Build/
 /Temp/
 /.idea/
 
