@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class MainApplication : MonoBehaviour
 {
@@ -9,8 +10,9 @@ public class MainApplication : MonoBehaviour
     [SerializeField] private Raft _raft;
     [SerializeField] private Stream _stream;
 
+    private readonly List<Cat> _cats = new List<Cat>();
+
     private PlayerCharacter PlayerCharacter { get; set; }
-    private int _catCount;
 
     private void Awake()
     {
@@ -44,19 +46,33 @@ public class MainApplication : MonoBehaviour
 
     public void PickCat(Cat cat)
     {
-        _catCount++;
+        if (!_cats.Contains(cat))
+        {
+            _cats.Add(cat);
+        }
+        else
+        {
+            Debug.LogError("Cats list is already contains " + cat.Name);
+        }
 
         PlayerCharacter.CatPicked(cat);
 
-        _uiController.SetCatsCount(_catCount);
+        _uiController.SetCatsCount(_cats.Count);
     }
 
     public void LoseCat(Cat cat)
     {
-        _catCount--;
+        if (_cats.Contains(cat))
+        {
+            _cats.Remove(cat);
+        }
+        else
+        {
+            Debug.LogError("Cats list does not contain " + cat.Name);
+        }
 
         PlayerCharacter.CatLost(cat);
 
-        _uiController.SetCatsCount(_catCount);
+        _uiController.SetCatsCount(_cats.Count);
     }
 }
