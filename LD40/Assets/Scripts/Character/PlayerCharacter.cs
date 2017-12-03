@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.WSA;
 
 public class PlayerCharacter : MonoBehaviour
 {
@@ -17,21 +18,23 @@ public class PlayerCharacter : MonoBehaviour
 
     private Action _onInteractionEnter;
     private Action _onInteractionExit;
+    private Action<Action> _onInteraction;
 
-    private Cat _cat;
+    private Cat _interactionCat;
 
     private float _xScale;
     private float _zScale;
 
     private bool _facedUp;
 
-    public void Init(float xScale, float zScale, Action onInteractionEnter, Action onInteractionExit)
+    public void Init(float xScale, float zScale, Action onInteractionEnter, Action onInteractionExit, Action<Action> onInteraction)
     {
         _xScale = xScale - .5f;
         _zScale = zScale - .5f;
 
         _onInteractionEnter = onInteractionEnter;
         _onInteractionExit = onInteractionExit;
+        _onInteraction = onInteraction;
     }
 
     protected void LateUpdate()
@@ -56,29 +59,38 @@ public class PlayerCharacter : MonoBehaviour
             };
 
         transform.localPosition = clampedPosition;
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (_cat != null)
-            {
-                Debug.Log("has cat");
-                var fight = (_cat.State as Cat.Fighting)?.Fight;
-
-                if (fight != null)
-                    fight.Stop();
-                else
-                {
-                    _cats.Remove(_cat);
-                    _cat.PickKitty();
-
-                    SetSavedCat(null);
-                }
-            }
-        }
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (_interactionCat != null)
+            {
+                Debug.Log("has cat");
+                var fight = (_interactionCat.State as Cat.Fighting)?.Fight;
+
+                if (fight != null)
+                {
+                    fight.Stop();
+                }
+                else
+                {
+                    _onInteraction(() =>
+                    {
+                        _cats.Remove(_interactionCat);
+                        _interactionCat.PickKitty();
+
+                        SetSavedCat(null);
+                    });
+                }
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.E))
+        {
+            _onInteractionExit();
+        }
+
         foreach (var kitty in _cats)
         {
             if (Vector3.Distance(transform.position, kitty.transform.position) <= _pickUpDistance)
@@ -102,7 +114,7 @@ public class PlayerCharacter : MonoBehaviour
             _onInteractionExit();
         }
 
-        _cat = cat;
+        _interactionCat = cat;
     }
 
     public void CatPicked(Cat cat)

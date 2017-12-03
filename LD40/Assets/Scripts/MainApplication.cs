@@ -10,7 +10,8 @@ public class MainApplication : MonoBehaviour
     [SerializeField] private Raft _raft;
     [SerializeField] private Stream _stream;
 
-    public PlayerCharacter PlayerCharacter { get; private set; }
+    private PlayerCharacter PlayerCharacter { get; set; }
+    private int _catCount;
 
     private void Awake()
     {
@@ -22,6 +23,10 @@ public class MainApplication : MonoBehaviour
             () =>
             {
                 _uiController.HideInteractionButton();
+            },
+            arg =>
+            {
+                _uiController.StartInteraction(arg);
             });
 
         _uiController.Init(PlayerCharacter.PickUpPoint);
@@ -32,6 +37,10 @@ public class MainApplication : MonoBehaviour
 
     public void PickCat(Cat cat)
     {
+        _catCount++;
+
         PlayerCharacter.CatPicked(cat);
+
+        _uiController.SetCatsCount(_catCount);
     }
 }
