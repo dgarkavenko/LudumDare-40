@@ -12,7 +12,7 @@ public class Raft : FloatingController
 	public Transform ViewTransform => _view;
 	public RaftStick RaftStick => _raftStick;
 
-	public Action OnDrowningCatCollision;
+	public Action<Vector3> OnDrowningCatCollision;
 	private bool _playerControl;
 
 	public override void LateUpdate()
@@ -53,9 +53,9 @@ public class Raft : FloatingController
 		}
 		else if (arg2 is DrowningCat && OnDrowningCatCollision != null)
 		{
-			OnDrowningCatCollision();
+			OnDrowningCatCollision(arg1.contacts[0].point);
 			Destroy(arg2.gameObject);
 		}
-		
+
 	}
 }

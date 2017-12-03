@@ -39,7 +39,7 @@ public class UIController : MonoBehaviour
     public void Init(Transform point)
     {
         SetPauseStatus(false);
-        
+
         _interactionButton.Init(point);
     }
 

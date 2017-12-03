@@ -101,6 +101,8 @@ public class PlayerCharacter : MonoBehaviour
             }
         }
 
+        _savedCat = null;
+
         if (Vector3.Distance(transform.position, _stick.transform.position) <= _pickUpDistance)
         {
             if (_interaction != null) return;

@@ -183,7 +183,6 @@ public class Cat : MonoBehaviour
     }
 
     private CatState _state;
-
     public CatState State
     {
         get { return _state; }
@@ -192,11 +191,6 @@ public class Cat : MonoBehaviour
             _state = value;
             UpdateVisuals();
         }
-    }
-
-    private void Start()
-    {
-        State = new Walking(this);
     }
 
     public void PickKitty()

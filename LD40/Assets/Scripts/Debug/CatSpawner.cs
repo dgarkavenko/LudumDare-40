@@ -13,20 +13,28 @@ public class CatSpawner : MonoBehaviour
 		{
 			var cat = Instantiate(Links.Instance.Cat, _raft.parent);
 			cat._raft = _raft;
+
 			var position = Random.insideUnitCircle * 2f;
+
 			cat.transform.localPosition = new Vector3(position.x, 1.025f, position.y);
+			cat.State = new Cat.Walking(cat);
+
 			_main.PickCat(cat);
 		}
 
 		Raft.OnDrowningCatCollision += OnDrowningCatCollision;
 	}
 
-	private void OnDrowningCatCollision()
+	private void OnDrowningCatCollision(Vector3 point)
 	{
 		var cat = Instantiate(Links.Instance.Cat, _raft.parent);
 		cat._raft = _raft;
-		var position = Random.insideUnitCircle * 2f;
-		cat.transform.localPosition = new Vector3(position.x, 1.025f, position.y);
+		//var position = Random.insideUnitCircle * 2f;
+		//cat.transform.localPosition = new Vector3(position.x, 1.025f, position.y);
+
+		cat.transform.position = new Vector3(point.x, point.y + 1.5f, point.z);
+		cat.State = new Cat.Hanging();
+
 		_main.PickCat(cat);
 	}
 }
