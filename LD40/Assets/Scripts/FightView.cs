@@ -10,7 +10,7 @@ public class FightView : MonoBehaviour
     private void OnGUI()
     {
         var pos = Camera.main.WorldToScreenPoint(transform.position);
-        GUI.Label(new Rect(pos.x, pos.y, 200, 200), "  Fight:\n" + string.Join("\n", Fight.Participants.Select(x => x.Name)));
+        GUI.Label(new Rect(pos.x - 40f, Screen.height - pos.y - 50f, 200, 200), "  Fight:\n" + string.Join("\n", Fight.Participants.Select(x => x.Name)));
     }
 #endif
 }
