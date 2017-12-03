@@ -40,18 +40,26 @@ public class CatSpawner : MonoBehaviour
 	{
 		Shuffle(_catNames);
 
-		for (var i = 0; i < 3; i++)
-			SpawnCat();
+		for (var i = 0; i < 3; i++) {
+			var position = Random.insideUnitCircle * 2f;
+			SpawnCat(new Vector3(position.x, Cat.RaftSurfaceY, position.y));
+		}
 
 		Raft.OnDrowningCatCollision += OnDrowningCatCollision;
 	}
 
-	private void SpawnCat()
+	public void SpawnCat(Vector3 position, bool drowning = false)
 	{
-		var cat = Instantiate(Links.Instance.Cats.PickRandom(), _raft.parent);
+		var cat = Instantiate(Links.Instance.Cats.PickRandom());
 		cat._raft = _raft;
-		var position = Random.insideUnitCircle * 2f;
-		cat.transform.localPosition = new Vector3(position.x, Cat.RaftSurfaceY, position.y);
+
+		cat.transform.SetParent(drowning ? _raft.parent.parent : _raft.parent);
+
+		if (drowning)
+			cat.transform.position = position;
+		else
+			cat.transform.localPosition = position;
+
 		var brain = cat.gameObject.AddComponent<CatBrain>();
 		brain.Cat = cat;
 
@@ -65,10 +73,12 @@ public class CatSpawner : MonoBehaviour
 			cat.Name = $"Cat {_catNumber}";
 		}
 
-		cat.State = new Cat.Walking(cat);
+		cat.State = drowning ? (Cat.CatState)new Cat.Drowning(cat) : new Cat.Walking(cat);
 		cat.MainApplication = _main;
 		_main._uiController.CreateCatUi(cat);
-		_main.PickCat(cat);
+
+		if (!drowning)
+			_main.PickCat(cat);
 	}
 
 	private void OnDrowningCatCollision(Cat cat, Vector3 pos)
