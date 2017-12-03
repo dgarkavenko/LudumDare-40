@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MainApplication : MonoBehaviour
 {
+    [SerializeField] private CameraController _cameraController;
     [SerializeField] private UIController _uiController;
 
     [SerializeField] private PlayerCharacter _playerCharacter;
@@ -30,9 +29,11 @@ public class MainApplication : MonoBehaviour
             },
             arg =>
             {
+                _cameraController.SetControlStatus(arg);
                 _raft.SetControlStatus(arg);
             });
 
+        _cameraController.Init();
         _uiController.Init(PlayerCharacter.PickUpPoint);
         _stream.GenerateStreamZones();
         _stream.GenerateBanks();

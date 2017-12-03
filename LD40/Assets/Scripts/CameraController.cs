@@ -19,17 +19,9 @@ public class CameraController : MonoBehaviour
 
 	}
 
-	public void Start()
+	public void Init()
 	{
-		SetSettings(_targetSettings == SteeringCamera ? CloseupCamera : SteeringCamera, 2);
-	}
-
-	public void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			SetSettings(_targetSettings == SteeringCamera ? CloseupCamera : SteeringCamera, 2);
-		}
+		SetSettings(CloseupCamera, 2);
 	}
 
 	private void FixedUpdate ()
@@ -54,7 +46,6 @@ public class CameraController : MonoBehaviour
 
 	public void SetSettings(CamerSetting settings, float time)
 	{
-		_targetSettings = settings;
 		StopAllCoroutines();
 		StartCoroutine(Swithc(time, settings));
 
@@ -95,10 +86,6 @@ public class CameraController : MonoBehaviour
 	[SerializeField]
 	public CamerSetting CloseupCamera;
 
-	private CamerSetting _targetSettings;
-
-
-
 	private Vector3 _velocity;
 	private Vector3 _velocityRotation;
 
@@ -130,5 +117,10 @@ public class CameraController : MonoBehaviour
 
 		transform.LookAt(_lookTarget);
 
+	}
+
+	public void SetControlStatus(bool value)
+	{
+		SetSettings(value ? SteeringCamera : CloseupCamera, 2);
 	}
 }

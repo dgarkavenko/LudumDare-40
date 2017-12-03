@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79879e351afee4345ad9d1d0ebfbeebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cameraController: {fileID: 0}
   _uiController: {fileID: 0}
   _playerCharacter: {fileID: 114756994309805562, guid: 4c509bfa64c924a488e67af2d0ef42a4,
     type: 2}

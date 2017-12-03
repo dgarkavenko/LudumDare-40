@@ -13,6 +13,7 @@ public class PlayerCharacter : MonoBehaviour
 
     private readonly List<Cat> _cats = new List<Cat>();
     private Action _interaction;
+    private Cat _savedCat;
 
     public Transform PickUpPoint => _pickUp;
     private RaftStick _stick;
@@ -102,6 +103,8 @@ public class PlayerCharacter : MonoBehaviour
 
         if (Vector3.Distance(transform.position, _stick.transform.position) <= _pickUpDistance)
         {
+            if (_interaction != null) return;
+
             _onInteractionEnter();
 
             if (!_controlRaft)
@@ -132,6 +135,10 @@ public class PlayerCharacter : MonoBehaviour
 
     private void SetSavedCat(Cat cat)
     {
+        if (_savedCat == cat) return;
+
+        _savedCat = cat;
+
         _onInteractionEnter();
 
         var fight = (cat.State as Cat.Fighting)?.Fight;

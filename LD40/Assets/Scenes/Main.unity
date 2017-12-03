@@ -1204,6 +1204,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114091223651624526, guid: 398fc5fe8dcac4b4083493a389561505,
         type: 2}
+      propertyPath: _cameraController
+      value: 
+      objectReference: {fileID: 1564886483}
+    - target: {fileID: 114091223651624526, guid: 398fc5fe8dcac4b4083493a389561505,
+        type: 2}
       propertyPath: _uiController
       value: 
       objectReference: {fileID: 1302186865}
@@ -1383,6 +1388,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3877f01277354f1459b735b1f4b699ea, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1564886483 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114678485994132586, guid: 3877f01277354f1459b735b1f4b699ea,
+    type: 2}
+  m_PrefabInternal: {fileID: 1476902919}
+  m_Script: {fileID: 11500000, guid: cb67232ca4db3ed42bebd0ac2547e63b, type: 3}
 --- !u!4 &1712198875 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4878741929558546, guid: 49956deb696e2d34589fd1bd0e408eeb,

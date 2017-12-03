@@ -11,6 +11,7 @@ public class InteractionButton : MonoBehaviour
     private Transform _point;
 
     private Coroutine _interaction;
+    private float _appearSpeed = 6.0f;
 
     public void Init(Transform point)
     {
@@ -58,9 +59,23 @@ public class InteractionButton : MonoBehaviour
         callback();
     }
 
-    public void Show()
+    private IEnumerator Co_Show()
     {
         _view.SetActive(true);
+        _view.transform.localScale = Vector3.zero;
+
+        while (_view.transform.localScale.x < 1.2)
+        {
+            _view.transform.localScale = new Vector3(_view.transform.localScale.x + Time.deltaTime * _appearSpeed, _view.transform.localScale.y + Time.deltaTime * _appearSpeed,_view.transform.localScale.z + Time.deltaTime * _appearSpeed);
+            yield return null;
+        }
+
+        _view.transform.localScale = Vector3.one;
+    }
+
+    public void Show()
+    {
+        StartCoroutine(Co_Show());
     }
 
     public void Hide()
