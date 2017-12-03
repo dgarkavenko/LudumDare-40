@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114169989053093714}
   - component: {fileID: 114997714243335682}
   - component: {fileID: 114480959658975732}
+  - component: {fileID: 114743381803083164}
   m_Layer: 11
   m_Name: RedCat
   m_TagString: Untagged
@@ -226,9 +227,28 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 212372205029827194}
   _renderer: {fileID: 212372205029827194}
   _collider: {fileID: 136196940090080190}
+  _drowningCat: {fileID: 114743381803083164}
+  MainApplication: {fileID: 0}
+  Name: 
   SlopeLimit: 1
   SlideFriction: 0.3
   MaxSpeed: 0.05
+  LastFightTime: 0
+--- !u!114 &114743381803083164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1404704191655594}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 447b7636537cee64287cfe69aa7d1b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _modelPrefab: {fileID: 114777487319293738, guid: d644540aa4bb4fa48ad92f32c6302629,
+    type: 2}
+  Model: {fileID: 0}
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!114 &114997714243335682
 MonoBehaviour:
   m_ObjectHideFlags: 1

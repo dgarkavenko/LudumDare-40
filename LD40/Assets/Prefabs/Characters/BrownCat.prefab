@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 114869832841395056}
   - component: {fileID: 114466765866948394}
   - component: {fileID: 114158999466033224}
+  - component: {fileID: 114936301219048646}
   m_Layer: 11
   m_Name: BrownCat
   m_TagString: Untagged
@@ -219,9 +220,13 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 212525935698952896}
   _renderer: {fileID: 212525935698952896}
   _collider: {fileID: 136134054310493118}
+  _drowningCat: {fileID: 114936301219048646}
+  MainApplication: {fileID: 0}
+  Name: 
   SlopeLimit: 1
   SlideFriction: 0.3
   MaxSpeed: 0.05
+  LastFightTime: 0
 --- !u!114 &114869832841395056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -241,6 +246,21 @@ MonoBehaviour:
   _downRightSprite: {fileID: 21300000, guid: ee0a9bf917431464eb4de86f01674779, type: 3}
   _hangingSprite: {fileID: 21300000, guid: b5b75efb3bd90ab418968138b4e851e8, type: 3}
   _drowningSprite: {fileID: 21300000, guid: 45d33e792d43dd549b6086e43ff91596, type: 3}
+--- !u!114 &114936301219048646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1909689027678946}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 447b7636537cee64287cfe69aa7d1b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _modelPrefab: {fileID: 114777487319293738, guid: d644540aa4bb4fa48ad92f32c6302629,
+    type: 2}
+  Model: {fileID: 0}
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!136 &136134054310493118
 CapsuleCollider:
   m_ObjectHideFlags: 1

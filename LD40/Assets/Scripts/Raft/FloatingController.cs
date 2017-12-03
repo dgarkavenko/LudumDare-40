@@ -1,15 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FloatingController : MonoBehaviour
 {
+	[SerializeField] private AQUAS_Buoyancy _modelPrefab;
 	public AQUAS_Buoyancy Model;
 	public Vector3 Offset;
 
 	public virtual void Start()
 	{
-		Model = SteeringBuoy.Instantiate(Model);
+		Model = SteeringBuoy.Instantiate(_modelPrefab);
 		Model.transform.position = transform.position;
 		Model.transform.rotation = transform.rotation;
 		Model.OnCollisionEnterAction += OnCollisionEnterAction;
@@ -29,9 +28,9 @@ public class FloatingController : MonoBehaviour
 
 	private void OnDestroy()
 	{
-		Model.OnCollisionEnterAction -= OnCollisionEnterAction;
-
-		if(Model != null)
+		if (Model != null) {
+			Model.OnCollisionEnterAction -= OnCollisionEnterAction;
 			Destroy(Model);
+		}
 	}
 }

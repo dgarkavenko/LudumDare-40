@@ -11,12 +11,17 @@ public class Cat : MonoBehaviour
     [SerializeField] private Renderer _renderer;
     [SerializeField] private Collider _collider;
 
+    [SerializeField] private DrowningCat _drowningCat;
+
+    public MainApplication MainApplication;
+
     public string Name;
 
     public float SlopeLimit = 3f;
     public float SlideFriction = 0.3f;
 
     public const float RaftSurfaceY = 0.58f;
+    public const float HangingTime = 4f;
 
     public float MaxSpeed = 0.01f;
 
@@ -166,8 +171,15 @@ public class Cat : MonoBehaviour
         }
     }
 
-    public class Hanging : CatState { }
-    public class BeingDragged : CatState { }
+    public class Hanging : CatState
+    {
+        public readonly float StartTime;
+
+        public Hanging()
+        {
+            StartTime = Time.time;
+        }
+    }
 
     public class Fighting : CatState
     {
@@ -187,6 +199,17 @@ public class Cat : MonoBehaviour
             Cat.State = new Walking(Cat);
             Cat.LastFightTime = Time.time;
             Cat._collider.enabled = true;
+        }
+    }
+
+    public class Drowning : CatState
+    {
+        public readonly Cat Cat;
+
+        public Drowning(Cat cat)
+        {
+            Cat = cat;
+//            Cat._collider.enabled = false;
         }
     }
 
@@ -214,7 +237,23 @@ public class Cat : MonoBehaviour
 
         if (walking != null && walking.Waypoint != null)
             walking.Move(walking.Waypoint.position - transform.position);
+
+        var hanging = _state as Hanging;
+
+        if (hanging != null && Time.time > hanging.StartTime + HangingTime) {
+            State = new Drowning(this);
+            transform.SetParent(_raft.parent.parent);
+            MainApplication.LoseCat(this);
+        }
     }
+
+#if UNITY_EDITOR
+    private void OnGUI()
+    {
+        var pos = Camera.main.WorldToScreenPoint(transform.position);
+        GUI.Label(new Rect(pos.x, pos.y, 200, 200), $"  {Name} -- {_state.GetType().Name}");
+    }
+#endif
 
     private void OnDrawGizmos()
     {
@@ -239,6 +278,7 @@ public class Cat : MonoBehaviour
     private Sprite GetSprite()
     {
         _renderer.enabled = !(_state is Fighting);
+        _drowningCat.enabled = _state is Drowning;
 
         return _sixWayMovement.GetSprite(FaceUp, X, _state);
     }

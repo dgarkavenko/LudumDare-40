@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114945422698507802}
   - component: {fileID: 114010108559648556}
   - component: {fileID: 114412110350735608}
+  - component: {fileID: 114376803561870648}
   m_Layer: 11
   m_Name: BlueCat
   m_TagString: Untagged
@@ -190,6 +191,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0c14885b90669439806892ee41d7b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114376803561870648
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1306083240113116}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 447b7636537cee64287cfe69aa7d1b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _modelPrefab: {fileID: 114777487319293738, guid: d644540aa4bb4fa48ad92f32c6302629,
+    type: 2}
+  Model: {fileID: 0}
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!114 &114412110350735608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -219,9 +235,13 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 212821647141577102}
   _renderer: {fileID: 212821647141577102}
   _collider: {fileID: 136953263959462176}
+  _drowningCat: {fileID: 114376803561870648}
+  MainApplication: {fileID: 0}
+  Name: 
   SlopeLimit: 1
   SlideFriction: 0.3
   MaxSpeed: 0.05
+  LastFightTime: 0
 --- !u!114 &114945422698507802
 MonoBehaviour:
   m_ObjectHideFlags: 1

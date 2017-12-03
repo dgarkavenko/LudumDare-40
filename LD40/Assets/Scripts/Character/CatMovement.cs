@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CatMovement : SixWayMovement
 {
@@ -13,10 +11,10 @@ public class CatMovement : SixWayMovement
             return base.GetSprite(faceUp, x);
         if (state is Cat.Hanging)
             return _hangingSprite;
-        if (state is Cat.BeingDragged)
-            return _drowningSprite;
         if (state is Cat.Fighting)
             return Links.Instance.CatDraggedSprite;
+        if (state is Cat.Drowning)
+            return _drowningSprite;
 
         return null;
     }

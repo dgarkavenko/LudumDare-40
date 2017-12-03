@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -247,6 +247,17 @@ Prefab:
       propertyPath: m_Name
       value: Tree Trunk (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114396012233536360, guid: 6dfe61979ef440947b82b772d20d9295,
+        type: 2}
+      propertyPath: _modelPrefab
+      value: 
+      objectReference: {fileID: 114777487319293738, guid: 9e9685b75a0cbfd4595e548623fa9f66,
+        type: 2}
+    - target: {fileID: 114396012233536360, guid: 6dfe61979ef440947b82b772d20d9295,
+        type: 2}
+      propertyPath: Model
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6dfe61979ef440947b82b772d20d9295, type: 2}
   m_IsPrefabParent: 0
@@ -346,6 +357,17 @@ Prefab:
     - target: {fileID: 4060376545939070, guid: 49956deb696e2d34589fd1bd0e408eeb, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 18.674002
+      objectReference: {fileID: 0}
+    - target: {fileID: 114911846756157670, guid: 49956deb696e2d34589fd1bd0e408eeb,
+        type: 2}
+      propertyPath: _modelPrefab
+      value: 
+      objectReference: {fileID: 114777487319293738, guid: 833bfe4c13a3b4543b4ff5f69e0f08fd,
+        type: 2}
+    - target: {fileID: 114911846756157670, guid: 49956deb696e2d34589fd1bd0e408eeb,
+        type: 2}
+      propertyPath: Model
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 49956deb696e2d34589fd1bd0e408eeb, type: 2}
@@ -790,6 +812,17 @@ Prefab:
     - target: {fileID: 4100243294326058, guid: beb139c6257103348aaf7f28ed526c3b, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114631243044484166, guid: beb139c6257103348aaf7f28ed526c3b,
+        type: 2}
+      propertyPath: _modelPrefab
+      value: 
+      objectReference: {fileID: 114777487319293738, guid: 9e9685b75a0cbfd4595e548623fa9f66,
+        type: 2}
+    - target: {fileID: 114631243044484166, guid: beb139c6257103348aaf7f28ed526c3b,
+        type: 2}
+      propertyPath: Model
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: beb139c6257103348aaf7f28ed526c3b, type: 2}

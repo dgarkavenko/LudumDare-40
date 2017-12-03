@@ -48,4 +48,13 @@ public class MainApplication : MonoBehaviour
 
         _uiController.SetCatsCount(_catCount);
     }
+
+    public void LoseCat(Cat cat)
+    {
+        _catCount--;
+
+        PlayerCharacter.CatLost(cat);
+
+        _uiController.SetCatsCount(_catCount);
+    }
 }

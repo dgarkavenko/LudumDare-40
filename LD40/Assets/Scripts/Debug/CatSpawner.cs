@@ -56,6 +56,7 @@ public class CatSpawner : MonoBehaviour
 		cat.Name = _catNames[nameIndex];
 		_catNames.RemoveAt(nameIndex);
 		cat.State = new Cat.Walking(cat);
+		cat.MainApplication = _main;
 		_main.PickCat(cat);
 	}
 

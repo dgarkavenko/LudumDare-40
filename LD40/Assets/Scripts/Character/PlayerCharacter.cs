@@ -166,4 +166,9 @@ public class PlayerCharacter : MonoBehaviour
     {
         _cats.Add(cat);
     }
+
+    public void CatLost(Cat cat)
+    {
+        _cats.Remove(cat);
+    }
 }
