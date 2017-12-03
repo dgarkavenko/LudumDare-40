@@ -29,20 +29,22 @@ public class Raft : FloatingController
 
 		if (arg2 == null)
 		{
-			Debug.Log("Collision with static");
-			Debug.Log(arg1.impulse.magnitude);
+			Debug.Log("Collision with static: " + arg1.impulse.magnitude + " impulse");
+		}
+		else if (arg2 is Obstacle)
+		{
+			Debug.Log("Collision with obstacle: " + arg1.impulse.magnitude + " impulse");
 
-			for (int i = 0; i < arg1.contacts.Length; i++)
+			if (arg1.impulse.magnitude > 5)
 			{
-				var p = arg1.contacts[i].point;
-				Debug.Log(transform.InverseTransformPoint(p));
+				arg2.Model.rb.AddForce(Vector3.down * Model.rb.mass / arg2.Model.rb.mass, ForceMode.Impulse);
 			}
-
 		}
 		else if (arg2 is DrowningCat && OnDrowningCatCollision != null)
 		{
 			OnDrowningCatCollision();
 			Destroy(arg2.gameObject);
 		}
+		
 	}
 }

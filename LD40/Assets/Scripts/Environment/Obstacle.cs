@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Obstacle : FloatingController
 {
-	public AQUAS_Buoyancy Model;
-	public Vector3 Offset;
 	public Vector2 RandomTorque;
 
+	public override void OnCollisionEnterAction(Collision arg1, FloatingController arg2)
+	{
+		//base.OnCollisionEnterAction(arg1, arg2);
+	}
 }

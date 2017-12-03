@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 54005417186404598}
   - component: {fileID: 114777487319293738}
   - component: {fileID: 65147504618224702}
+  - component: {fileID: 136090305121640668}
   m_Layer: 21
   m_Name: RaftFloater
   m_TagString: Untagged
@@ -92,7 +93,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1262828688463778}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 120
   m_Drag: 0.2
   m_AngularDrag: 0.5
   m_UseGravity: 1
@@ -110,8 +111,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.55, y: 1.57, z: 0.82}
-  m_Center: {x: 0, y: 0.32, z: 0}
+  m_Size: {x: 1.55, y: 1.57, z: 0.6}
+  m_Center: {x: 0, y: 0.32, z: -0.14}
 --- !u!114 &114777487319293738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,15 +127,28 @@ MonoBehaviour:
   FloatDirection: {x: 0, y: 0, z: 1}
   StreamDirection: {x: 0, y: 0, z: 1}
   SteeringDirection: {x: 0, y: 0, z: 0}
-  StreamPower: 25
-  SteerPower: 15
+  StreamPower: 60
+  SteerPower: 50
   StreamLerp: 10
   Torque: 600
-  waterLevel: 1
-  waterDensity: 5
+  waterLevel: 1.5
+  waterDensity: 12
   useBalanceFactor: 0
   balanceFactor: {x: 0.1, y: 0.1, z: 0.1}
   dynamicSurface: 0.255
   bounceFrequency: 1.53
   debug: 0
   rb: {fileID: 0}
+--- !u!136 &136090305121640668
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1262828688463778}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.09
+  m_Height: 1.6
+  m_Direction: 0
+  m_Center: {x: 0, y: 0.45, z: 0.25}

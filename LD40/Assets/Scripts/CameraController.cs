@@ -119,9 +119,7 @@ public class CameraController : MonoBehaviour
 		
 		var horizontal = backwards * Mathf.Cos(Angle * Mathf.Deg2Rad) * Distance;
 		var vertical = new Vector3(0, 1, 0) * Mathf.Sin(Angle * Mathf.Deg2Rad) * Distance;
-		var side = crossBackwards * SideShift;
-		var t = _target.position + horizontal + vertical + side;
-
+		var t = _target.position + Quaternion.Euler(0, SideShift, 0) * (horizontal + vertical);
 		//transform.position = t;
 		
 		//transform.position = Vector3.SmoothDamp(transform.position, t, ref _velocity, CameraPosSmoothTime);
