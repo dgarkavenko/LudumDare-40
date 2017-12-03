@@ -498,10 +498,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 224346270002681704}
   m_HandleRect: {fileID: 224888557878584216}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -100
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 0.324
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -925,6 +925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionButton: {fileID: 114507772252798626}
   _catCounter: {fileID: 114461022984591006}
+  _slider: {fileID: 114125810602665480}
   _pauseButton: {fileID: 114921094486261978}
   _pauseScreen: {fileID: 1634311880895728}
   _restartButton: {fileID: 114317510790038332}

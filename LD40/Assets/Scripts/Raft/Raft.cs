@@ -5,6 +5,9 @@ public class Raft : FloatingController
 {
 	[SerializeField] private Transform _view;
 	[SerializeField] private RaftStick _raftStick;
+	[SerializeField] private Transform _stickPivot;
+
+	private float _health = 100;
 
 	private float _steer;
 	public float SteeringSpeed = 1;
@@ -27,6 +30,8 @@ public class Raft : FloatingController
 		}
 
 		_steer = Mathf.Lerp(_steer, steer, Time.deltaTime * SteeringSpeed);
+		_stickPivot.transform.localRotation = Quaternion.Euler(0, 0, Mathf.Clamp(_steer + transform.rotation.y * 100, -30, 50));
+
 		Model.SteeringDirection = transform.TransformDirection(new Vector3(_steer, 0, 0));
 	}
 
@@ -37,6 +42,11 @@ public class Raft : FloatingController
 
 	public override void OnCollisionEnterAction(Collision arg1, FloatingController arg2)
 	{
+		if (arg2 == null || arg2 is Obstacle)
+		{
+			_health -= arg1.impulse.magnitude / 10;
+		}
+
 		if (arg2 == null)
 		{
 			Debug.Log("Collision with static: " + arg1.impulse.magnitude + " impulse");

@@ -7,12 +7,18 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private InteractionButton _interactionButton;
     [SerializeField] private Text _catCounter;
+    [SerializeField] private Slider _slider;
 
     [SerializeField] private Button _pauseButton;
     [SerializeField] private GameObject _pauseScreen;
 
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _exitButton;
+
+    private Transform _point;
+    private Transform _target;
+
+    private float _startDistance;
 
     private void Awake()
     {
@@ -37,8 +43,16 @@ public class UIController : MonoBehaviour
         });
     }
 
-    public void Init(Transform point)
+    public void Init(Transform point, Transform target)
     {
+        _point = point;
+        _target = target;
+
+        _startDistance = Vector3.Distance(_point.position, _target.position);
+
+        _slider.value = 0;
+        _slider.maxValue = _startDistance;
+
         SetPauseStatus(false);
 
         _interactionButton.Init(point);
@@ -50,6 +64,12 @@ public class UIController : MonoBehaviour
         {
             SetPauseStatus(!_pauseScreen.activeSelf);
         }
+
+        var distance = Vector3.Distance(_point.position, _target.position);
+
+        Debug.Log("Start: " + _startDistance + " dist: " + distance + " sum: " + (_startDistance - distance));
+
+        _slider.value = _startDistance - distance;
     }
 
     private void SetPauseStatus(bool status)

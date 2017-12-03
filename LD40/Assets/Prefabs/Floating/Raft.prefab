@@ -36,10 +36,9 @@ GameObject:
   - component: {fileID: 4064828137964386}
   - component: {fileID: 33174741548161374}
   - component: {fileID: 23916498176690298}
-  - component: {fileID: 65537690273825332}
   - component: {fileID: 114775162910186270}
   m_Layer: 0
-  m_Name: helm
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,6 +56,23 @@ GameObject:
   - component: {fileID: 23981188455885258}
   m_Layer: 0
   m_Name: raft 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1281850781937392
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4698890583109500}
+  - component: {fileID: 65537690273825332}
+  - component: {fileID: 114809046789144752}
+  m_Layer: 0
+  m_Name: helm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,18 +196,16 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1859974181268336
+--- !u!1 &1939995596011278
 GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4634414768917946}
-  - component: {fileID: 33064693998093064}
-  - component: {fileID: 65198155301539724}
+  - component: {fileID: 4503820939785692}
   m_Layer: 0
-  m_Name: Model
+  m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -231,12 +245,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1158506622867516}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.079429016, y: -2.4511914, z: 1.165477}
+  m_LocalRotation: {x: -0, y: -0, z: -0.000000012101261, w: 1}
+  m_LocalPosition: {x: 0.06, y: -6.08, z: -0.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4634414768917946}
-  m_Father: {fileID: 4328109692630850}
+  m_Children: []
+  m_Father: {fileID: 4503820939785692}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4079710561656380
@@ -275,7 +288,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4064828137964386}
+  - {fileID: 4698890583109500}
   - {fileID: 4193106708582636}
   - {fileID: 4771672061902288}
   m_Father: {fileID: 4060376545939070}
@@ -294,19 +307,34 @@ Transform:
   m_Father: {fileID: 4878741929558546}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4634414768917946
+--- !u!4 &4503820939785692
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1859974181268336}
-  m_LocalRotation: {x: -0.03077949, y: 0.9484093, z: 0.31264374, w: -0.042736452}
-  m_LocalPosition: {x: -0.040000603, y: -1.6000018, z: -0.16998935}
-  m_LocalScale: {x: 0.10000005, y: 5, z: 0.10000005}
-  m_Children: []
-  m_Father: {fileID: 4064828137964386}
+  m_GameObject: {fileID: 1939995596011278}
+  m_LocalRotation: {x: -0, y: -0, z: -0.09635463, w: 0.99534714}
+  m_LocalPosition: {x: 0.99006206, y: 5.406131, z: -0.00007009506}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4064828137964386}
+  m_Father: {fileID: 4698890583109500}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -36.185, y: -172.86101, z: -6.0530005}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -11.059001}
+--- !u!4 &4698890583109500
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1281850781937392}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.079429016, y: -2.4511914, z: 1.165477}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4503820939785692}
+  m_Father: {fileID: 4328109692630850}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4771672061902288
 Transform:
   m_ObjectHideFlags: 1
@@ -452,13 +480,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33064693998093064
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1859974181268336}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33174741548161374
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -504,18 +525,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65198155301539724
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1859974181268336}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65334109959937646
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -533,7 +542,7 @@ BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1158506622867516}
+  m_GameObject: {fileID: 1281850781937392}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -631,6 +640,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e738f47a2f3dc54cbb7b46953e53e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114809046789144752
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1281850781937392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e738f47a2f3dc54cbb7b46953e53e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114911846756157670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -646,5 +666,6 @@ MonoBehaviour:
     type: 2}
   Offset: {x: 0, y: 1, z: 0}
   _view: {fileID: 4878741929558546}
-  _raftStick: {fileID: 114775162910186270}
+  _raftStick: {fileID: 114809046789144752}
+  _stickPivot: {fileID: 4064828137964386}
   SteeringSpeed: 1

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class MainApplication : MonoBehaviour
 {
+    [SerializeField] private Transform _target;
     [SerializeField] private CameraController _cameraController;
     [SerializeField] private UIController _uiController;
 
@@ -38,7 +39,7 @@ public class MainApplication : MonoBehaviour
             });
 
         _cameraController.Init();
-        _uiController.Init(PlayerCharacter.PickUpPoint);
+        _uiController.Init(PlayerCharacter.PickUpPoint, _target);
         _stream.GenerateStreamZones();
         _stream.GenerateBanks();
 
