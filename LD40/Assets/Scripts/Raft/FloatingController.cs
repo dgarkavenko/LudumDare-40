@@ -14,6 +14,7 @@ public class FloatingController : MonoBehaviour
 		Model.transform.rotation = transform.rotation;
 		Model.OnCollisionEnterAction += OnCollisionEnterAction;
 		Model.Controller = this;
+		Model.waterLevel = Stream.WATER_LEVEL;
 	}
 
 	public virtual void OnCollisionEnterAction(Collision arg1, FloatingController arg2)

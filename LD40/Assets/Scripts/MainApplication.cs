@@ -26,6 +26,8 @@ public class MainApplication : MonoBehaviour
 
         _uiController.Init(PlayerCharacter.PickUpPoint);
         _stream.GenerateStreamZones();
+        _stream.GenerateBanks();
+
     }
 
     public void PickCat(Cat cat)

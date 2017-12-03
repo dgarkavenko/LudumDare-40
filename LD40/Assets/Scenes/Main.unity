@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1110,6 +1110,68 @@ Projector:
   m_IgnoreLayers:
     serializedVersion: 2
     m_Bits: 0
+--- !u!1001 &1119313413
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 141830463}
+    m_Modifications:
+    - target: {fileID: 4630751669299514, guid: c57a7adb6d3c2ac4ab50c379e6b293db, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.5455136
+      objectReference: {fileID: 0}
+    - target: {fileID: 4630751669299514, guid: c57a7adb6d3c2ac4ab50c379e6b293db, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -12.351807
+      objectReference: {fileID: 0}
+    - target: {fileID: 4630751669299514, guid: c57a7adb6d3c2ac4ab50c379e6b293db, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 11.60585
+      objectReference: {fileID: 0}
+    - target: {fileID: 4630751669299514, guid: c57a7adb6d3c2ac4ab50c379e6b293db, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4630751669299514, guid: c57a7adb6d3c2ac4ab50c379e6b293db, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4630751669299514, guid: c57a7adb6d3c2ac4ab50c379e6b293db, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4630751669299514, guid: c57a7adb6d3c2ac4ab50c379e6b293db, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4630751669299514, guid: c57a7adb6d3c2ac4ab50c379e6b293db, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114430393964430354, guid: c57a7adb6d3c2ac4ab50c379e6b293db,
+        type: 2}
+      propertyPath: MinMaxRiverWidth.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114430393964430354, guid: c57a7adb6d3c2ac4ab50c379e6b293db,
+        type: 2}
+      propertyPath: MinMaxRiverWidth.y
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 114430393964430354, guid: c57a7adb6d3c2ac4ab50c379e6b293db,
+        type: 2}
+      propertyPath: MinMaxIslandStepPerSpline.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 114430393964430354, guid: c57a7adb6d3c2ac4ab50c379e6b293db,
+        type: 2}
+      propertyPath: MinMaxIslandStepPerSpline.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c57a7adb6d3c2ac4ab50c379e6b293db, type: 2}
+  m_IsPrefabParent: 0
 --- !u!114 &1173030888 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114911846756157670, guid: 49956deb696e2d34589fd1bd0e408eeb,
@@ -1122,74 +1184,17 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2068555272}
   m_Script: {fileID: 11500000, guid: 771dbf7671022ba4685381ff1232fc1b, type: 3}
---- !u!1 &1447228315
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1447228318}
-  - component: {fileID: 1447228317}
-  - component: {fileID: 1447228316}
-  m_Layer: 0
-  m_Name: River
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1447228316
+--- !u!114 &1447228316 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1447228315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
+  m_PrefabParentObject: {fileID: 114430393964430354, guid: c57a7adb6d3c2ac4ab50c379e6b293db,
+    type: 2}
+  m_PrefabInternal: {fileID: 1119313413}
   m_Script: {fileID: 11500000, guid: 354dfa52323857b4d92478b40d761df7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spline: {fileID: 1447228317}
-  Step: 0.05
-  StreamZone: {fileID: 1832847021166264, guid: d4aa38524ef76914084843e8c878e7ed, type: 2}
---- !u!114 &1447228317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1447228315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dd3c396693c2ce44a8f3845d10d82d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points:
-  - {x: 2.3131418, y: 0, z: 3.5565176}
-  - {x: 3.3131418, y: 0, z: 3.5565176}
-  - {x: 11.020874, y: 0, z: 39.82124}
-  - {x: 1.0892124, y: 0, z: 54.246517}
-  - {x: -6.926588, y: 0, z: 69.68607}
-  - {x: 14.4113, y: 0, z: 83.29387}
-  - {x: 14.748491, y: 0, z: 101.91876}
-  - {x: 15.085683, y: 0, z: 120.543655}
-  - {x: 93.35641, y: 0, z: 117.04883}
-  - {x: 94.35641, y: 0, z: 117.04883}
-  modes: 00000000000000000200000000000000
-  loop: 0
---- !u!4 &1447228318
+--- !u!4 &1447228318 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1447228315}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5455136, y: -12.351807, z: 11.60585}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 141830463}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_PrefabParentObject: {fileID: 4630751669299514, guid: c57a7adb6d3c2ac4ab50c379e6b293db,
+    type: 2}
+  m_PrefabInternal: {fileID: 1119313413}
 --- !u!1 &1453351284
 GameObject:
   m_ObjectHideFlags: 0

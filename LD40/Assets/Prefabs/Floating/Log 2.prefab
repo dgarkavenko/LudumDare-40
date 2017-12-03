@@ -96,3 +96,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Model: {fileID: 114777487319293738, guid: 9e9685b75a0cbfd4595e548623fa9f66, type: 2}
   Offset: {x: 0, y: 0, z: 0}
+  Model: {fileID: 114777487319293738, guid: 9e9685b75a0cbfd4595e548623fa9f66, type: 2}
+  Offset: {x: 0, y: 0, z: 0}
+  RandomTorque: {x: 0, y: 0}
