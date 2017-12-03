@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1354561688847478}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5455136, y: -12.351807, z: 11.60585}
+  m_LocalPosition: {x: -1.5455136, y: 0, z: 11.60585}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,14 +53,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spline: {fileID: 114980572820708536}
-  Step: 0.05
+  Step: 0.1
   StreamZone: {fileID: 1832847021166264, guid: d4aa38524ef76914084843e8c878e7ed, type: 2}
   SideIslands: []
   MidIslands:
   - {fileID: 1990358404067182, guid: f3d3104e11b71ac4dbc026f2e4f1df43, type: 2}
-  - {fileID: 1624401965322480, guid: eecb2cae3fdc3c44bb99ebe769f0c69d, type: 2}
   MinMaxRiverWidth: {x: 25, y: 35}
-  MinMaxIslandStepPerSpline: {x: 0.03, y: 0.15}
+  MinMaxIslandStepPerSpline: {x: 0.05, y: 0.2}
   MinMaxIslandScale: {x: 0.9, y: 1.1}
   MinMaxIslandRotation: {x: -30, y: 30}
   BankCenterJitter: {x: -5, y: 5}
@@ -78,17 +77,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points:
   - {x: 2.3131418, y: 0, z: 3.5565176}
-  - {x: 0.26732302, y: 0, z: 26.454735}
-  - {x: 13.1891575, y: 0, z: 29.489971}
-  - {x: 1.0892124, y: 0, z: 54.246517}
-  - {x: -6.926588, y: 0, z: 69.68607}
-  - {x: 14.4113, y: 0, z: 83.29387}
-  - {x: 14.748491, y: 0, z: 101.91876}
-  - {x: 15.085683, y: 0, z: 120.543655}
-  - {x: -29.89661, y: 0, z: 161.05594}
-  - {x: 15.134333, y: 0, z: 180.767}
-  - {x: 41.45344, y: 0, z: 190.5395}
-  - {x: 59.559963, y: 0, z: 271.17334}
-  - {x: 60.559963, y: 0, z: 271.17334}
-  modes: 0000000000000000020000000000000000000000
+  - {x: 4.710572, y: 0, z: 26.81131}
+  - {x: 31.869179, y: 0, z: 61.11564}
+  - {x: 56.151825, y: 0, z: 73.3809}
+  - {x: 129.9112, y: 0, z: 116.014404}
+  - {x: 202.14258, y: 0, z: 65.07036}
+  - {x: 296.68094, y: 0, z: 91.64775}
+  - {x: 391.2193, y: 0, z: 118.22514}
+  - {x: 276.36258, y: 0, z: 264.7965}
+  - {x: 313.46548, y: 0, z: 316.97668}
+  - {x: 366.66284, y: 0, z: 387.77386}
+  - {x: 524.20306, y: 0, z: 340.87433}
+  - {x: 564.46826, y: 0, z: 424.06354}
+  - {x: 597.88416, y: 0, z: 500.49097}
+  - {x: 685.6722, y: 0, z: 681.2319}
+  - {x: 777.27673, y: 0, z: 765.1461}
+  modes: 000000000000000002000000000000000000000000000000
   loop: 0
