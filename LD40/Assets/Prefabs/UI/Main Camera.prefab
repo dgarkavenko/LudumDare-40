@@ -125,9 +125,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
   SteeringCamera:
-    Distance: 55
+    Distance: 70
     SideShift: -55
-    Angle: 55
+    Angle: 26
     CameraPosSmoothTime: 3
     CameraRotSmoothTime: 3
     CameraPrediction: {x: 0, y: 0, z: 7}
