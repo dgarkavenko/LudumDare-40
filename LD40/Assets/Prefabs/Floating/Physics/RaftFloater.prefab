@@ -93,9 +93,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1262828688463778}
   serializedVersion: 2
-  m_Mass: 120
+  m_Mass: 50
   m_Drag: 0.2
-  m_AngularDrag: 0.5
+  m_AngularDrag: 0.25
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -111,8 +111,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.55, y: 1.57, z: 0.6}
-  m_Center: {x: 0, y: 0.32, z: -0.14}
+  m_Size: {x: 1.55, y: 1.57, z: 0.65}
+  m_Center: {x: 0, y: 0.32, z: -0.1}
 --- !u!114 &114777487319293738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,12 +127,12 @@ MonoBehaviour:
   FloatDirection: {x: 0, y: 0, z: 1}
   StreamDirection: {x: 0, y: 0, z: 1}
   SteeringDirection: {x: 0, y: 0, z: 0}
-  StreamPower: 60
-  SteerPower: 50
+  StreamPower: 30
+  SteerPower: 20
   StreamLerp: 10
   Torque: 600
-  waterLevel: 1.5
-  waterDensity: 12
+  waterLevel: 1
+  waterDensity: 5
   useBalanceFactor: 0
   balanceFactor: {x: 0.1, y: 0.1, z: 0.1}
   dynamicSurface: 0.255
@@ -148,7 +148,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.09
-  m_Height: 1.6
+  m_Radius: 0.1
+  m_Height: 1.9
   m_Direction: 0
-  m_Center: {x: 0, y: 0.45, z: 0.25}
+  m_Center: {x: 0, y: 0.45, z: 0.34}
