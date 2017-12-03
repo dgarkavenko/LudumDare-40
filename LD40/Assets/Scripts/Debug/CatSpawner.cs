@@ -73,6 +73,6 @@ public class CatSpawner : MonoBehaviour
 	private void OnDrowningCatCollision(Cat cat, Vector3 pos)
 	{
 		cat.State = new Cat.Hanging();
-		//cat.transform.position = pos;
+		cat.transform.parent = _raft.parent;
 	}
 }

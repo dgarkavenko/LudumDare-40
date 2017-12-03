@@ -273,12 +273,12 @@ public class Cat : MonoBehaviour
     private void UpdateVisuals()
     {
         _spriteRenderer.sprite = GetSprite();
+        _drowningCat.enabled = _state is Drowning;
     }
 
     private Sprite GetSprite()
     {
         _renderer.enabled = !(_state is Fighting);
-        _drowningCat.enabled = _state is Drowning;
 
         return _sixWayMovement.GetSprite(FaceUp, X, _state);
     }
