@@ -100,7 +100,7 @@ MonoBehaviour:
   _target: {fileID: 0}
   SteeringCamera:
     Distance: 30
-    SideShift: 3
+    SideShift: -30
     Angle: 60
     CameraPosSmoothTime: 3
     CameraRotSmoothTime: 3

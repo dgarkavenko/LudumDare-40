@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.WSA;
 
 public class PlayerCharacter : MonoBehaviour
 {
@@ -13,32 +12,46 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] private float _pickUpDistance = 3;
 
     private readonly List<Cat> _cats = new List<Cat>();
+    private Action _interaction;
 
     public Transform PickUpPoint => _pickUp;
+    private RaftStick _stick;
 
     private Action _onInteractionEnter;
     private Action _onInteractionExit;
-    private Action<Action> _onInteraction;
 
-    private Cat _interactionCat;
+    private Action<Action> _onInteraction;
+    private Action<bool> _raftControl;
 
     private float _xScale;
     private float _zScale;
 
     private bool _facedUp;
+    private bool _controlRaft;
 
-    public void Init(float xScale, float zScale, Action onInteractionEnter, Action onInteractionExit, Action<Action> onInteraction)
+    public void Init(RaftStick stick, float xScale, float zScale, Action onInteractionEnter, Action onInteractionExit, Action<Action> onInteraction, Action<bool> raftControl)
     {
+        _stick = stick;
+
         _xScale = xScale - .5f;
         _zScale = zScale - .5f;
 
         _onInteractionEnter = onInteractionEnter;
-        _onInteractionExit = onInteractionExit;
+        _onInteractionExit = () =>
+        {
+            _interaction = null;
+
+            onInteractionExit();
+        };
+
         _onInteraction = onInteraction;
+        _raftControl = raftControl;
     }
 
     protected void LateUpdate()
     {
+        if (_controlRaft) return;
+
         var x = Input.GetAxis("Horizontal");
         var z = Input.GetAxis("Vertical");
 
@@ -65,25 +78,12 @@ public class PlayerCharacter : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (_interactionCat != null)
+            if (_interaction != null)
             {
-                Debug.Log("has cat");
-                var fight = (_interactionCat.State as Cat.Fighting)?.Fight;
-
-                if (fight != null)
+                _onInteraction(() =>
                 {
-                    fight.Stop();
-                }
-                else
-                {
-                    _onInteraction(() =>
-                    {
-                        _cats.Remove(_interactionCat);
-                        _interactionCat.PickKitty();
-
-                        SetSavedCat(null);
-                    });
-                }
+                    _interaction();
+                });
             }
         }
         else if (Input.GetKeyUp(KeyCode.E))
@@ -100,45 +100,58 @@ public class PlayerCharacter : MonoBehaviour
             }
         }
 
-        SetSavedCat(null);
+        if (Vector3.Distance(transform.position, _stick.transform.position) <= _pickUpDistance)
+        {
+            _onInteractionEnter();
+
+            if (!_controlRaft)
+            {
+                _interaction = () =>
+                {
+                    _controlRaft = true;
+                    _raftControl(true);
+                    _onInteractionExit();
+                };
+            }
+            else
+            {
+                _interaction = () =>
+                {
+                    _controlRaft = false;
+                    _raftControl(false);
+                    _onInteractionExit();
+                };
+            }
+
+            return;
+        }
+
+        _onInteractionExit();
+        _controlRaft = false;
     }
 
     private void SetSavedCat(Cat cat)
     {
-        if (cat != null)
+        _onInteractionEnter();
+
+        var fight = (cat.State as Cat.Fighting)?.Fight;
+
+        if (fight != null)
         {
-            _onInteractionEnter();
+            _interaction = () => fight.Stop();
         }
         else
         {
-            _onInteractionExit();
+            _interaction = () =>
+            {
+                _cats.Remove(cat);
+                cat.PickKitty();
+            };
         }
-
-        _interactionCat = cat;
     }
 
     public void CatPicked(Cat cat)
     {
         _cats.Add(cat);
     }
-
-//    private void OnTriggerEnter(Collider col)
-//    {
-//        _victim = col.gameObject.GetComponent<DrowningCharacter>();
-//        if (_victim != null)
-//        {
-//            Debug.Log("Enter");
-//        }
-//    }
-//
-//    private void OnTriggerExit(Collider col)
-//    {
-//        if (col.gameObject.GetComponent<DrowningCharacter>() != null)
-//        {
-//            Debug.Log("Exit");
-//
-//            LeaveKitty();
-//        }
-//    }
-
 }
