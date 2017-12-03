@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33279991325430396}
   - component: {fileID: 23735642248426680}
   - component: {fileID: 95323931485321284}
+  - component: {fileID: 64604809665545972}
   m_Layer: 0
   m_Name: Pirs
   m_TagString: Untagged
@@ -35,13 +36,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1237240643924534}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -3934.5894, y: -294.9308, z: 1281.454}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.07661622, y: -0.7029438, z: -0.7029438, w: 0.07661627}
+  m_LocalPosition: {x: -3, y: 1.82, z: 23.76}
+  m_LocalScale: {x: 1.0000005, y: 1.0000002, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -167.559}
 --- !u!23 &23735642248426680
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -51,11 +52,12 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4f7743d050c56d54b94cbff26d928da0, type: 2}
+  - {fileID: 2100000, guid: b432748a0bb4fed4b9aa4db4fbacd592, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -66,6 +68,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -80,6 +83,20 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1237240643924534}
+  m_Mesh: {fileID: 4300000, guid: d009c7e3a35ef3648ae09e190370a652, type: 3}
+--- !u!64 &64604809665545972
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1237240643924534}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: d009c7e3a35ef3648ae09e190370a652, type: 3}
 --- !u!95 &95323931485321284
 Animator:
