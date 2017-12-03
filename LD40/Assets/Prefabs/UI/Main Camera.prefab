@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 81431157837124758}
   - component: {fileID: 114678485994132586}
   - component: {fileID: 114985605136423666}
+  - component: {fileID: 114630114961105870}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -86,6 +87,31 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1072397630825924}
   m_Enabled: 1
+--- !u!114 &114630114961105870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1072397630825924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e50e925fb93c78246bf995d9dc3a2330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  adaptiveTextureSize: 256
+  remapCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  exposureAdjustment: 2.35
+  middleGrey: 2
+  white: 2
+  adaptionSpeed: 3
+  tonemapper: {fileID: 4800000, guid: 003377fc2620a44939dadde6fe3f8190, type: 3}
+  validRenderTextureFormat: 1
 --- !u!114 &114678485994132586
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
   SteeringCamera:
-    Distance: 35
+    Distance: 55
     SideShift: -55
     Angle: 55
     CameraPosSmoothTime: 3
