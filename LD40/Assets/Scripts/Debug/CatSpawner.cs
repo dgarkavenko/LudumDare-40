@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class CatSpawner : MonoBehaviour
@@ -7,34 +8,59 @@ public class CatSpawner : MonoBehaviour
 	[SerializeField] private MainApplication _main;
 	public Raft Raft;
 
+	private readonly List<string> _catNames = new List<string> {
+		"Ashes",
+		"Molly",
+		"Charlie",
+		"Tigger",
+		"Poppy",
+		"Oscar",
+		"Chester",
+		"Millie",
+		"Daisy",
+		"Max",
+		"Jasper",
+		"Trevor",
+	};
+
+	private void Shuffle(List<string> texts)
+	{
+		for (int t = 0; t < texts.Count; t++ )
+		{
+			string tmp = texts[t];
+			int r = Random.Range(t, texts.Count);
+			texts[t] = texts[r];
+			texts[r] = tmp;
+		}
+	}
+
 	private void Start()
 	{
+		Shuffle(_catNames);
+
 		for (var i = 0; i < 3; i++)
-		{
-			var cat = Instantiate(Links.Instance.Cats.PickRandom(), _raft.parent);
-			cat._raft = _raft;
-
-			var position = Random.insideUnitCircle * 2f;
-
-			cat.transform.localPosition = new Vector3(position.x, 1.025f, position.y);
-			cat.State = new Cat.Walking(cat);
-
-			_main.PickCat(cat);
-		}
+			SpawnCat();
 
 		Raft.OnDrowningCatCollision += OnDrowningCatCollision;
 	}
 
-	private void OnDrowningCatCollision(Vector3 point)
+	private void SpawnCat()
 	{
 		var cat = Instantiate(Links.Instance.Cats.PickRandom(), _raft.parent);
 		cat._raft = _raft;
-		//var position = Random.insideUnitCircle * 2f;
-		//cat.transform.localPosition = new Vector3(position.x, 1.025f, position.y);
-
-		cat.transform.position = new Vector3(point.x, point.y + 1.5f, point.z);
-		cat.State = new Cat.Hanging();
-
+		var position = Random.insideUnitCircle * 2f;
+		cat.transform.localPosition = new Vector3(position.x, Cat.RaftSurfaceY, position.y);
+		var brain = cat.gameObject.AddComponent<CatBrain>();
+		brain.Cat = cat;
+		var nameIndex = Random.Range(0, _catNames.Count);
+		cat.Name = _catNames[nameIndex];
+		_catNames.RemoveAt(nameIndex);
+		cat.State = new Cat.Walking(cat);
 		_main.PickCat(cat);
+	}
+
+	private void OnDrowningCatCollision(Vector3 point)
+	{
+		SpawnCat();
 	}
 }

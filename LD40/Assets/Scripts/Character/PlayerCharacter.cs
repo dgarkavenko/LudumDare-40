@@ -149,13 +149,8 @@ public class PlayerCharacter : MonoBehaviour
         {
             _interaction = () => fight.Stop();
         }
-        else
-        {
-            _interaction = () =>
-            {
-                _cats.Remove(cat);
-                cat.PickKitty();
-            };
+        else if (cat.State is Cat.Hanging) {
+            _interaction = cat.PickKitty;
         }
     }
 

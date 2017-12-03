@@ -1,9 +1,18 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class FightView : MonoBehaviour
 {
     public Fight Fight;
+
+#if UNITY_EDITOR
+    private void OnGUI()
+    {
+        var pos = Camera.main.WorldToScreenPoint(transform.position);
+        GUI.Label(new Rect(pos.x, pos.y, 200, 200), "  Fight:\n" + string.Join("\n", Fight.Participants.Select(x => x.Name)));
+    }
+#endif
 }
 
 public class Fight
@@ -17,6 +26,8 @@ public class Fight
         firstCat.State = new Cat.Fighting(firstCat, this);
         secondCat.State = new Cat.Fighting(secondCat, this);
 
+//        Debug.Log(firstCat.Name + " started a fight with " + secondCat.Name);
+
         _fightView = Object.Instantiate(Links.Instance.FightView, firstCat.transform.position, Quaternion.identity, firstCat._raft.parent);
         _fightView.Fight = this;
     }
@@ -24,6 +35,7 @@ public class Fight
     public void Join(Cat cat)
     {
         Participants.Add(cat);
+//        Debug.Log(cat.Name + " joins a fight of " + string.Join(", ", Participants.Select(x => x.Name)));
         cat.State = new Cat.Fighting(cat, this);
     }
 

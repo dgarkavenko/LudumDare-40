@@ -11,10 +11,16 @@ public class Cat : MonoBehaviour
     [SerializeField] private Renderer _renderer;
     [SerializeField] private Collider _collider;
 
+    public string Name;
+
     public float SlopeLimit = 3f;
     public float SlideFriction = 0.3f;
 
+    public const float RaftSurfaceY = 0.58f;
+
     public float MaxSpeed = 0.01f;
+
+    public float LastFightTime;
 
     public abstract class CatState { };
 
@@ -86,9 +92,9 @@ public class Cat : MonoBehaviour
                 }
             }
 
-            Cat._characterController.Move(direction3D);
+            Cat._characterController.Move(direction3D * Time.deltaTime * 35f);
 
-            if (Waypoint != null && Vector3.Distance(Cat.transform.position, Waypoint.position) < 0.2f) {
+            if (Waypoint != null && Vector3.Distance(Cat.transform.position, Waypoint.position) < 0.5f) {
                 Destroy(Waypoint.gameObject);
                 Waypoint = null;
             }
@@ -178,6 +184,7 @@ public class Cat : MonoBehaviour
         public void Stop()
         {
             Cat.State = new Walking(Cat);
+            Cat.LastFightTime = Time.time;
             Cat._collider.enabled = true;
         }
     }
@@ -195,7 +202,9 @@ public class Cat : MonoBehaviour
 
     public void PickKitty()
     {
-        Destroy(gameObject);
+        var shift = Vector3.ClampMagnitude(new Vector3(0f, RaftSurfaceY, 0f) - transform.localPosition, 1f);
+        transform.localPosition += shift;
+        State = new Walking(this);
     }
 
     private void Update()
