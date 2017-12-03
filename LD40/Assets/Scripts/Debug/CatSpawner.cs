@@ -74,5 +74,6 @@ public class CatSpawner : MonoBehaviour
 	{
 		cat.State = new Cat.Hanging();
 		cat.transform.parent = _raft.parent;
+		_main.PickCat(cat);
 	}
 }
