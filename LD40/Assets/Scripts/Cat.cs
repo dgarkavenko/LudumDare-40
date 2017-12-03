@@ -42,7 +42,8 @@ public class Cat : MonoBehaviour
 
             public void Attack()
             {
-                new Fight(Me, Target);
+                if (Target._state is Walking)
+                    new Fight(Me, Target);
             }
         }
 
@@ -137,7 +138,7 @@ public class Cat : MonoBehaviour
             } else {
                 var anotherCat = other.transform.parent?.GetComponent<Cat>();
 
-                if (anotherCat != null) {
+                if (anotherCat != null && anotherCat._state is Walking) {
                     PossibleAttackTarget = new AttackTarget(Cat, anotherCat);
                 }
 
