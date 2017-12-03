@@ -21,8 +21,10 @@ GameObject:
   - component: {fileID: 4767677683396008}
   - component: {fileID: 33402314585523374}
   - component: {fileID: 23123847513929918}
-  - component: {fileID: 114396012233536360}
-  m_Layer: 0
+  - component: {fileID: 114662812340759716}
+  - component: {fileID: 64336535376366630}
+  - component: {fileID: 54160283553124008}
+  m_Layer: 20
   m_Name: Tree Trunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,8 +37,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1908311909718564}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.33, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 24.8, y: 1, z: 41.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,7 +85,36 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1908311909718564}
   m_Mesh: {fileID: 4300000, guid: cbe72ccc8c809364abb136fb2472107f, type: 3}
---- !u!114 &114396012233536360
+--- !u!54 &54160283553124008
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1908311909718564}
+  serializedVersion: 2
+  m_Mass: 10
+  m_Drag: 0.6
+  m_AngularDrag: 0.5
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &64336535376366630
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1908311909718564}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: cbe72ccc8c809364abb136fb2472107f, type: 3}
+--- !u!114 &114662812340759716
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -91,11 +122,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1908311909718564}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3398063ad6445ce41839b28c38b79c10, type: 3}
+  m_Script: {fileID: 11500000, guid: a8cca39f1012aa5459024f25bdccbe13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Model: {fileID: 114777487319293738, guid: 9e9685b75a0cbfd4595e548623fa9f66, type: 2}
-  Offset: {x: 0, y: 0, z: 0}
-  Model: {fileID: 114777487319293738, guid: 9e9685b75a0cbfd4595e548623fa9f66, type: 2}
-  Offset: {x: 0, y: 0, z: 0}
-  RandomTorque: {x: 0, y: 0}
+  Power: 2
+  StreamLerp: 4
+  FloatDirection: {x: 0.5, y: 0, z: 0.5}
+  StreamDirection: {x: 0, y: 0, z: 0}
