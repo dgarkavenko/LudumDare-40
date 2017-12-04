@@ -85,6 +85,8 @@ public class UIController : MonoBehaviour
         {
             _end = true;
 
+            Time.timeScale = 0.6f;
+
             StartCoroutine(Co_Wait(() =>
             {
                 _won.SetActive(true);
@@ -100,6 +102,8 @@ public class UIController : MonoBehaviour
         if (!_end)
         {
             _end = true;
+
+            Time.timeScale = 0.6f;
 
             StartCoroutine(Co_Wait(() =>
             {
@@ -130,7 +134,7 @@ public class UIController : MonoBehaviour
 
             _helpScreen.SetActive(!_helpScreen.activeSelf);
 
-            Time.timeScale = _helpScreen.activeSelf ? 0.5f : 1.0f;
+            Time.timeScale = _helpScreen.activeSelf ? 0.3f : 1.0f;
         }
 
         var distance = Vector3.Distance(_point.position, _target.position);
@@ -143,7 +147,7 @@ public class UIController : MonoBehaviour
         if (status)
         {
             _pauseScreen.SetActive(true);
-            Time.timeScale = 0.5f;
+            Time.timeScale = 0.3f;
         }
         else
         {
