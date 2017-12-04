@@ -43,6 +43,7 @@ public class AQUAS_Buoyancy : Floating {
 
 
     public System.Action<Collision, FloatingController> OnCollisionEnterAction;
+    public bool IsUpdated = true;
 
     private void OnCollisionEnter(Collision other)
     {
@@ -70,6 +71,8 @@ public class AQUAS_Buoyancy : Floating {
     //Check if balance factor is zero and run AddForce Method on fixed time frame
     //</summary>
 	public virtual void FixedUpdate () {
+        if (!IsUpdated)
+            return;
 
             if (balanceFactor.x < 0.001f){balanceFactor.x = 0.001f;}
             if (balanceFactor.y < 0.001f){balanceFactor.y = 0.001f;}

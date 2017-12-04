@@ -301,6 +301,9 @@ public class Cat : MonoBehaviour
     private void UpdateVisuals()
     {
         _spriteRenderer.sprite = GetSprite();
+        if (_drowningCat.Model != null)
+            _drowningCat.Model.GetComponent<SimpleFloating>().enabled = _state is Drowning;
+
         _drowningCat.enabled = _state is Drowning;
     }
 
