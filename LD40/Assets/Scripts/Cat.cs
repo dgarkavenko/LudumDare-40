@@ -265,6 +265,13 @@ public class Cat : MonoBehaviour
                 _drowningCat.Model.GetComponent<SimpleFloating>().enabled = _state is Drowning;
 
             _drowningCat.enabled = _state is Drowning;
+
+            if (value is Walking) {
+                var localPos = transform.localPosition;
+                localPos.y = RaftSurfaceY;
+                transform.localPosition = localPos;
+            }
+
             UpdateVisuals();
         }
     }
