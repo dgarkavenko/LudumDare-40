@@ -53,10 +53,10 @@ public class MainApplication : MonoBehaviour
             _uiController.Won();
         }
 
-        if (_cats.Count <= 0)
-        {
-            _uiController.Lost();
-        }
+        //if (_cats.Count <= 0)
+        //{
+        //    _uiController.Lost();
+        //}
     }
 
     public void PickCat(Cat cat)
