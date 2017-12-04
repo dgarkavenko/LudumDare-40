@@ -59,7 +59,7 @@ public class Raft : FloatingController
 			
 		Model.SteeringDirection = new Vector3(_steer, 0, 0);
 
-		if (Vector3.Dot(Model.transform.up, Vector3.up) < 0)
+		if (Vector3.Dot(Model.transform.up, Vector3.up) < 0.1f)
 		{
 			LowerHealth(5);
 			foreach (var l in _logs)
