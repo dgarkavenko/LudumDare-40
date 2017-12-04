@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -8,8 +9,15 @@ public class Raft : FloatingController
 	[SerializeField] private RaftStick _raftStick;
 	[SerializeField] private Transform _stickPivot;
 	[SerializeField] private Transform _mastPivot;
-	[SerializeField] private Transform _parts;
 
+	
+	[SerializeField] private List<Transform> _frontParts;
+	[SerializeField] private List<Transform> _leftParts;
+	[SerializeField] private List<Transform> _rightParts;
+	[SerializeField] private Transform[] _logs;
+	
+	
+	
 	private float _health = 1000;
 
 	private float _steer;
@@ -55,30 +63,84 @@ public class Raft : FloatingController
 		_playerControl = value;
 	}
 
+
+	private float _accumulatedDamage;
+	
+	public void LowerHealth(float d, float cross = 0)
+	{
+		_health -= d;
+		_accumulatedDamage += d;
+		if (_accumulatedDamage > 15)
+		{
+			_accumulatedDamage = 0;
+			
+			var a = cross < -.2f ? _rightParts :
+				cross > .2f ? _leftParts : _frontParts;
+
+			var o = a[Random.Range(0, a.Count)];
+
+			a.Remove(o);
+			
+			o.parent = null;
+			o.gameObject.layer = LayerMask.NameToLayer("Хуйня");
+			o.gameObject.AddComponent<BoxCollider>();
+			o.gameObject.AddComponent<Rigidbody>().AddForce(Vector3.up * 50, ForceMode.Acceleration);
+
+			var b = o.gameObject.AddComponent<AQUAS_Buoyancy>();
+			b.waterDensity = 4;
+			b.waterLevel = 1;
+			b.StreamPower = 2;
+
+		}
+	}
+	
 	public override void OnCollisionEnterAction(Collision arg1, FloatingController arg2)
 	{
-		if (arg2 == null || arg2 is Obstacle)
+		
+		if (arg2 is DrowningCat)
 		{
-			_health -= arg1.impulse.magnitude / 10;
+			OnDrowningCatCollision?.Invoke(arg2.GetComponent<Cat>(), arg1.contacts[0].point);
+			return;
 		}
+		
+		if (arg1.impulse.magnitude < 10)
+			return;
 
+		
+		float damage = 0;
+		
 		if (arg2 == null)
 		{
-			Debug.Log("Collision with static: " + arg1.impulse.magnitude + " impulse");
+			damage = arg1.impulse.magnitude / 20f;
 		}
 		else if (arg2 is Obstacle)
 		{
-			Debug.Log("Collision with obstacle: " + arg1.impulse.magnitude + " impulse");
+			damage = arg1.impulse.magnitude / 2f;
+			arg2.Model.rb.AddForce(Vector3.down * Model.rb.mass / arg2.Model.rb.mass, ForceMode.Impulse);
+		}
+		
+		var impulse = arg1.impulse.normalized;
+		var f = new Vector3(transform.forward.x, 0, transform.forward.z);
+		var i = new Vector3(impulse.x, 0, impulse.z);
+		var cross = Vector3.Cross(f, i);
 
-			if (arg1.impulse.magnitude > 5)
+		if (Mathf.Abs(cross.y) > .4f)
+			damage *= .8f;
+		
+		Debug.Log("DAMAGE: " + damage);
+		
+		if (damage > 8)
+		{
+			foreach (var l in _logs)
 			{
-				arg2.Model.rb.AddForce(Vector3.down * Model.rb.mass / arg2.Model.rb.mass, ForceMode.Impulse);
+				var r = l.localRotation.eulerAngles + Random.insideUnitSphere * damage / 3;
+				r = Vector3.ClampMagnitude(r, 15);
+				l.localRotation = Quaternion.Euler(r);
 			}
 		}
-		else if (arg2 is DrowningCat)
-		{
-			OnDrowningCatCollision?.Invoke(arg2.GetComponent<Cat>(), arg1.contacts[0].point);
-		}
+		
+		LowerHealth(damage, cross.y);
+
 
 		/*var count = _parts.childCount;
 		var part = _parts.GetChild(Random.Range(0, count));

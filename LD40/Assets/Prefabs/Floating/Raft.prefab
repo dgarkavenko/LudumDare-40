@@ -357,7 +357,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4060376545939070}
   - component: {fileID: 114911846756157670}
-  - component: {fileID: 65637107959994824}
   m_Layer: 8
   m_Name: Raft
   m_TagString: Untagged
@@ -714,8 +713,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1555416455424204}
-  m_LocalRotation: {x: -0, y: 0.16223878, z: -0, w: 0.98675156}
-  m_LocalPosition: {x: 1.15, y: 0, z: 17.54}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4328109692630850}
@@ -744,7 +743,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1738127913823820}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalPosition: {x: 0.472, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 4878741929558546}
@@ -1235,7 +1234,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1459564737586634}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.471}
+  m_LocalPosition: {x: 0, y: 0, z: -0.405}
   m_LocalScale: {x: 1, y: 4, z: 0.010000001}
   m_Children: []
   m_Father: {fileID: 4878741929558546}
@@ -2396,18 +2395,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.35, y: 1.79, z: 1.52}
   m_Center: {x: 0, y: 0.63, z: 0}
---- !u!65 &65637107959994824
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1555416455424204}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65668622166695892
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2529,7 +2516,27 @@ MonoBehaviour:
   _raftStick: {fileID: 114809046789144752}
   _stickPivot: {fileID: 4064828137964386}
   _mastPivot: {fileID: 4444644987434700}
-  _parts: {fileID: 4576824560994728}
+  _frontParts:
+  - {fileID: 4602277492480718}
+  - {fileID: 4089812391253622}
+  _leftParts:
+  - {fileID: 4753209287813636}
+  - {fileID: 4286103807009442}
+  - {fileID: 4195946351227992}
+  - {fileID: 4622555689616330}
+  - {fileID: 4622555689616330}
+  _rightParts:
+  - {fileID: 4787258762860180}
+  - {fileID: 4856118488481212}
+  - {fileID: 4082206868426462}
+  - {fileID: 4843651691313984}
+  _logs:
+  - {fileID: 4834971017589340}
+  - {fileID: 4465571863609610}
+  - {fileID: 4882197725389898}
+  - {fileID: 4785404416996292}
+  - {fileID: 4374630585961032}
+  - {fileID: 4851871253951488}
   SteeringSpeed: 1
 --- !u!212 &212503307586312748
 SpriteRenderer:
