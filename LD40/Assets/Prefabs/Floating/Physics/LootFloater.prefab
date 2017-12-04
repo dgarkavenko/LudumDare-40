@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1262828688463778}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.316, y: 2.64, z: 8.55}
+  m_LocalPosition: {x: 0.316, y: 1, z: 8.55}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,7 +93,7 @@ Rigidbody:
   m_GameObject: {fileID: 1262828688463778}
   serializedVersion: 2
   m_Mass: 5
-  m_Drag: 0.2
+  m_Drag: 0.5
   m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -124,14 +124,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FloatDirection: {x: 0, y: 0, z: 1}
-  StreamDirection: {x: 0, y: 0, z: 1}
   SteeringDirection: {x: 0, y: 0, z: 0}
-  StreamPower: 2
+  StreamPower: 3
   SteerPower: 0
   StreamLerp: 10
   Torque: 600
+  MaxVelocity: 50
   waterLevel: 1
-  waterDensity: 5
+  waterDensity: 3
   useBalanceFactor: 1
   balanceFactor: {x: 0.1, y: 0.1, z: 0.1}
   dynamicSurface: 0.255
