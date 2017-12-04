@@ -256,7 +256,7 @@ public class Cat : MonoBehaviour
         get { return _state; }
         set
         {
-            Debug.Log($"{Name} -> {_state?.GetType().Name} to {value.GetType().Name}");
+            //Debug.Log($"{Name} -> {_state?.GetType().Name} to {value.GetType().Name}");
 
             _state = value;
             _rigidbody.isKinematic = !(value is Flying);
