@@ -1,10 +1,11 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.XR.WSA.WebCam;
 
 public class FloatingController : MonoBehaviour
 {
 	[SerializeField] private AQUAS_Buoyancy _modelPrefab;
-	[NonSerialized] public AQUAS_Buoyancy Model;
+	public AQUAS_Buoyancy Model;
 	public Vector3 Offset;
 
 	public virtual void Start()
@@ -20,6 +21,22 @@ public class FloatingController : MonoBehaviour
 	public virtual void OnCollisionEnterAction(Collision arg1, FloatingController arg2)
 	{
 
+	}
+
+	private void OnDisable()
+	{
+		if(Model != null)
+			Model.gameObject.SetActive(false);
+	}
+
+	private void OnEnable()
+	{
+		if (Model != null)
+		{
+			Model.transform.position = transform.position;
+			Model.transform.rotation = transform.rotation;
+			Model.gameObject.SetActive(true);
+		}
 	}
 
 	public virtual void LateUpdate()
