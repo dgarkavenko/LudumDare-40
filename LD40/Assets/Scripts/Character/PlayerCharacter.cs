@@ -94,12 +94,15 @@ public class PlayerCharacter : MonoBehaviour
             _onInteractionExit();
         }
 
-        foreach (var kitty in _cats)
+        foreach (var cat in _cats)
         {
-            if (Vector3.Distance(transform.position, kitty.transform.position) <= _pickUpDistance)
+            if (Vector3.Distance(transform.position, cat.transform.position) <= _pickUpDistance)
             {
-                SetSavedCat(kitty);
-                return;
+                if (cat.State is Cat.Fighting || cat.State is Cat.Hanging)
+                {
+                    SetSavedCat(cat);
+                    return;
+                }
             }
         }
 
@@ -107,7 +110,12 @@ public class PlayerCharacter : MonoBehaviour
 
         if (Vector3.Distance(transform.position, _stick.transform.position) <= _pickUpDistance)
         {
-            if (_interaction.Value != null) return;
+            if (_interaction.Value != null)
+            {
+                Debug.Log("It's null ept");
+
+                return;
+            }
 
             _onInteractionEnter();
 
@@ -140,7 +148,6 @@ public class PlayerCharacter : MonoBehaviour
     private void SetSavedCat(Cat cat)
     {
         if (_savedCat == cat) return;
-        if (!(cat.State is Cat.Fighting) && !(cat.State is Cat.Hanging)) return;
 
         _savedCat = cat;
 
