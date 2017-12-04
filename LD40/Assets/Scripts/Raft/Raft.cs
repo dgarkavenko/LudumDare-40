@@ -81,14 +81,12 @@ public class Raft : FloatingController
 		}
 		else if (arg2 is DrowningCat)
 		{
-            Debug.Log("DROWNING");
 			OnDrowningCatCollision?.Invoke(arg2.GetComponent<Cat>(), arg1.contacts[0].point);
 		}
 	}
 
     public void OnSimpleCollisionEnterAction(Collision arg0, SimpleFloating arg1, SimpleFloating arg2)
     {
-
         if (arg2 == null || arg2 is SimpleObstacleFloating)
         {
             _health -= arg0.impulse.magnitude / 10;

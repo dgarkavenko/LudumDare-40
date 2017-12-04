@@ -14,7 +14,7 @@ public class SimpleFloating : MonoBehaviour
     public virtual void OnCollisionEnter(Collision other)
     {
         var otherSimple = other.other.GetComponent<SimpleFloating>();
-
+        Debug.Log("COLLISION "  + gameObject.name + " with " + otherSimple.gameObject.name);
         if (OnCollisionEnterAction != null)
             OnCollisionEnterAction(other, this, otherSimple);
     }

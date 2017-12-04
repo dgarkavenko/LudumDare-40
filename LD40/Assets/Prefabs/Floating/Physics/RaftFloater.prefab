@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114777487319293738}
   - component: {fileID: 65147504618224702}
   - component: {fileID: 136090305121640668}
+  - component: {fileID: 114808637255495946}
   m_Layer: 21
   m_Name: RaftFloater
   m_TagString: Untagged
@@ -139,6 +140,23 @@ MonoBehaviour:
   bounceFrequency: 1.53
   debug: 0
   rb: {fileID: 0}
+--- !u!114 &114808637255495946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1262828688463778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8cca39f1012aa5459024f25bdccbe13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsActive: 0
+  Target: {fileID: 1262828688463778}
+  Power: 0
+  StreamLerp: 0
+  FloatDirection: {x: 0, y: 0, z: 0}
+  StreamDirection: {x: 0, y: 0, z: 0}
 --- !u!136 &136090305121640668
 CapsuleCollider:
   m_ObjectHideFlags: 1
