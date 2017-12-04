@@ -13,12 +13,22 @@ public class FightView : MonoBehaviour
 //        GUI.Label(new Rect(pos.x - 40f, Screen.height - pos.y - 50f, 200, 200), "  Fight:\n" + string.Join("\n", Fight.Participants.Select(x => x.Name)));
     }
 #endif
+
+    private void Update()
+    {
+//        Fight.Update();
+    }
 }
 
 public class Fight
 {
     public readonly List<Cat> Participants;
     private readonly FightView _fightView;
+
+    private float _startTime;
+    private float _lastCatapulting;
+
+    public const float CatapultingTime = 1f;
 
     public Fight(Cat firstCat, Cat secondCat)
     {
@@ -30,6 +40,9 @@ public class Fight
 
         _fightView = Object.Instantiate(Links.Instance.FightView, firstCat.transform.position, Quaternion.identity, firstCat._raft.parent);
         _fightView.Fight = this;
+
+        _startTime = Time.time;
+        _lastCatapulting = Time.time;
     }
 
     public void Join(Cat cat)
@@ -47,5 +60,24 @@ public class Fight
         Participants.Clear();
 
         Object.Destroy(_fightView.gameObject);
+    }
+
+    public void Update()
+    {
+        if (Time.time > _lastCatapulting + CatapultingTime)
+            CatapultCat();
+    }
+
+    private void CatapultCat()
+    {
+        _lastCatapulting = Time.time;
+
+        var cat = Participants[Random.Range(0, Participants.Count)];
+        Participants.Remove(cat);
+
+        ((Cat.Fighting)cat.State).Catapult();
+
+        if (Participants.Count <= 1)
+            Stop();
     }
 }

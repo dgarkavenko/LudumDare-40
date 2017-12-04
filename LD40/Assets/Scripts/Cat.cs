@@ -200,6 +200,12 @@ public class Cat : MonoBehaviour
             Cat.LastFightTime = Time.time;
             Cat._collider.enabled = true;
         }
+
+        public void Catapult()
+        {
+            Cat.State = new Flying(Cat);
+            Cat._collider.enabled = true;
+        }
     }
 
     public class Drowning : CatState
@@ -210,6 +216,27 @@ public class Cat : MonoBehaviour
         {
             Cat = cat;
 //            Cat._collider.enabled = false;
+        }
+    }
+
+    public class Flying : CatState
+    {
+        public readonly Cat Cat;
+
+        public Flying(Cat cat)
+        {
+            Cat = cat;
+            var rigidbody = cat.GetComponent<Rigidbody>();
+            rigidbody.isKinematic = false;
+            var force = new Vector3(0f, 300f, 100f * (UnityEngine.Random.Range(0, 2) - 1));
+            force = Cat.transform.TransformDirection(force);
+            rigidbody.AddForce(force);
+        }
+
+        public void OnDrawGizmos()
+        {
+            var rigidbody = Cat.GetComponent<Rigidbody>();
+            Gizmos.DrawLine(Cat.transform.position, Cat.transform.position + rigidbody.velocity * 10f);
         }
     }
 
@@ -258,6 +285,7 @@ public class Cat : MonoBehaviour
     private void OnDrawGizmos()
     {
         (_state as Walking)?.OnDrawGizmos();
+        (_state as Flying)?.OnDrawGizmos();
     }
 
     private void OnTriggerEnter(Collider other)

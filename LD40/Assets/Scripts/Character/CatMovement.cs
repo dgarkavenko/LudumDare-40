@@ -15,6 +15,8 @@ public class CatMovement : SixWayMovement
             return Links.Instance.CatDraggedSprite;
         if (state is Cat.Drowning)
             return _drowningSprite;
+        if (state is Cat.Flying)
+            return base.GetSprite(faceUp: false, x: -1f);
 
         return null;
     }
