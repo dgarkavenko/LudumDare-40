@@ -260,6 +260,10 @@ public class Cat : MonoBehaviour
 
             _state = value;
             _rigidbody.isKinematic = !(value is Flying);
+
+            if (_drowningCat.Model != null)
+                _drowningCat.Model.GetComponent<SimpleFloating>().enabled = _state is Drowning;
+
             _drowningCat.enabled = _state is Drowning;
             UpdateVisuals();
         }
