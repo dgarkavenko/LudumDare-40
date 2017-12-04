@@ -42,7 +42,18 @@ public class MainApplication : MonoBehaviour
         _uiController.Init(PlayerCharacter.PickUpPoint, _target);
         _stream.GenerateStreamZones();
         _stream.GenerateBanks();
+    }
 
+    private void Update()
+    {
+        var dist = Vector3.Distance(_target.transform.position, PlayerCharacter.transform.position);
+
+        Debug.Log("DIST: " + dist);
+
+        if (dist < 15)
+        {
+            _uiController.Won();
+        }
     }
 
     public void PickCat(Cat cat)

@@ -156,7 +156,7 @@ public class PlayerCharacter : MonoBehaviour
         }
         else
         {
-            _interaction = new KeyValuePair<float, Action>(.5f, cat.PickKitty);
+            _interaction = new KeyValuePair<float, Action>(.15f, cat.PickKitty);
         }
     }
 

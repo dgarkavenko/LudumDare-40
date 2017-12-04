@@ -17,6 +17,9 @@ public class UIController : MonoBehaviour
 
     [SerializeField] private CatUi _catUiTemplate;
 
+    [SerializeField] private GameObject _won;
+    [SerializeField] private GameObject _lost;
+
     private Transform _point;
     private Transform _target;
 
@@ -57,7 +60,26 @@ public class UIController : MonoBehaviour
 
         SetPauseStatus(false);
 
+        _won.SetActive(false);
+        _lost.SetActive(false);
+
         _interactionButton.Init(point);
+    }
+
+    public void Won()
+    {
+        _won.SetActive(true);
+        _lost.SetActive(false);
+
+        SetPauseStatus(true);
+    }
+
+    public void Lost()
+    {
+        _won.SetActive(false);
+        _lost.SetActive(true);
+
+        SetPauseStatus(true);
     }
 
     private void Update()
