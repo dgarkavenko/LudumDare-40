@@ -18,8 +18,10 @@ public class SteeringBuoy : AQUAS_Buoyancy {
 		
 		Debug.DrawRay(rb.transform.position, FloatDirection * StreamPower / 2, Color.yellow, Time.fixedDeltaTime);
 
+
+		var c = Mathf.Clamp(2 - transform.position.y, 0.1f, 1);
 		
-		var SumDirection = Quaternion.Euler(0, steer * SteerPower, 0) * FloatDirection * StreamPower;
+		var SumDirection = Quaternion.Euler(0, steer * SteerPower, 0) * FloatDirection * StreamPower * c;
 
 		Debug.DrawRay(rb.transform.position, SumDirection / 2, Color.red, Time.fixedDeltaTime);
 		

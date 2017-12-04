@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using NUnit.Framework.Interfaces;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class Raft : FloatingController
@@ -16,7 +20,7 @@ public class Raft : FloatingController
 	[SerializeField] private List<Transform> _rightParts;
 	[SerializeField] private Transform[] _logs;
 	
-	private float _health = 100;
+	private float _health = 70;
 
 	private float _steer;
 	public float SteeringSpeed = 1;
@@ -54,6 +58,19 @@ public class Raft : FloatingController
 
 			
 		Model.SteeringDirection = new Vector3(_steer, 0, 0);
+
+		if (Vector3.Dot(Model.transform.up, Vector3.down) > 0)
+		{
+			LowerHealth(5);
+			foreach (var l in _logs)
+			{
+				var r = l.localRotation.eulerAngles + Random.insideUnitSphere * 6;
+				r = Vector3.ClampMagnitude(r, 15);
+				l.localRotation = Quaternion.Euler(r);
+			}
+		}
+			
+		
 	}
 
 	public void SetControlStatus(bool value)
@@ -68,6 +85,7 @@ public class Raft : FloatingController
 	{
 		_health -= d;
 		_accumulatedDamage += d;
+		
 		if (_accumulatedDamage > 15)
 		{
 			_accumulatedDamage = 0;
@@ -82,22 +100,48 @@ public class Raft : FloatingController
 			var o = a[Random.Range(0, a.Count)];
 
 			a.Remove(o);
-			
-			o.parent = null;
-			o.gameObject.layer = LayerMask.NameToLayer("Хуйня");
-			o.gameObject.AddComponent<BoxCollider>();
-			var r = o.gameObject.AddComponent<Rigidbody>();
-			r.AddForce(Vector3.up * 50, ForceMode.Acceleration);
-			r.mass = 2;
-			r.drag = 0.3f;
+			UnAttach(o);
+		}
 
-			var b = o.gameObject.AddComponent<AQUAS_Buoyancy>();
-			b.waterDensity = 4;
-			b.waterLevel = 1;
-			b.StreamPower = 2;
-
+		if (_health < 0)
+		{
+			StartCoroutine(Drown());
+			foreach (var p in _leftParts.Concat(_frontParts.Concat(_rightParts)))
+			{
+				UnAttach(p);
+			}
 		}
 	}
+
+	public void UnAttach(Transform o)
+	{
+		o.parent = null;
+		o.gameObject.layer = LayerMask.NameToLayer("Хуйня");
+		o.gameObject.AddComponent<BoxCollider>();
+		var r = o.gameObject.AddComponent<Rigidbody>();
+		r.AddForce(Vector3.up * 50, ForceMode.Acceleration);
+		r.mass = 2;
+		r.drag = 0.3f;
+
+		var b = o.gameObject.AddComponent<AQUAS_Buoyancy>();
+		b.waterDensity = 4;
+		b.waterLevel = 1;
+		b.StreamPower = 2;
+	}
+
+	IEnumerator Drown()
+	{
+		var c = Camera.main.GetComponent<CameraController>();
+		c.enabled = false;
+		
+		while (Model.waterDensity > 0)
+		{
+			Model.waterDensity -= Time.deltaTime * 2;
+			yield return null;
+		}
+	}
+	
+	
 	
 	public override void OnCollisionEnterAction(Collision arg1, FloatingController arg2)
 	{
