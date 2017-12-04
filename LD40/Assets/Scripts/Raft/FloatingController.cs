@@ -27,7 +27,7 @@ public class FloatingController : MonoBehaviour
 		transform.SetPositionAndRotation(Model.transform.position + Model.transform.TransformDirection(Offset), Model.transform.rotation);
 	}
 
-	private void OnDestroy()
+	public virtual void OnDestroy()
 	{
 		if (Model != null) {
 			Model.OnCollisionEnterAction -= OnCollisionEnterAction;
