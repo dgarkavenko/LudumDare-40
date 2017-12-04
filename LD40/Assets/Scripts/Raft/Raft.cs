@@ -5,20 +5,18 @@ using Random = UnityEngine.Random;
 
 public class Raft : FloatingController
 {
+    [SerializeField] private MainApplication _main;
 	[SerializeField] private Transform _view;
 	[SerializeField] private RaftStick _raftStick;
 	[SerializeField] private Transform _stickPivot;
 	[SerializeField] private Transform _mastPivot;
-
 	
 	[SerializeField] private List<Transform> _frontParts;
 	[SerializeField] private List<Transform> _leftParts;
 	[SerializeField] private List<Transform> _rightParts;
 	[SerializeField] private Transform[] _logs;
 	
-	
-	
-	private float _health = 1000;
+	private float _health = 100;
 
 	private float _steer;
 	public float SteeringSpeed = 1;
@@ -127,7 +125,7 @@ public class Raft : FloatingController
 		if (Mathf.Abs(cross.y) > .4f)
 			damage *= .8f;
 		
-		Debug.Log("DAMAGE: " + damage);
+		Debug.Log("DAMAGE: " + damage + " health: " + _health);
 		
 		if (damage > 8)
 		{
@@ -141,6 +139,10 @@ public class Raft : FloatingController
 		
 		LowerHealth(damage, cross.y);
 
+	    if (_health <= 0)
+	    {
+	        _main._uiController.Lost();
+	    }
 
 		/*var count = _parts.childCount;
 		var part = _parts.GetChild(Random.Range(0, count));
