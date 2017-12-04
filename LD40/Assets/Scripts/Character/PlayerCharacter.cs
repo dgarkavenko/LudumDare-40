@@ -85,6 +85,7 @@ public class PlayerCharacter : MonoBehaviour
                 _onInteraction(_interaction.Key, () =>
                 {
                     _interaction.Value();
+                    _onInteractionExit();
                 });
             }
         }
