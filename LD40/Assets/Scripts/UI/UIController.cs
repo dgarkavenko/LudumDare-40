@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -27,6 +28,7 @@ public class UIController : MonoBehaviour
     private Transform _target;
 
     private float _startDistance;
+    private bool _end;
 
     private void Awake()
     {
@@ -74,22 +76,39 @@ public class UIController : MonoBehaviour
         _lost.SetActive(false);
 
         _interactionButton.Init(point);
+        _end = false;
     }
 
     public void Won()
     {
-        _won.SetActive(true);
-        _lost.SetActive(false);
+        if (!_end)
+        {
+            _end = true;
 
-        SetPauseStatus(true);
+            StartCoroutine(Co_Wait(() =>
+            {
+                _won.SetActive(true);
+                _lost.SetActive(false);
+
+                SetPauseStatus(true);
+            }));
+        }
     }
 
     public void Lost()
     {
-        _won.SetActive(false);
-        _lost.SetActive(true);
+        if (!_end)
+        {
+            _end = true;
 
-        SetPauseStatus(true);
+            StartCoroutine(Co_Wait(() =>
+            {
+                _won.SetActive(false);
+                _lost.SetActive(true);
+
+                SetPauseStatus(true);
+            }));
+        }
     }
 
     private void Update()
@@ -111,7 +130,7 @@ public class UIController : MonoBehaviour
 
             _helpScreen.SetActive(!_helpScreen.activeSelf);
 
-            Time.timeScale = _helpScreen.activeSelf ? 0.0f : 1.0f;
+            Time.timeScale = _helpScreen.activeSelf ? 0.5f : 1.0f;
         }
 
         var distance = Vector3.Distance(_point.position, _target.position);
@@ -124,7 +143,7 @@ public class UIController : MonoBehaviour
         if (status)
         {
             _pauseScreen.SetActive(true);
-            Time.timeScale = 0.0f;
+            Time.timeScale = 0.5f;
         }
         else
         {
@@ -158,5 +177,12 @@ public class UIController : MonoBehaviour
         var catUi = Instantiate(_catUiTemplate, transform);
         catUi.Cat = cat;
         catUi.gameObject.SetActive(true);
+    }
+
+    private IEnumerator Co_Wait(Action callback)
+    {
+        yield return new WaitForSeconds(2);
+
+        callback();
     }
 }
