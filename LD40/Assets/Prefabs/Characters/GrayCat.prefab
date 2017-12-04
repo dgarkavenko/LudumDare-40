@@ -253,6 +253,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 212522312046304670}
   _renderer: {fileID: 212522312046304670}
   _collider: {fileID: 136549566163957726}
+  _rigidbody: {fileID: 54976622083798920}
   _drowningCat: {fileID: 114171016409696100}
   MainApplication: {fileID: 0}
   Name: 
