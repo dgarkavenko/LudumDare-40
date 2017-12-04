@@ -12,6 +12,7 @@ public class Cat : MonoBehaviour
     [SerializeField] private Collider _collider;
 
     [SerializeField] private DrowningCat _drowningCat;
+    [SerializeField] private SimpleCatFloating _simpleCatFloating;
 
     public MainApplication MainApplication;
 
@@ -82,7 +83,7 @@ public class Cat : MonoBehaviour
 
             if (direction2D.z != 0)
                 Cat.FaceUp = direction2D.z > 0;
-
+            
             Cat.UpdateVisuals();
 
             var clampedDirection = Vector2.ClampMagnitude(new Vector2(direction2D.x, direction2D.z), Cat.MaxSpeed);
@@ -273,7 +274,8 @@ public class Cat : MonoBehaviour
     private void UpdateVisuals()
     {
         _spriteRenderer.sprite = GetSprite();
-        _drowningCat.enabled = _state is Drowning;
+        _simpleCatFloating.enabled = _state is Drowning;
+        //_drowningCat.enabled = _state is Drowning;
     }
 
     private Sprite GetSprite()

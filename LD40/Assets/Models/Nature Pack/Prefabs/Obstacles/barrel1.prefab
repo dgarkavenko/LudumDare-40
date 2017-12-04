@@ -125,6 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8cca39f1012aa5459024f25bdccbe13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsActive: 1
+  Target: {fileID: 1954663512724098}
   Power: 2
   StreamLerp: 4
   FloatDirection: {x: 0.5, y: 0, z: 0.5}

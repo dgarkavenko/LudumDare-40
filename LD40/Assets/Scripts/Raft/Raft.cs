@@ -7,6 +7,7 @@ public class Raft : FloatingController
 	[SerializeField] private RaftStick _raftStick;
 	[SerializeField] private Transform _stickPivot;
 	[SerializeField] private Transform _mastPivot;
+    private SimpleFloating _simpleFloating;
 
 	private float _health = 100;
 
@@ -19,7 +20,22 @@ public class Raft : FloatingController
 	public Action<Cat, Vector3> OnDrowningCatCollision;
 	private bool _playerControl;
 
-	public override void LateUpdate()
+    public override void Start()
+    {
+        base.Start();
+        _simpleFloating = Model.GetComponent<SimpleFloating>();
+        _simpleFloating.OnCollisionEnterAction += OnSimpleCollisionEnterAction;
+    }
+
+    public override void OnDestroy()
+    {
+        base.OnDestroy();
+
+        if (_simpleFloating != null)
+            _simpleFloating.OnCollisionEnterAction -= OnSimpleCollisionEnterAction;
+    }
+
+    public override void LateUpdate()
 	{
 		base.LateUpdate();
 
@@ -65,7 +81,34 @@ public class Raft : FloatingController
 		}
 		else if (arg2 is DrowningCat)
 		{
+            Debug.Log("DROWNING");
 			OnDrowningCatCollision?.Invoke(arg2.GetComponent<Cat>(), arg1.contacts[0].point);
 		}
 	}
+
+    public void OnSimpleCollisionEnterAction(Collision arg0, SimpleFloating arg1, SimpleFloating arg2)
+    {
+
+        if (arg2 == null || arg2 is SimpleObstacleFloating)
+        {
+            _health -= arg0.impulse.magnitude / 10;
+        }
+
+        if (arg2 == null)
+        {
+            Debug.Log("Collision with static: " + arg0.impulse.magnitude + " impulse");
+        }
+
+        else if (arg2 is SimpleObstacleFloating)
+        {
+            Debug.Log("Collision with obstacle: " + arg0.impulse.magnitude + " impulse");
+            
+        }
+        else if (arg2 is SimpleCatFloating)
+        {
+            var castedFloating = (SimpleCatFloating) arg2;
+            arg2.GetComponent<Collider>().enabled = false;
+            OnDrowningCatCollision?.Invoke(castedFloating.Cat, arg0.contacts[0].point);
+        }
+    }
 }
