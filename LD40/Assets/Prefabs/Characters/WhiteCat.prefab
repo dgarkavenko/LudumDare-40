@@ -185,7 +185,8 @@ MonoBehaviour:
   _downSprite: {fileID: 21300000, guid: 7a8f7123784cc8b498e7396e89550649, type: 3}
   _downLeftSprite: {fileID: 21300000, guid: 469b1796c8df326419ae3c2911b95286, type: 3}
   _downRightSprite: {fileID: 21300000, guid: fe5fa4917a3340041be85697e6a2e0a6, type: 3}
-  _hangingSprite: {fileID: 21300000, guid: 0b415af2be523c242ae97bb8eaae3649, type: 3}
+  _hangingUpSprite: {fileID: 21300000, guid: 2b30bd3d657ce024f929b4daa39843c4, type: 3}
+  _hangingDownSprite: {fileID: 21300000, guid: 0b415af2be523c242ae97bb8eaae3649, type: 3}
   _drowningSprite: {fileID: 21300000, guid: e429312e0578cdb49b5c51e3aa6db036, type: 3}
 --- !u!114 &114621328286480468
 MonoBehaviour:

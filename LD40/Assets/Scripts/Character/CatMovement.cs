@@ -2,7 +2,8 @@
 
 public class CatMovement : SixWayMovement
 {
-    [SerializeField] private Sprite _hangingSprite;
+    [SerializeField] private Sprite _hangingUpSprite;
+    [SerializeField] private Sprite _hangingDownSprite;
     [SerializeField] private Sprite _drowningSprite;
 
     public Sprite GetSprite(bool faceUp, float x, Cat.CatState state)
@@ -10,7 +11,7 @@ public class CatMovement : SixWayMovement
         if (state is Cat.Walking)
             return base.GetSprite(faceUp, x);
         if (state is Cat.Hanging)
-            return _hangingSprite;
+            return faceUp ? _hangingUpSprite : _hangingDownSprite;
         if (state is Cat.Fighting)
             return Links.Instance.CatDraggedSprite;
         if (state is Cat.Drowning)

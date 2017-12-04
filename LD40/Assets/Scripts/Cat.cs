@@ -30,8 +30,8 @@ public class Cat : MonoBehaviour
 
     public abstract class CatState { };
 
-    public bool FaceUp { get; set; }
-    public float X { get; set; }
+    public bool FaceUp;
+    public float X;
 
     public class Walking : CatState
     {
@@ -140,7 +140,7 @@ public class Cat : MonoBehaviour
             var edge = other.GetComponent<Edge>();
 
             if (edge != null) {
-                Cat.State = new Hanging();
+                Cat.State = new Hanging(Cat);
             } else {
                 var anotherCat = other.transform.parent?.GetComponent<Cat>();
 
@@ -176,9 +176,14 @@ public class Cat : MonoBehaviour
     {
         public readonly float StartTime;
 
-        public Hanging()
+        public Hanging(Cat cat)
         {
             StartTime = Time.time;
+            var directionToRaftCenter = cat.transform.localPosition;
+            var directionToCamera = cat.transform.position - Camera.main.transform.position;
+            var angle = Vector3.Angle(directionToRaftCenter, directionToCamera);
+            Debug.DrawLine(cat.transform.position + Vector3.up, Vector3.up, Color.red, 3f);
+            cat.FaceUp = angle > 90f;
         }
     }
 
