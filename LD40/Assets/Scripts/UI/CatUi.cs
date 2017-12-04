@@ -17,7 +17,7 @@ public class CatUi : MonoBehaviour
 
         if (hangingCat != null) {
             _hangingBar.fillAmount = 1f - Mathf.InverseLerp(hangingCat.StartTime, hangingCat.StartTime + Cat.HangingTime, Time.time);
-            _hangingBar.transform.parent.position = Camera.main.WorldToScreenPoint(Cat.transform.position) + new Vector3(20f, 100f);
+            _hangingBar.transform.parent.position = Camera.main.WorldToScreenPoint(Cat.transform.position) + new Vector3(0f, 100f);
             _hangingBar.color = Color.Lerp(_endingColor, _startingColor, _hangingBar.fillAmount);
         }
     }
