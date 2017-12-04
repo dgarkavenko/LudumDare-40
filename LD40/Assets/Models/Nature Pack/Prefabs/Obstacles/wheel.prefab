@@ -21,7 +21,10 @@ GameObject:
   - component: {fileID: 4726629121437964}
   - component: {fileID: 33730120782506784}
   - component: {fileID: 23708750058660012}
-  m_Layer: 0
+  - component: {fileID: 54875796267690624}
+  - component: {fileID: 64519972709750990}
+  - component: {fileID: 114212488904845824}
+  m_Layer: 20
   m_Name: wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,8 +37,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1316245956761446}
-  m_LocalRotation: {x: -0.7071068, y: 0.000000061860504, z: 0.000000061860504, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 23.75, y: 0, z: 9.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 61c419d19b1918d43ab65b542a6894ac, type: 2}
+  - {fileID: 2100000, guid: 0596a17515e313a4ebbd22f61a410ef3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,3 +85,47 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1316245956761446}
   m_Mesh: {fileID: 4300000, guid: 62649135edbfa664f80fbe3c8fd37bec, type: 3}
+--- !u!54 &54875796267690624
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1316245956761446}
+  serializedVersion: 2
+  m_Mass: 5
+  m_Drag: 0.6
+  m_AngularDrag: 0.5
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 4
+  m_CollisionDetection: 0
+--- !u!64 &64519972709750990
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1316245956761446}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 62649135edbfa664f80fbe3c8fd37bec, type: 3}
+--- !u!114 &114212488904845824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1316245956761446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8cca39f1012aa5459024f25bdccbe13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Power: 1
+  StreamLerp: 4
+  FloatDirection: {x: 0.5, y: 0, z: 0.5}
+  StreamDirection: {x: 0, y: 0, z: 0}
