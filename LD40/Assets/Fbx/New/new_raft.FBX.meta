@@ -1,0 +1,227 @@
+fileFormatVersion: 2
+guid: bc9464daca232d748aa9ac274a66f631
+timeCreated: 1512407389
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: barrel1
+    100002: barrel2
+    100004: barrel3
+    100006: barrel4
+    100008: barrel5
+    100010: barrel6
+    100012: barrel7
+    100014: barrel8
+    100016: board1
+    100018: board2
+    100020: helm
+    100022: log1
+    100024: log2
+    100026: log3
+    100028: log4
+    100030: log5
+    100032: log6
+    100034: mast
+    100036: //RootNode
+    100038: plywood
+    100040: rope
+    100042: sail
+    100044: tape1
+    100046: tape2
+    100048: tape3
+    100050: wheel1
+    100052: wheel2
+    100054: wheel3
+    400000: barrel1
+    400002: barrel2
+    400004: barrel3
+    400006: barrel4
+    400008: barrel5
+    400010: barrel6
+    400012: barrel7
+    400014: barrel8
+    400016: board1
+    400018: board2
+    400020: helm
+    400022: log1
+    400024: log2
+    400026: log3
+    400028: log4
+    400030: log5
+    400032: log6
+    400034: mast
+    400036: //RootNode
+    400038: plywood
+    400040: rope
+    400042: sail
+    400044: tape1
+    400046: tape2
+    400048: tape3
+    400050: wheel1
+    400052: wheel2
+    400054: wheel3
+    2300000: barrel1
+    2300002: barrel2
+    2300004: barrel3
+    2300006: barrel4
+    2300008: barrel5
+    2300010: barrel6
+    2300012: barrel7
+    2300014: barrel8
+    2300016: board1
+    2300018: board2
+    2300020: helm
+    2300022: log1
+    2300024: log2
+    2300026: log3
+    2300028: log4
+    2300030: log5
+    2300032: log6
+    2300034: mast
+    2300036: plywood
+    2300038: rope
+    2300040: sail
+    2300042: tape1
+    2300044: tape2
+    2300046: tape3
+    2300048: wheel1
+    2300050: wheel2
+    2300052: wheel3
+    3300000: barrel1
+    3300002: barrel2
+    3300004: barrel3
+    3300006: barrel4
+    3300008: barrel5
+    3300010: barrel6
+    3300012: barrel7
+    3300014: barrel8
+    3300016: board1
+    3300018: board2
+    3300020: helm
+    3300022: log1
+    3300024: log2
+    3300026: log3
+    3300028: log4
+    3300030: log5
+    3300032: log6
+    3300034: mast
+    3300036: plywood
+    3300038: rope
+    3300040: sail
+    3300042: tape1
+    3300044: tape2
+    3300046: tape3
+    3300048: wheel1
+    3300050: wheel2
+    3300052: wheel3
+    4300000: sail
+    4300002: rope
+    4300004: helm
+    4300006: mast
+    4300008: log5
+    4300010: log4
+    4300012: log3
+    4300014: barrel2
+    4300016: barrel3
+    4300018: barrel4
+    4300020: log2
+    4300022: barrel6
+    4300024: barrel7
+    4300026: barrel8
+    4300028: wheel1
+    4300030: log1
+    4300032: wheel3
+    4300034: tape1
+    4300036: tape2
+    4300038: tape3
+    4300040: plywood
+    4300042: barrel1
+    4300044: log6
+    4300046: barrel5
+    4300048: wheel2
+    4300050: board1
+    4300052: board2
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 22 - Default
+    second: {fileID: 2100000, guid: 20f31787ea1d858459d8021328aefa1e, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
