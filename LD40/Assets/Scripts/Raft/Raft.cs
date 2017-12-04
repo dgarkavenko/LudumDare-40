@@ -75,6 +75,10 @@ public class Raft : FloatingController
 			var a = cross < -.2f ? _rightParts :
 				cross > .2f ? _leftParts : _frontParts;
 
+			
+			if(a.Count < 1)
+				return;
+			
 			var o = a[Random.Range(0, a.Count)];
 
 			a.Remove(o);
