@@ -6,24 +6,29 @@ public class CatSoundPlayer : MonoBehaviour
     [Range(0, 1)] public float Volume = 0.5f; 
     public AudioClip[] CatSounds;
     private AudioSource _audioSource;
-    
 
+    public float MinDelta = 5;
+    public float MaxDelta = 20;
+
+    private float _currentDelta = 0;
+    private float _lastTime = 0;
+    
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
-        CatSoundEventSender.PlayCatSound += PlayCatSound;
+        _currentDelta = Random.Range(MinDelta, MaxDelta);
     }
 
-    private void PlayCatSound()
+    private void Update()
     {
-       _audioSource.PlayOneShot(CatSounds[GetCatSoundNumber()], Volume);
+        if (Time.time - _lastTime > _currentDelta)
+        {
+            _audioSource.PlayOneShot(CatSounds[GetCatSoundNumber()], Volume);
+            _lastTime = Time.time;
+            _currentDelta = Random.Range(MinDelta, MaxDelta);
+        }
     }
-
-    private void OnDestroy()
-    {
-        CatSoundEventSender.PlayCatSound -= PlayCatSound;
-    }
-
+    
     private int GetCatSoundNumber()
     {
         int soundNumber = Random.Range(0, CatSounds.Length);

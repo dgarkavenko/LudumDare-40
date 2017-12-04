@@ -4,9 +4,9 @@ using Random = UnityEngine.Random;
 
 public class CatSoundEventSender : MonoBehaviour
 {
-    public float MinDelta = 7;
-    public float MaxDelta = 10;
-
+    public float FirstMinDelta = 5;
+    public float FirstMaxDelta = 20;
+  
     private float _currentDelta = 0;
     private float _lastTime = 0;
 
@@ -14,11 +14,12 @@ public class CatSoundEventSender : MonoBehaviour
 
     private void Start()
     {
-        _currentDelta = Random.Range(MinDelta, MaxDelta);
+        _currentDelta = Random.Range(FirstMinDelta, FirstMaxDelta);
     }
 
     private void Update()
     {
+        /*
         if (Time.time - _lastTime > _currentDelta)
         {
             if(PlayCatSound != null)
@@ -26,6 +27,7 @@ public class CatSoundEventSender : MonoBehaviour
 
             _lastTime = Time.time;
             _currentDelta = Random.Range(MinDelta, MaxDelta);
-        }
+            Debug.Log(gameObject.name);
+        }*/
     }
 }

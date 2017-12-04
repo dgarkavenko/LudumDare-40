@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61a2f268237557f46b69f938e5f13de7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Volume: 0.2
+  Volume: 0.1
   CatSounds:
   - {fileID: 8300000, guid: e231c892d26903e41be8de20a9831085, type: 3}
   - {fileID: 8300000, guid: 41363cb8c13d8ea4ba9deacb3f3dfcf1, type: 3}
@@ -363,6 +363,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f98fa0b9755026c4faa91512bf80bb41, type: 3}
   - {fileID: 8300000, guid: 832948974a4958544ae1db5996043796, type: 3}
   - {fileID: 8300000, guid: 8949bdd489472274aa8731220d4a2d01, type: 3}
+  MinDelta: 3
+  MaxDelta: 10
 --- !u!114 &114066057110556906
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -67,7 +67,7 @@ public class MusicManager : MonoBehaviour
             number = _currentTrack;
         }
         _currentTrack++;
-        Debug.Log(number);
+
         return number;
     }
 }
