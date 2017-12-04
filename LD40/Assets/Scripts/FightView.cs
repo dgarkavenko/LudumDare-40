@@ -28,7 +28,7 @@ public class Fight
     private float _startTime;
     private float _lastCatapulting;
 
-    public const float CatapultingTime = 1f;
+    public const float CatapultingTime = 5f;
 
     public Fight(Cat firstCat, Cat secondCat)
     {
