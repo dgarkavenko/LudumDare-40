@@ -106,7 +106,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  exposureAdjustment: 2.35
+  exposureAdjustment: 2.5
   middleGrey: 2
   white: 2
   adaptionSpeed: 3
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
   SteeringCamera:
-    Distance: 70
+    Distance: 55
     SideShift: -55
     Angle: 26
     CameraPosSmoothTime: 3

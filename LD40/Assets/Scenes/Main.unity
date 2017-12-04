@@ -963,11 +963,6 @@ Prefab:
       propertyPath: _target
       value: 
       objectReference: {fileID: 610484573}
-    - target: {fileID: 114678485994132586, guid: 3877f01277354f1459b735b1f4b699ea,
-        type: 2}
-      propertyPath: SteeringCamera.Distance
-      value: 55
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3877f01277354f1459b735b1f4b699ea, type: 2}
   m_IsPrefabParent: 0
@@ -1272,7 +1267,7 @@ Prefab:
     - target: {fileID: 224751167749074356, guid: 3093bd3fcb517d14087360ade90d6369,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3093bd3fcb517d14087360ade90d6369, type: 2}
