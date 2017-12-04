@@ -10,6 +10,7 @@ public class Cat : MonoBehaviour
 
     [SerializeField] private Renderer _renderer;
     [SerializeField] private Collider _collider;
+    [SerializeField] private Rigidbody _rigidbody;
 
     [SerializeField] private DrowningCat _drowningCat;
 
@@ -88,15 +89,15 @@ public class Cat : MonoBehaviour
             var clampedDirection = Vector2.ClampMagnitude(new Vector2(direction2D.x, direction2D.z), Cat.MaxSpeed);
             var direction3D = new Vector3(clampedDirection.x, -1, clampedDirection.y);
 
-            RaycastHit hit;
-            if (Physics.Raycast(Cat.transform.position, Vector3.down, out hit, LayerMask.GetMask("Raft"))) {
-                var hitNormal = hit.normal;
+            //RaycastHit hit;
+            //if (Physics.Raycast(Cat.transform.position, Vector3.down, out hit, LayerMask.GetMask("Raft"))) {
+            //    var hitNormal = hit.normal;
 
-                if (Vector3.Angle(Vector3.up, hitNormal) <= Cat.SlopeLimit) {
-                    direction3D.x += (1f - hitNormal.y) * hitNormal.x * (1f - Cat.SlideFriction);
-                    direction3D.z += (1f - hitNormal.y) * hitNormal.z * (1f - Cat.SlideFriction);
-                }
-            }
+            //    if (Vector3.Angle(Vector3.up, hitNormal) <= Cat.SlopeLimit) {
+            //        direction3D.x += (1f - hitNormal.y) * hitNormal.x * (1f - Cat.SlideFriction);
+            //        direction3D.z += (1f - hitNormal.y) * hitNormal.z * (1f - Cat.SlideFriction);
+            //    }
+            //}
 
             Cat._characterController.Move(direction3D * Time.deltaTime * 35f);
 
@@ -143,7 +144,7 @@ public class Cat : MonoBehaviour
             } else {
                 var anotherCat = other.transform.parent?.GetComponent<Cat>();
 
-                if (anotherCat != null && anotherCat._state is Walking) {
+                if (anotherCat?._state is Walking) {
                     PossibleAttackTarget = new AttackTarget(Cat, anotherCat);
                 }
 
@@ -157,7 +158,7 @@ public class Cat : MonoBehaviour
 
         public void OnTriggerExit(Collider other)
         {
-            var anotherCat = other.transform.parent == null ? null : other.transform.parent.GetComponent<Cat>();
+            var anotherCat = other.transform.parent?.GetComponent<Cat>();
 
             if (anotherCat != null) {
                 PossibleAttackTarget = null;
@@ -215,28 +216,37 @@ public class Cat : MonoBehaviour
         public Drowning(Cat cat)
         {
             Cat = cat;
-//            Cat._collider.enabled = false;
         }
     }
 
     public class Flying : CatState
     {
         public readonly Cat Cat;
+        private readonly float _startTime;
 
         public Flying(Cat cat)
         {
             Cat = cat;
-            var rigidbody = cat.GetComponent<Rigidbody>();
-            rigidbody.isKinematic = false;
+            _startTime = Time.time;
+            Cat._rigidbody.isKinematic = false;
             var force = new Vector3(0f, 300f, 100f * (UnityEngine.Random.Range(0, 2) - 1));
             force = Cat.transform.TransformDirection(force);
-            rigidbody.AddForce(force);
+            Cat._rigidbody.AddForce(force);
         }
 
         public void OnDrawGizmos()
         {
             var rigidbody = Cat.GetComponent<Rigidbody>();
             Gizmos.DrawLine(Cat.transform.position, Cat.transform.position + rigidbody.velocity * 10f);
+        }
+
+        public void OnTriggerEnter(Collider other)
+        {
+            if ((Time.time - _startTime > 0.5f) && other.gameObject.layer == LayerMask.NameToLayer("Raft")) {
+                Cat.State = new Walking(Cat);
+                Cat.transform.parent = Cat._raft.parent;
+                Cat.MainApplication.PickCat(Cat);
+            }
         }
     }
 
@@ -246,7 +256,11 @@ public class Cat : MonoBehaviour
         get { return _state; }
         set
         {
+            Debug.Log($"{Name} -> {_state?.GetType().Name} to {value.GetType().Name}");
+
             _state = value;
+            _rigidbody.isKinematic = !(value is Flying);
+            _drowningCat.enabled = _state is Drowning;
             UpdateVisuals();
         }
     }
@@ -272,13 +286,23 @@ public class Cat : MonoBehaviour
             transform.SetParent(_raft.parent.parent);
             MainApplication.LoseCat(this);
         }
+
+        var flying = _state as Flying;
+
+        if (flying != null) {
+            if (transform.position.y <= Stream.WATER_LEVEL) {
+                State = new Drowning(this);
+                transform.SetParent(_raft.parent.parent);
+                MainApplication.LoseCat(this);
+            }
+        }
     }
 
 #if UNITY_EDITOR
     private void OnGUI()
     {
-//        var pos = Camera.main.WorldToScreenPoint(transform.position);
-//        GUI.Label(new Rect(pos.x - 40f, Screen.height - pos.y - 50f, 200, 200), $"  {Name} -- {_state.GetType().Name}");
+        //var pos = Camera.main.WorldToScreenPoint(transform.position);
+        //GUI.Label(new Rect(pos.x - 40f, Screen.height - pos.y - 50f, 200, 200), $"  {Name} -- {_state.GetType().Name}");
     }
 #endif
 
@@ -291,6 +315,7 @@ public class Cat : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         (_state as Walking)?.OnTriggerEnter(other);
+        (_state as Flying)?.OnTriggerEnter(other);
     }
 
     private void OnTriggerExit(Collider other)
@@ -301,7 +326,6 @@ public class Cat : MonoBehaviour
     private void UpdateVisuals()
     {
         _spriteRenderer.sprite = GetSprite();
-        _drowningCat.enabled = _state is Drowning;
     }
 
     private Sprite GetSprite()

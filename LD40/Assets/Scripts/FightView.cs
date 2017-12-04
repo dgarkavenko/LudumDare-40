@@ -16,7 +16,7 @@ public class FightView : MonoBehaviour
 
     private void Update()
     {
-//        Fight.Update();
+        Fight.Update();
     }
 }
 
