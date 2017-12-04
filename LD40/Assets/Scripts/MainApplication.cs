@@ -20,9 +20,9 @@ public class MainApplication : MonoBehaviour
         Application.targetFrameRate = 50;
 
         PlayerCharacter = Instantiate(_playerCharacter, _raft.transform);
-        PlayerCharacter.Init(_raft.RaftStick, _raft.ViewTransform.localScale.x / 2, _raft.ViewTransform .localScale.z / 2, () =>
+        PlayerCharacter.Init(_raft.RaftStick, _raft.ViewTransform.localScale.x / 2, _raft.ViewTransform .localScale.z / 2, arg =>
             {
-                _uiController.ShowInteractionButton();
+                _uiController.ShowInteractionButton(arg);
             },
             () =>
             {

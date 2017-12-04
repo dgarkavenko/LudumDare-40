@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class InteractionButton : MonoBehaviour
 {
+    [SerializeField] private Text _label;
     [SerializeField] private GameObject _view;
     [SerializeField] private Image _filler;
 
@@ -73,8 +74,10 @@ public class InteractionButton : MonoBehaviour
         _view.transform.localScale = Vector3.one;
     }
 
-    public void Show()
+    public void Show(string text)
     {
+        _label.text = text;
+
         StartCoroutine(Co_Show());
     }
 

@@ -143,9 +143,9 @@ public class UIController : MonoBehaviour
         _interactionButton.StartInteraction(time, callback);
     }
 
-    public void ShowInteractionButton()
+    public void ShowInteractionButton(string text)
     {
-        _interactionButton.Show();
+        _interactionButton.Show(text);
     }
 
     public void HideInteractionButton()

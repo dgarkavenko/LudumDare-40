@@ -18,7 +18,7 @@ public class PlayerCharacter : MonoBehaviour
     public Transform PickUpPoint => _pickUp;
     private RaftStick _stick;
 
-    private Action _onInteractionEnter;
+    private Action<string> _onInteractionEnter;
     private Action _onInteractionExit;
 
     private Action<float, Action> _onInteraction;
@@ -30,7 +30,7 @@ public class PlayerCharacter : MonoBehaviour
     private bool _facedUp;
     private bool _controlRaft;
 
-    public void Init(RaftStick stick, float xScale, float zScale, Action onInteractionEnter, Action onInteractionExit, Action<float, Action> onInteraction, Action<bool> raftControl)
+    public void Init(RaftStick stick, float xScale, float zScale, Action<string> onInteractionEnter, Action onInteractionExit, Action<float, Action> onInteraction, Action<bool> raftControl)
     {
         _stick = stick;
 
@@ -114,7 +114,7 @@ public class PlayerCharacter : MonoBehaviour
                 return;
             }
 
-            _onInteractionEnter();
+            _onInteractionEnter(_controlRaft ? "leave" : "raft");
 
             if (!_controlRaft)
             {
@@ -148,12 +148,11 @@ public class PlayerCharacter : MonoBehaviour
 
         _savedCat = cat;
 
-        _onInteractionEnter();
-
         var fight = (cat.State as Cat.Fighting)?.Fight;
 
         if (fight != null)
         {
+            _onInteractionEnter("break");
             _interaction = new KeyValuePair<float, Action>(0.8f, () =>
             {
                 fight.Stop();
@@ -161,6 +160,7 @@ public class PlayerCharacter : MonoBehaviour
         }
         else
         {
+            _onInteractionEnter("lift");
             _interaction = new KeyValuePair<float, Action>(.15f, cat.PickKitty);
         }
     }
