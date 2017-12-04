@@ -105,9 +105,9 @@ MonoBehaviour:
   Splines:
   - Spline: {fileID: 114980572820708536}
     Step: 0.05
-  - Spline: {fileID: 0}
+  - Spline: {fileID: 114398884374582166}
     Step: 0.05
-  - Spline: {fileID: 0}
+  - Spline: {fileID: 114251287449179202}
     Step: 0.05
   Step: 0.05
   StreamZone: {fileID: 1832847021166264, guid: d4aa38524ef76914084843e8c878e7ed, type: 2}
