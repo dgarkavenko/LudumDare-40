@@ -46,7 +46,6 @@ public class AQUAS_Buoyancy : Floating {
 
     private void OnCollisionEnter(Collision other)
     {
-
         var floating = other.gameObject.GetComponent<Floating>();
 
         if (OnCollisionEnterAction != null)
@@ -77,6 +76,9 @@ public class AQUAS_Buoyancy : Floating {
             if (balanceFactor.z < 0.001f){balanceFactor.z = 0.001f;}
 
         AddForce();
+	    
+	    var SumDirection = FloatDirection * StreamPower;
+	    rb.AddForce(SumDirection);
 	}
 
     private float _steer;
@@ -96,10 +98,7 @@ public class AQUAS_Buoyancy : Floating {
         regWaterDensity = waterDensity;
         maxWaterDensity = regWaterDensity + regWaterDensity * 0.5f * dynamicSurface;
         effWaterDensity = ((maxWaterDensity - regWaterDensity) / 2) + regWaterDensity + Mathf.Sin(Time.time * bounceFrequency) * (maxWaterDensity - regWaterDensity) / 2;
-
-        var SumDirection = FloatDirection * StreamPower;
-        rb.AddForce(SumDirection);
-
+        
     }
 
     //<summary>

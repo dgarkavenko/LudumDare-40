@@ -6,6 +6,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 	[SerializeField] private Transform _target;
+	private Raft _raft;
 
 	[Serializable]
 	public class CamerSetting
@@ -22,11 +23,16 @@ public class CameraController : MonoBehaviour
 	public void Init()
 	{
 		SetSettings(CloseupCamera, 2);
+		_raft = _target.gameObject.GetComponent<Raft>();
+		_mag = SteeringCamera.CameraPrediction.magnitude;
 	}
 
+	private float _mag = 1;
+	
 	private void FixedUpdate ()
 	{
-
+		
+		//SteeringCamera.CameraPrediction = _target.TransformDirection(_raft.Model.StreamDirection).normalized * _mag;
 		SteeringMode();
 
 
@@ -100,8 +106,13 @@ public class CameraController : MonoBehaviour
 
 	private void SteeringMode()
 	{
-
 		var backwards = new Vector3(-_target.forward.x, 0, -_target.forward.z).normalized;
+
+		backwards = Vector3.Lerp(backwards, new Vector3(-1,0,-1).normalized, 0.8f);
+		
+		//var backwards = new Vector3(0, 0, -1);
+		
+		
 		var crossBackwards = new Vector3(backwards.z, 0, -backwards.x);
 
 		var horizontal = backwards * Mathf.Cos(Angle * Mathf.Deg2Rad) * Distance;
@@ -111,8 +122,9 @@ public class CameraController : MonoBehaviour
 
 		//transform.position = Vector3.SmoothDamp(transform.position, t, ref _velocity, CameraPosSmoothTime);
 
+		
 		transform.position = Vector3.Lerp(transform.position, t, Time.deltaTime * CameraPosSmoothTime);
-		_lookTarget = Vector3.Lerp(_lookTarget, _target.position + _target.TransformDirection(CameraPrediction),
+		_lookTarget = Vector3.Lerp(_lookTarget, _target.position + _raft.Model.FloatDirection * CameraPrediction.magnitude,
 			Time.deltaTime * CameraRotSmoothTime);
 
 		transform.LookAt(_lookTarget);

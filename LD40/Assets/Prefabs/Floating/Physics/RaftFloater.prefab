@@ -93,8 +93,8 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1262828688463778}
   serializedVersion: 2
-  m_Mass: 80
-  m_Drag: 0.2
+  m_Mass: 60
+  m_Drag: 0.1
   m_AngularDrag: 0.2
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -125,14 +125,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FloatDirection: {x: 0, y: 0, z: 1}
-  StreamDirection: {x: 0, y: 0, z: 1}
   SteeringDirection: {x: 0, y: 0, z: 0}
-  StreamPower: 40
-  SteerPower: 18
-  StreamLerp: 100
+  StreamPower: 101.05
+  SteerPower: 70
+  StreamLerp: 4
   Torque: 600
+  MaxVelocity: 10
   waterLevel: 1
-  waterDensity: 5
+  waterDensity: 6
   useBalanceFactor: 0
   balanceFactor: {x: 0.1, y: 0.1, z: 0.1}
   dynamicSurface: 0.255

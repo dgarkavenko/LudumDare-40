@@ -35,7 +35,7 @@ public class Raft : FloatingController
 		_stickPivot.transform.localRotation = Quaternion.Euler(0, 0, Mathf.Clamp(_steer + transform.rotation.y * 100, -30, 50));
 		_mastPivot.transform.localRotation = Quaternion.Euler(0, 0, -Mathf.Clamp(_steer + transform.rotation.y * 100, -30, 50));
 
-		Model.SteeringDirection = transform.TransformDirection(new Vector3(_steer, 0, 0));
+		Model.SteeringDirection = new Vector3(_steer, 0, 0);
 	}
 
 	public void SetControlStatus(bool value)

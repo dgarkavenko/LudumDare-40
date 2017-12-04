@@ -7,7 +7,18 @@ using Random = UnityEngine.Random;
 
 public class Stream : MonoBehaviour
 {
-    public BezierSpline spline;
+    [Serializable]
+    public class RiverSpline
+    {
+        public BezierSpline Spline;
+        public float Step;
+
+    }
+    
+    
+    
+    public RiverSpline[] Splines;
+
     public float Step = .05f;
     public GameObject StreamZone;
 
@@ -35,7 +46,7 @@ public class Stream : MonoBehaviour
     public void GenerateBanks()
     {
         
-        GameObject islands = new GameObject("islands");
+        /* islands = new GameObject("islands");
         islands.transform.parent = transform;
 
         var bankIndex = 0;
@@ -68,7 +79,7 @@ public class Stream : MonoBehaviour
             
             
             i += RandomFromV2(MinMaxIslandStepPerSpline);
-        }
+        }*/
     }
 
     public float RandomFromV2(Vector2 v)
@@ -83,23 +94,26 @@ public class Stream : MonoBehaviour
 
         GameObject zones = new GameObject("zones");
         zones.transform.parent = transform;
-        
-        for (float i = 0.001f; i <= 1; i+= Step)
+
+        foreach (var splineData in Splines)
         {
-            var go = GameObject.Instantiate(StreamZone);
-            go.transform.position = spline.GetPoint(i);
+            for (float i = 0.001f; i <= 1; i+= splineData.Step)
+            {
+                var go = GameObject.Instantiate(StreamZone);
+                go.transform.position = splineData.Spline.GetPoint(i);
 
-            //go.transform.position = spline.GetDirection(i);
+                //go.transform.position = spline.GetDirection(i);
 
-            Vector3 direction = spline.GetDirection(i);
+                Vector3 direction = splineData.Spline.GetDirection(i);
 
-            direction.y = 0;
+                direction.y = 0;
 
-            go.transform.forward = spline.GetDirection(i);
-            go.transform.parent = zones.transform;
+                go.transform.forward = splineData.Spline.GetDirection(i);
+                go.transform.parent = zones.transform;
 
-            var stream = go.GetComponent<StreamZone>();
-            stream.Direction = new Vector3(direction.x, 0, direction.z);
+                var stream = go.GetComponent<StreamZone>();
+                stream.Direction = new Vector3(direction.x, 0, direction.z);
+            }
         }
         //Curve
     }
