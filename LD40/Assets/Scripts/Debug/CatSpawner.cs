@@ -40,7 +40,7 @@ public class CatSpawner : MonoBehaviour
 	{
 		Shuffle(_catNames);
 
-		for (var i = 0; i < 3; i++) {
+		for (var i = 0; i < 5; i++) {
 			var position = Random.insideUnitCircle * 2f;
 			SpawnCat(new Vector3(position.x, Cat.RaftSurfaceY, position.y));
 		}

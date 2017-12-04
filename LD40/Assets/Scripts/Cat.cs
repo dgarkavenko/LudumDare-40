@@ -21,7 +21,7 @@ public class Cat : MonoBehaviour
     public float SlideFriction = 0.3f;
 
     public const float RaftSurfaceY = 0.58f;
-    public const float HangingTime = 4f;
+    public const float HangingTime = 10f;
 
     public float MaxSpeed = 0.01f;
 
