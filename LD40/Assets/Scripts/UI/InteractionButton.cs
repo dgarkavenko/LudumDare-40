@@ -19,7 +19,7 @@ public class InteractionButton : MonoBehaviour
         _filler.fillAmount = 0;
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         if (_point == null) return;
 

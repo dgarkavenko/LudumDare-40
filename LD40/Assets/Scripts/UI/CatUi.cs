@@ -9,7 +9,7 @@ public class CatUi : MonoBehaviour
     [SerializeField] private Color _startingColor;
     [SerializeField] private Color _endingColor;
 
-    private void Update()
+    private void LateUpdate()
     {
         var hangingCat = Cat.State as Cat.Hanging;
 
