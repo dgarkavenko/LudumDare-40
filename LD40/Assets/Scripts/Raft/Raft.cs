@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Raft : FloatingController
 {
@@ -7,8 +8,9 @@ public class Raft : FloatingController
 	[SerializeField] private RaftStick _raftStick;
 	[SerializeField] private Transform _stickPivot;
 	[SerializeField] private Transform _mastPivot;
+	[SerializeField] private Transform _parts;
 
-	private float _health = 100;
+	private float _health = 1000;
 
 	private float _steer;
 	public float SteeringSpeed = 1;
@@ -33,8 +35,18 @@ public class Raft : FloatingController
 		_steer = Mathf.Lerp(_steer, steer, Time.deltaTime * SteeringSpeed);
 
 		_stickPivot.transform.localRotation = Quaternion.Euler(0, 0, Mathf.Clamp(_steer + transform.rotation.y * 100, -30, 50));
-		_mastPivot.transform.localRotation = Quaternion.Euler(0, 0, -Mathf.Clamp(_steer + transform.rotation.y * 100, -30, 50));
 
+		
+		var f = new Vector3(transform.forward.x, 0, transform.forward.z).normalized;
+		var a = Vector3.Angle(f, Model.FloatDirection);
+
+		var cross = Vector3.Cross(f, Model.FloatDirection);
+
+		var sign = Math.Sign(cross.y);
+		
+		_mastPivot.transform.localRotation = Quaternion.Euler(0,0, a * sign);
+
+			
 		Model.SteeringDirection = new Vector3(_steer, 0, 0);
 	}
 
@@ -67,5 +79,20 @@ public class Raft : FloatingController
 		{
 			OnDrowningCatCollision?.Invoke(arg2.GetComponent<Cat>(), arg1.contacts[0].point);
 		}
+
+		/*var count = _parts.childCount;
+		var part = _parts.GetChild(Random.Range(0, count));
+		part.parent = null;
+		part.gameObject.layer = LayerMask.NameToLayer("Default");
+		
+		var rb = part.gameObject.AddComponent<Rigidbody>();
+		rb.mass = 5;
+		rb.AddForce(Vector3.up * 500 + arg1.impulse * 20, ForceMode.Force);
+		rb.AddTorque(Random.onUnitSphere * 5);
+		
+		var f = part.gameObject.AddComponent<AQUAS_Buoyancy>();
+		f.waterDensity = 5;
+		f.waterLevel = 1;
+		f.StreamPower = 1;*/
 	}
 }
