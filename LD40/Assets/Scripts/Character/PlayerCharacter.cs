@@ -110,10 +110,7 @@ public class PlayerCharacter : MonoBehaviour
 
         if (Vector3.Distance(transform.position, _stick.transform.position) <= _pickUpDistance)
         {
-            if (_interaction.Value != null)
-            {
-                Debug.Log("It's null ept");
-
+            if (_interaction.Value != null) {
                 return;
             }
 
