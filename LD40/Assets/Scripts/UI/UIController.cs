@@ -12,6 +12,9 @@ public class UIController : MonoBehaviour
     [SerializeField] private Button _pauseButton;
     [SerializeField] private GameObject _pauseScreen;
 
+    [SerializeField] private Button _helpButton;
+    [SerializeField] private GameObject _helpScreen;
+
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _exitButton;
 
@@ -30,6 +33,13 @@ public class UIController : MonoBehaviour
         _pauseButton.onClick.AddListener(() =>
         {
             SetPauseStatus(!_pauseScreen.activeSelf);
+        });
+
+        _helpButton.onClick.AddListener(() =>
+        {
+            _helpScreen.SetActive(!_helpScreen.activeSelf);
+
+            Time.timeScale = _helpScreen.activeSelf ? 0.0f : 1.0f;
         });
 
         _restartButton.onClick.AddListener(() =>
@@ -86,7 +96,22 @@ public class UIController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (_helpScreen.activeSelf) {
+                _helpScreen.SetActive(false);
+            }
+
             SetPauseStatus(!_pauseScreen.activeSelf);
+        }
+
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            if (_pauseScreen.activeSelf) {
+                _pauseScreen.SetActive(false);
+            }
+
+            _helpScreen.SetActive(!_helpScreen.activeSelf);
+
+            Time.timeScale = _helpScreen.activeSelf ? 0.0f : 1.0f;
         }
 
         var distance = Vector3.Distance(_point.position, _target.position);
