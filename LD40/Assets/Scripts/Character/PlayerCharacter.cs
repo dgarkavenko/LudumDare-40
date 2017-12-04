@@ -114,7 +114,7 @@ public class PlayerCharacter : MonoBehaviour
                 return;
             }
 
-            _onInteractionEnter(_controlRaft ? "leave" : "raft");
+            _onInteractionEnter(_controlRaft ? "drop" : "steer");
 
             if (!_controlRaft)
             {
