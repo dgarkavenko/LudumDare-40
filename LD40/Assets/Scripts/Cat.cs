@@ -223,6 +223,7 @@ public class Cat : MonoBehaviour
         public Drowning(Cat cat)
         {
             Cat = cat;
+            cat.DrownedForGood = true;
         }
     }
 
