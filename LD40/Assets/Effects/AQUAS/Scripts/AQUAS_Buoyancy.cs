@@ -80,7 +80,9 @@ public class AQUAS_Buoyancy : Floating {
 
         AddForce();
 	    
-	    var SumDirection = FloatDirection * StreamPower;
+	    var c = Mathf.Clamp(2 - transform.position.y, 0.1f, 1);
+
+	    var SumDirection = FloatDirection * StreamPower * c;
 	    rb.AddForce(SumDirection);
 	}
 
