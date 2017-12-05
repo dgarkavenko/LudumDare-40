@@ -300,6 +300,14 @@ public class Cat : MonoBehaviour
         if (hanging != null && Time.time > hanging.StartTime + HangingTime) {
             State = new Drowning(this);
             transform.SetParent(_raft.parent.parent);
+            var model = GetComponent<DrowningCat>().Model;
+            if (model != null) {
+                var collider = model.GetComponent<Collider>();
+
+                if (collider != null)
+                    collider.enabled = false;
+            }
+            //_rigidbody.AddForce(transform.TransformDirection(transform.localPosition) * 100f, ForceMode.Acceleration);
             MainApplication.LoseCat(this);
         }
 
