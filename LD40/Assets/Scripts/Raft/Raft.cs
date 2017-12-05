@@ -90,6 +90,8 @@ public class Raft : FloatingController
 		
 		if (_health < 0 && !isDead)
 		{
+			_main._uiController.Lost();
+
 			isDead = true;
 			StartCoroutine(Drown());
 			foreach (var p in _leftParts.Concat(_frontParts.Concat(_rightParts)))
@@ -196,11 +198,6 @@ public class Raft : FloatingController
 		}
 		
 		LowerHealth(damage, cross.y);
-
-	    if (_health <= 0)
-	    {
-	        _main._uiController.Lost();
-	    }
 
 		/*var count = _parts.childCount;
 		var part = _parts.GetChild(Random.Range(0, count));
