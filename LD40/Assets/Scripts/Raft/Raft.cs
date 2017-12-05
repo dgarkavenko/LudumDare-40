@@ -100,7 +100,7 @@ public class Raft : FloatingController
 			return;
 		}
 		
-		if (_accumulatedDamage > 15)
+		if (_accumulatedDamage > 8)
 		{
 			_accumulatedDamage = 0;
 			
