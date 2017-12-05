@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1262828688463778}
   m_LocalRotation: {x: -0, y: -0.58226854, z: -0, w: 0.81299657}
-  m_LocalPosition: {x: -0.26, y: 1.4296649, z: 7.34}
+  m_LocalPosition: {x: 7.22, y: 1.4296649, z: 7.34}
   m_LocalScale: {x: 2.276301, y: 0.6969284, z: 7.3216004}
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,12 +112,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FloatDirection: {x: 0, y: 0, z: 1}
-  StreamDirection: {x: 0, y: 0, z: 1}
   SteeringDirection: {x: 0, y: 0, z: 0}
   StreamPower: 5
   SteerPower: 0
   StreamLerp: 10
   Torque: 600
+  MaxVelocity: 50
   waterLevel: 1
   waterDensity: 10.28
   useBalanceFactor: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   bounceFrequency: 1.53
   debug: 0
   rb: {fileID: 0}
+  IsUpdated: 1
 --- !u!136 &136944531703892498
 CapsuleCollider:
   m_ObjectHideFlags: 1

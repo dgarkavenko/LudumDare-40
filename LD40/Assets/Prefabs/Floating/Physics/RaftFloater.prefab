@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114777487319293738}
   - component: {fileID: 65147504618224702}
   - component: {fileID: 136090305121640668}
-  m_Layer: 21
+  m_Layer: 19
   m_Name: RaftFloater
   m_TagString: Untagged
   m_Icon: {fileID: 0}

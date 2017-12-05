@@ -3,8 +3,10 @@ using System.Collections;
 
 [AddComponentMenu("AQUAS/Buoyancy")]
 [RequireComponent(typeof(Rigidbody))]
-public class AQUAS_Buoyancy : Floating {
-
+public class AQUAS_Buoyancy : Floating
+{
+    private bool fastFloater;
+    
     #region variables
     //<summary>
     //public variables
@@ -43,7 +45,7 @@ public class AQUAS_Buoyancy : Floating {
 
 
     public System.Action<Collision, FloatingController> OnCollisionEnterAction;
-    public bool IsUpdated = true;
+    public bool FastUpdate = false;
     
     private void OnCollisionEnter(Collision other)
     {
@@ -66,13 +68,18 @@ public class AQUAS_Buoyancy : Floating {
         maxWaterDensity = regWaterDensity + regWaterDensity * 0.5f * dynamicSurface;
     }
 
+
+    public float sinperiod;
+    public float sinln;
+    
 	//<summary>
     //Balance factor must not be zero, because it's used as a divisor
     //Check if balance factor is zero and run AddForce Method on fixed time frame
     //</summary>
 	public virtual void FixedUpdate () {
-        if (!IsUpdated)
-            return;
+
+	    if (FastUpdate)
+	        return;
 
             if (balanceFactor.x < 0.001f){balanceFactor.x = 0.001f;}
             if (balanceFactor.y < 0.001f){balanceFactor.y = 0.001f;}
@@ -81,7 +88,6 @@ public class AQUAS_Buoyancy : Floating {
         AddForce();
 	    
 	    var c = Mathf.Clamp(2 - transform.position.y, 0.1f, 1);
-
 	    var SumDirection = FloatDirection * StreamPower * c;
 	    rb.AddForce(SumDirection);
 	}
@@ -99,6 +105,16 @@ public class AQUAS_Buoyancy : Floating {
     //</summary>
     void Update()
     {
+        if (FastUpdate)
+        {
+            base.Update();
+            var s = FloatDirection * StreamPower;
+            var targetPosition = rb.transform.position;
+            targetPosition.y =1 + Mathf.Sin(Time.time * sinperiod) * sinln;
+            rb.MovePosition(targetPosition + s * Time.fixedDeltaTime);
+            return;
+        }
+        
         base.Update();
         regWaterDensity = waterDensity;
         maxWaterDensity = regWaterDensity + regWaterDensity * 0.5f * dynamicSurface;

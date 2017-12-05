@@ -11,7 +11,7 @@ public class Cat : MonoBehaviour
     [SerializeField] private Collider _collider;
     [SerializeField] private Rigidbody _rigidbody;
 
-    [SerializeField] private DrowningCat _drowningCat;
+    [SerializeField] public DrowningCat _drowningCat;
 
     public bool DrownedForGood;
 

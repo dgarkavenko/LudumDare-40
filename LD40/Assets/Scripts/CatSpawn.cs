@@ -3,10 +3,21 @@
 public class CatSpawn : MonoBehaviour
 {
     public CatSpawner Spawner;
-
+    public SphereCollider Collider;
+    private bool spawned = false;
+    
     private void Start()
     {
-        transform.position = new Vector3(transform.position.x, 1, transform.position.z);
-        Spawner.SpawnCat(transform.position, drowning: true);
+        Collider = gameObject.GetComponent<SphereCollider>();
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(spawned)
+            return;
+        
+        Spawner.SpawnCat(transform.position, drowning: true);
+        spawned = true;
+    }
+
 }

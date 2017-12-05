@@ -277,7 +277,8 @@ GameObject:
   m_Component:
   - component: {fileID: 93619849}
   - component: {fileID: 93619850}
-  m_Layer: 0
+  - component: {fileID: 93619851}
+  m_Layer: 23
   m_Name: Cat Spawn (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +292,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 93619848}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 719, y: 0, z: 665}
+  m_LocalPosition: {x: 719, y: 1, z: 665}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -309,6 +310,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &93619851
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 93619848}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &141830462
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,7 +396,8 @@ GameObject:
   m_Component:
   - component: {fileID: 157492116}
   - component: {fileID: 157492117}
-  m_Layer: 0
+  - component: {fileID: 157492118}
+  m_Layer: 23
   m_Name: Cat Spawn (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +411,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 157492115}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 573, y: 0, z: 461}
+  m_LocalPosition: {x: 573, y: 1, z: 461}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -414,6 +429,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &157492118
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 157492115}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &234069478
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +451,8 @@ GameObject:
   m_Component:
   - component: {fileID: 234069479}
   - component: {fileID: 234069480}
-  m_Layer: 0
+  - component: {fileID: 234069481}
+  m_Layer: 23
   m_Name: Cat Spawn (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +466,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 234069478}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 607, y: 0, z: 566}
+  m_LocalPosition: {x: 607, y: 1, z: 566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -455,6 +484,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &234069481
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 234069478}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &382621766
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +506,8 @@ GameObject:
   m_Component:
   - component: {fileID: 382621767}
   - component: {fileID: 382621768}
-  m_Layer: 0
+  - component: {fileID: 382621769}
+  m_Layer: 23
   m_Name: Cat Spawn (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +521,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 382621766}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 652, y: 0, z: 665}
+  m_LocalPosition: {x: 652, y: 1, z: 665}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -496,6 +539,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &382621769
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 382621766}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &388627630 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114091223651624526, guid: 398fc5fe8dcac4b4083493a389561505,
@@ -511,7 +567,8 @@ GameObject:
   m_Component:
   - component: {fileID: 420212178}
   - component: {fileID: 420212179}
-  m_Layer: 0
+  - component: {fileID: 420212180}
+  m_Layer: 23
   m_Name: Cat Spawn (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -525,7 +582,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 420212177}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 381, y: 0, z: 372}
+  m_LocalPosition: {x: 381, y: 1, z: 372}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -543,6 +600,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &420212180
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 420212177}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &475161518
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +622,8 @@ GameObject:
   m_Component:
   - component: {fileID: 475161519}
   - component: {fileID: 475161520}
-  m_Layer: 0
+  - component: {fileID: 475161521}
+  m_Layer: 23
   m_Name: Cat Spawn (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +637,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 475161518}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 143, y: 0, z: 153}
+  m_LocalPosition: {x: 143, y: 1, z: 153}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -584,6 +655,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &475161521
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 475161518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &480561186
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +677,8 @@ GameObject:
   m_Component:
   - component: {fileID: 480561187}
   - component: {fileID: 480561188}
-  m_Layer: 0
+  - component: {fileID: 480561189}
+  m_Layer: 23
   m_Name: Cat Spawn (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,7 +692,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 480561186}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 272, y: 0, z: 372}
+  m_LocalPosition: {x: 272, y: 1, z: 372}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -625,6 +710,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &480561189
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 480561186}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &506945649
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +732,8 @@ GameObject:
   m_Component:
   - component: {fileID: 506945650}
   - component: {fileID: 506945651}
-  m_Layer: 0
+  - component: {fileID: 506945652}
+  m_Layer: 23
   m_Name: Cat Spawn (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +747,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 506945649}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 360, y: 0, z: 129}
+  m_LocalPosition: {x: 360, y: 1, z: 129}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -666,6 +765,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &506945652
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 506945649}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &582513887
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,7 +836,8 @@ GameObject:
   m_Component:
   - component: {fileID: 646793862}
   - component: {fileID: 646793863}
-  m_Layer: 0
+  - component: {fileID: 646793864}
+  m_Layer: 23
   m_Name: Cat Spawn (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -738,7 +851,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 646793861}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 229, y: 0, z: 153}
+  m_LocalPosition: {x: 229, y: 1, z: 153}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -756,6 +869,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &646793864
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 646793861}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &685916353
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,7 +891,8 @@ GameObject:
   m_Component:
   - component: {fileID: 685916354}
   - component: {fileID: 685916355}
-  m_Layer: 0
+  - component: {fileID: 685916356}
+  m_Layer: 23
   m_Name: Cat Spawn (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -779,7 +906,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 685916353}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 573, y: 0, z: 566}
+  m_LocalPosition: {x: 573, y: 1, z: 566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -797,6 +924,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &685916356
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 685916353}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &715195894
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,7 +946,8 @@ GameObject:
   m_Component:
   - component: {fileID: 715195895}
   - component: {fileID: 715195896}
-  m_Layer: 0
+  - component: {fileID: 715195897}
+  m_Layer: 23
   m_Name: Cat Spawn (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -820,7 +961,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 715195894}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 277, y: 0, z: 287}
+  m_LocalPosition: {x: 277, y: 1, z: 287}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -838,6 +979,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &715195897
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 715195894}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &783735449
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,7 +1001,8 @@ GameObject:
   m_Component:
   - component: {fileID: 783735450}
   - component: {fileID: 783735451}
-  m_Layer: 0
+  - component: {fileID: 783735452}
+  m_Layer: 23
   m_Name: Cat Spawn (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -861,7 +1016,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 783735449}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 277, y: 0, z: 185}
+  m_LocalPosition: {x: 277, y: 1, z: 185}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -879,6 +1034,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &783735452
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 783735449}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &843851168
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,7 +1056,8 @@ GameObject:
   m_Component:
   - component: {fileID: 843851169}
   - component: {fileID: 843851170}
-  m_Layer: 0
+  - component: {fileID: 843851171}
+  m_Layer: 23
   m_Name: Cat Spawn (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -902,7 +1071,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 843851168}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 487, y: 0, z: 491}
+  m_LocalPosition: {x: 487, y: 1, z: 491}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -920,6 +1089,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &843851171
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 843851168}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &856227592
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,7 +1111,8 @@ GameObject:
   m_Component:
   - component: {fileID: 856227593}
   - component: {fileID: 856227594}
-  m_Layer: 0
+  - component: {fileID: 856227595}
+  m_Layer: 23
   m_Name: Cat Spawn (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -943,7 +1126,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 856227592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 593, y: 0, z: 605}
+  m_LocalPosition: {x: 593, y: 1, z: 605}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -961,6 +1144,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &856227595
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 856227592}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1077231904
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,7 +1166,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1077231905}
   - component: {fileID: 1077231906}
-  m_Layer: 0
+  - component: {fileID: 1077231907}
+  m_Layer: 23
   m_Name: Cat Spawn (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -984,7 +1181,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1077231904}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 644, y: 0, z: 605}
+  m_LocalPosition: {x: 644, y: 1, z: 605}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -1002,6 +1199,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &1077231907
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1077231904}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1077378836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,7 +1221,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1077378837}
   - component: {fileID: 1077378838}
-  m_Layer: 0
+  - component: {fileID: 1077378839}
+  m_Layer: 23
   m_Name: Cat Spawn (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1025,7 +1236,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1077378836}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 436, y: 0, z: 389}
+  m_LocalPosition: {x: 436, y: 1, z: 389}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -1043,6 +1254,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &1077378839
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1077378836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1119313413
 Prefab:
   m_ObjectHideFlags: 0
@@ -1244,7 +1468,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1153911252}
   - component: {fileID: 1153911253}
-  m_Layer: 0
+  - component: {fileID: 1153911254}
+  m_Layer: 23
   m_Name: Cat Spawn (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1258,7 +1483,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1153911251}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 277, y: 0, z: 128}
+  m_LocalPosition: {x: 277, y: 1, z: 128}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -1276,6 +1501,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &1153911254
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1153911251}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1173030888 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114911846756157670, guid: 49956deb696e2d34589fd1bd0e408eeb,
@@ -1291,7 +1529,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1179155551}
   - component: {fileID: 1179155552}
-  m_Layer: 0
+  - component: {fileID: 1179155553}
+  m_Layer: 23
   m_Name: Cat Spawn (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1305,7 +1544,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1179155550}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 436, y: 0, z: 342}
+  m_LocalPosition: {x: 436, y: 1, z: 342}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -1323,6 +1562,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &1179155553
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1179155550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1188579682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1332,7 +1584,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1188579683}
   - component: {fileID: 1188579684}
-  m_Layer: 0
+  - component: {fileID: 1188579685}
+  m_Layer: 23
   m_Name: Cat Spawn (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1346,7 +1599,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1188579682}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 445, y: 0, z: 348}
+  m_LocalPosition: {x: 445, y: 1, z: 348}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -1364,6 +1617,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &1188579685
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1188579682}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1253683203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,7 +1639,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1253683204}
   - component: {fileID: 1253683205}
-  m_Layer: 0
+  - component: {fileID: 1253683206}
+  m_Layer: 23
   m_Name: Cat Spawn (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1387,7 +1654,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1253683203}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 381, y: 0, z: 389}
+  m_LocalPosition: {x: 381, y: 1, z: 389}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -1405,6 +1672,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &1253683206
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1253683203}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1302186865 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114596185373972090, guid: 3093bd3fcb517d14087360ade90d6369,
@@ -1568,7 +1848,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1454867858}
   - component: {fileID: 1454867859}
-  m_Layer: 0
+  - component: {fileID: 1454867860}
+  m_Layer: 23
   m_Name: Cat Spawn (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1582,7 +1863,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1454867857}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 371, y: 0, z: 348}
+  m_LocalPosition: {x: 371, y: 1, z: 348}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -1600,6 +1881,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &1454867860
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1454867857}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1476902919
 Prefab:
   m_ObjectHideFlags: 0
@@ -1656,7 +1950,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1486509011}
   - component: {fileID: 1486509012}
-  m_Layer: 0
+  - component: {fileID: 1486509013}
+  m_Layer: 23
   m_Name: Cat Spawn (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1670,7 +1965,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1486509010}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 533, y: 0, z: 553}
+  m_LocalPosition: {x: 533, y: 1, z: 553}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -1688,6 +1983,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &1486509013
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1486509010}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1519788141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1697,7 +2005,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1519788142}
   - component: {fileID: 1519788143}
-  m_Layer: 0
+  - component: {fileID: 1519788144}
+  m_Layer: 23
   m_Name: Cat Spawn (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1711,7 +2020,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1519788141}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 205, y: 0, z: 137}
+  m_LocalPosition: {x: 205, y: 1, z: 137}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -1729,6 +2038,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &1519788144
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1519788141}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1564886483 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114678485994132586, guid: 3877f01277354f1459b735b1f4b699ea,
@@ -1744,7 +2066,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1614839777}
   - component: {fileID: 1614839778}
-  m_Layer: 0
+  - component: {fileID: 1614839779}
+  m_Layer: 23
   m_Name: Cat Spawn (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1758,7 +2081,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1614839776}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 73, y: 0, z: 100}
+  m_LocalPosition: {x: 73, y: 1, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -1776,6 +2099,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &1614839779
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1614839776}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1622038052
 GameObject:
   m_ObjectHideFlags: 0
@@ -1785,7 +2121,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1622038053}
   - component: {fileID: 1622038054}
-  m_Layer: 0
+  - component: {fileID: 1622038055}
+  m_Layer: 23
   m_Name: Cat Spawn (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1799,7 +2136,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1622038052}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 229, y: 0, z: 210}
+  m_LocalPosition: {x: 229, y: 1, z: 210}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -1817,6 +2154,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &1622038055
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1622038052}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1639972376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1826,7 +2176,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1639972377}
   - component: {fileID: 1639972378}
-  m_Layer: 0
+  - component: {fileID: 1639972379}
+  m_Layer: 23
   m_Name: Cat Spawn (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1840,7 +2191,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1639972376}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 277, y: 0, z: 348}
+  m_LocalPosition: {x: 277, y: 1, z: 348}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -1858,6 +2209,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &1639972379
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1639972376}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1712198875 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4878741929558546, guid: 49956deb696e2d34589fd1bd0e408eeb,
@@ -1872,7 +2236,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1737546622}
   - component: {fileID: 1737546623}
-  m_Layer: 0
+  - component: {fileID: 1737546624}
+  m_Layer: 23
   m_Name: Cat Spawn (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1886,7 +2251,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1737546621}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 272, y: 0, z: 289}
+  m_LocalPosition: {x: 272, y: 1, z: 289}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -1904,6 +2269,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &1737546624
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1737546621}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1837844113
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,7 +2291,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1837844114}
   - component: {fileID: 1837844115}
-  m_Layer: 0
+  - component: {fileID: 1837844116}
+  m_Layer: 23
   m_Name: Cat Spawn (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1927,7 +2306,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1837844113}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 537, y: 0, z: 461}
+  m_LocalPosition: {x: 537, y: 1, z: 461}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -1945,6 +2324,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &1837844116
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1837844113}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1875434156
 GameObject:
   m_ObjectHideFlags: 0
@@ -1954,7 +2346,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1875434157}
   - component: {fileID: 1875434158}
-  m_Layer: 0
+  - component: {fileID: 1875434159}
+  m_Layer: 23
   m_Name: Cat Spawn (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1968,7 +2361,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1875434156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 684, y: 0, z: 654}
+  m_LocalPosition: {x: 684, y: 1, z: 654}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -1986,6 +2379,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &1875434159
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1875434156}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1882151379
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,7 +2401,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1882151380}
   - component: {fileID: 1882151381}
-  m_Layer: 0
+  - component: {fileID: 1882151382}
+  m_Layer: 23
   m_Name: Cat Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2009,7 +2416,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1882151379}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.2, y: 0, z: 28.99}
+  m_LocalPosition: {x: 4.2, y: 1, z: 28.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -2027,6 +2434,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &1882151382
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882151379}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 40
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1907292913
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,7 +2456,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1907292914}
   - component: {fileID: 1907292915}
-  m_Layer: 0
+  - component: {fileID: 1907292916}
+  m_Layer: 23
   m_Name: Cat Spawn (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2050,7 +2471,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1907292913}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 593, y: 0, z: 553}
+  m_LocalPosition: {x: 593, y: 1, z: 553}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -2068,6 +2489,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &1907292916
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1907292913}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2025455740
 GameObject:
   m_ObjectHideFlags: 0
@@ -2077,7 +2511,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2025455741}
   - component: {fileID: 2025455742}
-  m_Layer: 0
+  - component: {fileID: 2025455743}
+  m_Layer: 23
   m_Name: Cat Spawn (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2091,7 +2526,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2025455740}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 148, y: 0, z: 137}
+  m_LocalPosition: {x: 148, y: 1, z: 137}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -2109,6 +2544,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &2025455743
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2025455740}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2068555272
 Prefab:
   m_ObjectHideFlags: 0
@@ -2229,22 +2677,22 @@ Prefab:
     - target: {fileID: 224751167749074356, guid: 3093bd3fcb517d14087360ade90d6369,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 28.393377
+      value: 28.125
       objectReference: {fileID: 0}
     - target: {fileID: 224751167749074356, guid: 3093bd3fcb517d14087360ade90d6369,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 49.42551
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224837780332819628, guid: 3093bd3fcb517d14087360ade90d6369,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 80.97371
+      value: 78.75
       objectReference: {fileID: 0}
     - target: {fileID: 224837780332819628, guid: 3093bd3fcb517d14087360ade90d6369,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 34.70302
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3093bd3fcb517d14087360ade90d6369, type: 2}
@@ -2258,7 +2706,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2080828012}
   - component: {fileID: 2080828013}
-  m_Layer: 0
+  - component: {fileID: 2080828014}
+  m_Layer: 23
   m_Name: Cat Spawn (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2272,7 +2721,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2080828011}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 445, y: 0, z: 523}
+  m_LocalPosition: {x: 445, y: 1, z: 523}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 141830463}
@@ -2290,3 +2739,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner: {fileID: 582513888}
+  Collider: {fileID: 0}
+--- !u!135 &2080828014
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2080828011}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}
