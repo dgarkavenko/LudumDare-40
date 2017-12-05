@@ -23,7 +23,7 @@ public class CatSpawner : MonoBehaviour
 		"Trevor",
 	};
 
-	private int _catNumber;
+	public int CatNumber;
 
 	private void Shuffle(List<string> texts)
 	{
@@ -63,14 +63,14 @@ public class CatSpawner : MonoBehaviour
 		var brain = cat.gameObject.AddComponent<CatBrain>();
 		brain.Cat = cat;
 
-		_catNumber++;
+		CatNumber++;
 
 		if (_catNames.Count > 0) {
 			var nameIndex = Random.Range(0, _catNames.Count);
 			cat.Name = _catNames[nameIndex];
 			_catNames.RemoveAt(nameIndex);
 		} else {
-			cat.Name = $"Cat {_catNumber}";
+			cat.Name = $"Cat {CatNumber}";
 		}
 
 		cat.State = drowning ? (Cat.CatState)new Cat.Drowning(cat) : new Cat.Walking(cat);

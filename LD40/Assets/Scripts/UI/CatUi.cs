@@ -11,6 +11,8 @@ public class CatUi : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (Cat == null) return;
+
         var hangingCat = Cat.State as Cat.Hanging;
 
         _hangingBar.transform.parent.gameObject.SetActive(hangingCat != null);

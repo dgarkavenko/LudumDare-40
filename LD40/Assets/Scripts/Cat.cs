@@ -291,6 +291,8 @@ public class Cat : MonoBehaviour
         var shift = Vector3.ClampMagnitude(new Vector3(0f, RaftSurfaceY, 0f) - transform.localPosition, 1f);
         transform.localPosition += shift;
         State = new Walking(this);
+
+        MainApplication.SavedCats++;
     }
 
     private void Update()
@@ -305,6 +307,9 @@ public class Cat : MonoBehaviour
         if (hanging != null && Time.time > hanging.StartTime + HangingTime)
         {
             State = new Drowning(this);
+
+            MainApplication.DrownedCats++;
+
             transform.SetParent(_raft.parent.parent);
 
             var model = GetComponent<DrowningCat>().Model;
@@ -324,7 +329,10 @@ public class Cat : MonoBehaviour
         var flying = _state as Flying;
 
         if (flying != null) {
-            if (transform.position.y <= Stream.WATER_LEVEL) {
+            if (transform.position.y <= Stream.WATER_LEVEL)
+            {
+                MainApplication.DrownedCats++;
+
                 State = new Drowning(this);
                 DrownedForGood = true;
                 transform.SetParent(_raft.parent.parent);

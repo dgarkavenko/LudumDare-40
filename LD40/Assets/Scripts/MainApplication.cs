@@ -13,6 +13,11 @@ public class MainApplication : MonoBehaviour
 
     private readonly List<Cat> _cats = new List<Cat>();
 
+    public int CatsCount => _cats.Count;
+
+    public int DrownedCats;
+    public int SavedCats;
+
     private PlayerCharacter PlayerCharacter { get; set; }
 
     private void Awake()

@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    [SerializeField] private MainApplication _main;
+
+    [SerializeField] private Text _saved;
+    [SerializeField] private Text _drowned;
+
     [SerializeField] private InteractionButton _interactionButton;
     [SerializeField] private Text _catCounter;
     [SerializeField] private Slider _slider;
@@ -77,6 +82,7 @@ public class UIController : MonoBehaviour
 
         _interactionButton.Init(point);
         _end = false;
+        SetScore(false);
     }
 
     public void Won()
@@ -93,6 +99,7 @@ public class UIController : MonoBehaviour
                 _lost.SetActive(false);
 
                 SetPauseStatus(true);
+                SetScore(true);
             }));
         }
     }
@@ -111,8 +118,18 @@ public class UIController : MonoBehaviour
                 _lost.SetActive(true);
 
                 SetPauseStatus(true);
+                SetScore(true);
             }));
         }
+    }
+
+    private void SetScore(bool value)
+    {
+        _saved.gameObject.SetActive(value);
+        _drowned.gameObject.SetActive(value);
+
+        _saved.text = "KITTIES SAVED: " + _main.SavedCats;
+        _drowned.text = "KITTIES DROWNED: " + _main.DrownedCats;
     }
 
     private void Update()
