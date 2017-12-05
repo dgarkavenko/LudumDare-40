@@ -145,7 +145,7 @@ public class Raft : FloatingController
 		
 		while (Model.waterDensity > 0)
 		{
-			Model.waterDensity -= Time.deltaTime * 2;
+			Model.waterDensity -= Time.deltaTime * 3.5f;
 			yield return null;
 		}
 	}
