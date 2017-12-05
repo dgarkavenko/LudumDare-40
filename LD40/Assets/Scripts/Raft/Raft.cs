@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using NUnit.Framework.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
+using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
 public class Raft : FloatingController
@@ -80,14 +82,15 @@ public class Raft : FloatingController
 
 
 	private float _accumulatedDamage;
-	
+	bool isDead = false;
 	public void LowerHealth(float d, float cross = 0)
 	{
 		_health -= d;
 		_accumulatedDamage += d;
 		
-		if (_health < 0)
+		if (_health < 0 && !isDead)
 		{
+			isDead = true;
 			StartCoroutine(Drown());
 			foreach (var p in _leftParts.Concat(_frontParts.Concat(_rightParts)))
 			{
@@ -122,21 +125,12 @@ public class Raft : FloatingController
 		o.parent = null;
 		o.gameObject.layer = LayerMask.NameToLayer("Хуйня");
 		o.gameObject.AddComponent<BoxCollider>();
-
-	    var r = o.gameObject.GetComponent<Rigidbody>();
-
-        if (r == null)
-            r = o.gameObject.AddComponent<Rigidbody>();
-
+		var r = o.gameObject.AddComponent<Rigidbody>();
 		r.AddForce(Vector3.up * 50, ForceMode.Acceleration);
 		r.mass = 2;
 		r.drag = 0.3f;
 
-        var b = o.gameObject.GetComponent<AQUAS_Buoyancy>();
-
-        if (b == null)
-            b = o.gameObject.AddComponent<AQUAS_Buoyancy>();
-
+		var b = o.gameObject.AddComponent<AQUAS_Buoyancy>();
 		b.waterDensity = 4;
 		b.waterLevel = 1;
 		b.StreamPower = 2;
