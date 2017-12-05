@@ -223,7 +223,6 @@ public class Cat : MonoBehaviour
         public Drowning(Cat cat)
         {
             Cat = cat;
-            cat.DrownedForGood = true;
         }
     }
 
@@ -322,6 +321,7 @@ public class Cat : MonoBehaviour
         if (flying != null) {
             if (transform.position.y <= Stream.WATER_LEVEL) {
                 State = new Drowning(this);
+                DrownedForGood = true;
                 transform.SetParent(_raft.parent.parent);
                 MainApplication.LoseCat(this);
             }
