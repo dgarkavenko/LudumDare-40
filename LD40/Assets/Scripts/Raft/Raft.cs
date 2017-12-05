@@ -86,6 +86,17 @@ public class Raft : FloatingController
 		_health -= d;
 		_accumulatedDamage += d;
 		
+		if (_health < 0)
+		{
+			StartCoroutine(Drown());
+			foreach (var p in _leftParts.Concat(_frontParts.Concat(_rightParts)))
+			{
+				UnAttach(p);
+			}
+			
+			return;
+		}
+		
 		if (_accumulatedDamage > 15)
 		{
 			_accumulatedDamage = 0;
@@ -103,14 +114,7 @@ public class Raft : FloatingController
 			UnAttach(o);
 		}
 
-		if (_health < 0)
-		{
-			StartCoroutine(Drown());
-			foreach (var p in _leftParts.Concat(_frontParts.Concat(_rightParts)))
-			{
-				UnAttach(p);
-			}
-		}
+		
 	}
 
 	public void UnAttach(Transform o)
