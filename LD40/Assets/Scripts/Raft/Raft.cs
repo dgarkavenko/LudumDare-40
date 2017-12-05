@@ -122,12 +122,21 @@ public class Raft : FloatingController
 		o.parent = null;
 		o.gameObject.layer = LayerMask.NameToLayer("Хуйня");
 		o.gameObject.AddComponent<BoxCollider>();
-		var r = o.gameObject.AddComponent<Rigidbody>();
+
+	    var r = o.gameObject.GetComponent<Rigidbody>();
+
+        if (r == null)
+            r = o.gameObject.AddComponent<Rigidbody>();
+
 		r.AddForce(Vector3.up * 50, ForceMode.Acceleration);
 		r.mass = 2;
 		r.drag = 0.3f;
 
-		var b = o.gameObject.AddComponent<AQUAS_Buoyancy>();
+        var b = o.gameObject.GetComponent<AQUAS_Buoyancy>();
+
+        if (b == null)
+            b = o.gameObject.AddComponent<AQUAS_Buoyancy>();
+
 		b.waterDensity = 4;
 		b.waterLevel = 1;
 		b.StreamPower = 2;
