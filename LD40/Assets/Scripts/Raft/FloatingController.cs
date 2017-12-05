@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.XR.WSA.WebCam;
+﻿using UnityEngine;
 
 public class FloatingController : MonoBehaviour
 {
