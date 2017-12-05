@@ -46,7 +46,7 @@ public class CatBrain : MonoBehaviour
             var walkingCat = Cat.State as Cat.Walking;
 
             if (walkingCat != null && walkingCat.Waypoint == null) {
-                var raftSize = Cat._raft.localScale;
+                var raftSize = Cat.RaftTransform.localScale;
                 var random = new Vector3(
                     Random.Range(raftSize.x * -0.5f + 1.5f, raftSize.x * 0.5f - 1.5f),
                     0f,

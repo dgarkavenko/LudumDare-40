@@ -38,7 +38,7 @@ public class Fight
 
 //        Debug.Log(firstCat.Name + " started a fight with " + secondCat.Name);
 
-        _fightView = Object.Instantiate(Links.Instance.FightView, firstCat.transform.position, Quaternion.identity, firstCat._raft.parent);
+        _fightView = Object.Instantiate(Links.Instance.FightView, firstCat.transform.position, Quaternion.identity, firstCat.RaftTransform.parent);
         _fightView.Fight = this;
 
         _startTime = Time.time;

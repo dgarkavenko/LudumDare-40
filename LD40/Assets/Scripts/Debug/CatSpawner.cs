@@ -51,7 +51,6 @@ public class CatSpawner : MonoBehaviour
 	public void SpawnCat(Vector3 position, bool drowning = false)
 	{
 		var cat = Instantiate(Links.Instance.Cats.PickRandom());
-		cat._raft = _raft;
 
 		cat.transform.SetParent(drowning ? _raft.parent.parent : _raft.parent);
 
@@ -74,7 +73,7 @@ public class CatSpawner : MonoBehaviour
 		}
 
 		cat.State = drowning ? (Cat.CatState)new Cat.Drowning(cat) : new Cat.Walking(cat);
-		cat.MainApplication = _main;
+        cat.Init(_main, Raft, _raft);
 		_main._uiController.CreateCatUi(cat);
 
 		if (!drowning)

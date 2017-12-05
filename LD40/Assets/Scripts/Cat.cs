@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Cat : MonoBehaviour
 {
-    [SerializeField] public Transform _raft;
+    public Transform RaftTransform;
     [SerializeField] private CatMovement _sixWayMovement;
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
@@ -15,7 +15,8 @@ public class Cat : MonoBehaviour
 
     public bool DrownedForGood;
 
-    public MainApplication MainApplication;
+    private MainApplication _mainApplication;
+    private Raft _raft;
 
     public string Name;
 
@@ -33,6 +34,24 @@ public class Cat : MonoBehaviour
 
     public bool FaceUp;
     public float X;
+
+    public void Init(MainApplication mainApplication, Raft raft, Transform raftTransform)
+    {
+        _mainApplication = mainApplication;
+        _raft = raft;
+        RaftTransform = raftTransform;
+        _raft.GreatCollisionAction += OnGreatCollision;
+    }
+
+    private void OnGreatCollision()
+    {
+        if (_state is Walking) {
+            if (UnityEngine.Random.Range(0f, 1f) < 0.7f) {
+                State = new Flying(this);
+                _collider.enabled = true;
+            }
+        }
+    }
 
     public class Walking : CatState
     {
@@ -116,7 +135,7 @@ public class Cat : MonoBehaviour
         {
             if (Waypoint == null) {
                 Waypoint = new GameObject("Waypoint").transform;
-                Waypoint.SetParent(Cat._raft);
+                Waypoint.SetParent(Cat.RaftTransform);
             }
 
             Waypoint.position = waypointPosition;
@@ -257,13 +276,15 @@ public class Cat : MonoBehaviour
         {
             if ((Time.time - _startTime > 0.5f) && other.gameObject.layer == LayerMask.NameToLayer("Raft")) {
                 Cat.State = new Walking(Cat);
-                Cat.transform.parent = Cat._raft.parent;
-                Cat.MainApplication.PickCat(Cat);
+                Cat.transform.parent = Cat.RaftTransform.parent;
+                Cat._mainApplication.PickCat(Cat);
             }
         }
     }
 
     private CatState _state;
+    
+
     public CatState State
     {
         get { return _state; }
@@ -295,7 +316,7 @@ public class Cat : MonoBehaviour
         transform.localPosition += shift;
         State = new Walking(this);
 
-        MainApplication.SavedCats++;
+        _mainApplication.SavedCats++;
     }
 
     private void Update()
@@ -311,9 +332,9 @@ public class Cat : MonoBehaviour
         {
             State = new Drowning(this);
 
-            MainApplication.DrownedCats++;
+            _mainApplication.DrownedCats++;
 
-            transform.SetParent(_raft.parent.parent);
+            transform.SetParent(RaftTransform.parent.parent);
 
             var model = GetComponent<DrowningCat>().Model;
             if (model != null) {
@@ -326,7 +347,7 @@ public class Cat : MonoBehaviour
             DrownedForGood = true;
 
             //_rigidbody.AddForce(transform.TransformDirection(transform.localPosition) * 100f, ForceMode.Acceleration);
-            MainApplication.LoseCat(this);
+            _mainApplication.LoseCat(this);
         }
 
         var flying = _state as Flying;
@@ -334,12 +355,12 @@ public class Cat : MonoBehaviour
         if (flying != null) {
             if (transform.position.y <= Stream.WATER_LEVEL)
             {
-                MainApplication.DrownedCats++;
+                _mainApplication.DrownedCats++;
 
                 State = new Drowning(this);
                 DrownedForGood = true;
-                transform.SetParent(_raft.parent.parent);
-                MainApplication.LoseCat(this);
+                transform.SetParent(RaftTransform.parent.parent);
+                _mainApplication.LoseCat(this);
             }
         }
     }
