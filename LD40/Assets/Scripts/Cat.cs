@@ -14,6 +14,8 @@ public class Cat : MonoBehaviour
 
     [SerializeField] private DrowningCat _drowningCat;
 
+    public bool DrownedForGood;
+
     public MainApplication MainApplication;
 
     public string Name;
@@ -307,6 +309,9 @@ public class Cat : MonoBehaviour
                 if (collider != null)
                     collider.enabled = false;
             }
+
+            DrownedForGood = true;
+
             //_rigidbody.AddForce(transform.TransformDirection(transform.localPosition) * 100f, ForceMode.Acceleration);
             MainApplication.LoseCat(this);
         }

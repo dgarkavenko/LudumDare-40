@@ -83,6 +83,9 @@ public class CatSpawner : MonoBehaviour
 
 	private void OnDrowningCatCollision(Cat cat, Vector3 pos)
 	{
+	    if (cat.DrownedForGood)
+	        return;
+
 		cat.State = new Cat.Hanging(cat);
 		cat.transform.parent = _raft.parent;
 		_main.PickCat(cat);
