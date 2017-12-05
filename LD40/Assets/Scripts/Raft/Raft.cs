@@ -22,7 +22,7 @@ public class Raft : FloatingController
 	[SerializeField] private List<Transform> _rightParts;
 	[SerializeField] private Transform[] _logs;
 	
-	private float _health = 70;
+	private float _health = 50;
 
 	private float _steer;
 	public float SteeringSpeed = 1;
