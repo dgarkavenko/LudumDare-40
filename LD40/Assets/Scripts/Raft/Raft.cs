@@ -148,8 +148,8 @@ public class Raft : FloatingController
 			yield return null;
 		}
 	}
-	
-	
+
+	public event Action GreatCollisionAction; 
 	
 	public override void OnCollisionEnterAction(Collision arg1, FloatingController arg2)
 	{
@@ -188,6 +188,9 @@ public class Raft : FloatingController
 		
 		if (damage > 8)
 		{
+			if (GreatCollisionAction != null)
+				GreatCollisionAction();
+			
 			foreach (var l in _logs)
 			{
 				var r = l.localRotation.eulerAngles + Random.insideUnitSphere * damage / 3;

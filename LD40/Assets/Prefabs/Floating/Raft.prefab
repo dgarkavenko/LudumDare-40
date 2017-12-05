@@ -2601,7 +2601,7 @@ MonoBehaviour:
   - {fileID: 4785404416996292}
   - {fileID: 4374630585961032}
   - {fileID: 4851871253951488}
-  SteeringSpeed: 1
+  SteeringSpeed: 8
 --- !u!198 &198003997444024684
 ParticleSystem:
   m_ObjectHideFlags: 1
