@@ -181,10 +181,13 @@ public class Cat : MonoBehaviour
         public Hanging(Cat cat)
         {
             StartTime = Time.time;
+
             var directionToRaftCenter = cat.transform.localPosition;
             var directionToCamera = cat.transform.position - Camera.main.transform.position;
             var angle = Vector3.Angle(directionToRaftCenter, directionToCamera);
+
             Debug.DrawLine(cat.transform.position + Vector3.up, Vector3.up, Color.red, 3f);
+
             cat.FaceUp = angle > 90f;
         }
     }
@@ -299,9 +302,11 @@ public class Cat : MonoBehaviour
 
         var hanging = _state as Hanging;
 
-        if (hanging != null && Time.time > hanging.StartTime + HangingTime) {
+        if (hanging != null && Time.time > hanging.StartTime + HangingTime)
+        {
             State = new Drowning(this);
             transform.SetParent(_raft.parent.parent);
+
             var model = GetComponent<DrowningCat>().Model;
             if (model != null) {
                 var collider = model.GetComponent<Collider>();

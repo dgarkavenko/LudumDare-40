@@ -139,6 +139,7 @@ MonoBehaviour:
   bounceFrequency: 1.53
   debug: 0
   rb: {fileID: 0}
+  IsUpdated: 1
 --- !u!136 &136090305121640668
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -151,4 +152,4 @@ CapsuleCollider:
   m_Radius: 0.1
   m_Height: 1.9
   m_Direction: 0
-  m_Center: {x: 0, y: 0.45, z: 0.24}
+  m_Center: {x: 0, y: 0.45, z: 0.215}

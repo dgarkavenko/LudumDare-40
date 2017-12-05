@@ -88,6 +88,9 @@ public class CatSpawner : MonoBehaviour
 
 		cat.State = new Cat.Hanging(cat);
 		cat.transform.parent = _raft.parent;
-		_main.PickCat(cat);
+
+        cat.transform.localPosition = new Vector3(cat.transform.localPosition.x, .55f, cat.transform.localPosition.z);
+
+        _main.PickCat(cat);
 	}
 }

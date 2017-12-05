@@ -9,7 +9,7 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] private Transform _pickUp;
 
     [SerializeField] private float _speed = 3;
-    [SerializeField] private float _pickUpDistance = 3;
+    [SerializeField] private float _pickUpDistance = 4.5f;
 
     private readonly List<Cat> _cats = new List<Cat>();
     private KeyValuePair<float, Action> _interaction;
