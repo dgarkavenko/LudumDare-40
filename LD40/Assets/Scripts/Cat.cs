@@ -5,7 +5,6 @@ public class Cat : MonoBehaviour
 {
     [SerializeField] public Transform _raft;
     [SerializeField] private CatMovement _sixWayMovement;
-    [SerializeField] private CharacterController _characterController;
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
     [SerializeField] private Renderer _renderer;
@@ -101,7 +100,11 @@ public class Cat : MonoBehaviour
             //    }
             //}
 
-            Cat._characterController.Move(direction3D * Time.deltaTime * 35f);
+            Cat.transform.position += direction3D * Time.deltaTime * 35f;
+
+            var localPos = Cat.transform.localPosition;
+            localPos.y = RaftSurfaceY;
+            Cat.transform.localPosition = localPos;
 
             if (Waypoint != null && Vector3.Distance(Cat.transform.position, Waypoint.position) < 0.5f) {
                 Destroy(Waypoint.gameObject);
