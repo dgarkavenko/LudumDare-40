@@ -24,7 +24,9 @@ GameObject:
   - component: {fileID: 114488708460711968}
   - component: {fileID: 64735611998572812}
   - component: {fileID: 54141245090728598}
-  m_Layer: 20
+  - component: {fileID: 135843553325915842}
+  - component: {fileID: 114395149909784940}
+  m_Layer: 23
   m_Name: barrel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +116,7 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 1cef9c8a9209b4147a7189f29bb73466, type: 3}
---- !u!114 &114488708460711968
+--- !u!114 &114395149909784940
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -122,10 +124,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 1954663512724098}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a1dedfd90435e446878b1e7bf3d8c1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Floating: {fileID: 114488708460711968}
+  SphereCollider: {fileID: 135843553325915842}
+--- !u!114 &114488708460711968
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1954663512724098}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8cca39f1012aa5459024f25bdccbe13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Power: 2
-  StreamLerp: 4
   FloatDirection: {x: 0.5, y: 0, z: 0.5}
-  StreamDirection: {x: 0, y: 0, z: 0}
+  SteeringDirection: {x: 0, y: 0, z: 0}
+  StreamPower: 6
+  SteerPower: 2
+  StreamLerp: 4
+  Torque: 1
+  MaxVelocity: 50
+  rb: {fileID: 54141245090728598}
+  SinPeriod: 2
+  SinLn: 0.4
+--- !u!135 &135843553325915842
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1954663512724098}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60
+  m_Center: {x: 0, y: 0, z: 0}

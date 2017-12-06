@@ -234,8 +234,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447b7636537cee64287cfe69aa7d1b2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _modelPrefab: {fileID: 114777487319293738, guid: d644540aa4bb4fa48ad92f32c6302629,
+  _modelPrefab: {fileID: 114864905597060648, guid: d644540aa4bb4fa48ad92f32c6302629,
     type: 2}
+  Model: {fileID: 0}
   Offset: {x: 0, y: 0, z: 0}
 --- !u!114 &114989559303871714
 MonoBehaviour:
@@ -248,20 +249,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d225d8f9be778f84597d78d793b61253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _raft: {fileID: 0}
+  RaftTransform: {fileID: 0}
   _sixWayMovement: {fileID: 114238446617399430}
-  _characterController: {fileID: 143554794304745800}
   _spriteRenderer: {fileID: 212673158000718476}
   _renderer: {fileID: 212673158000718476}
   _collider: {fileID: 136539919928644128}
   _rigidbody: {fileID: 54714724751797456}
   _drowningCat: {fileID: 114861643464085366}
-  MainApplication: {fileID: 0}
+  DrownedForGood: 0
   Name: 
   SlopeLimit: 1
   SlideFriction: 0.3
   MaxSpeed: 0.05
   LastFightTime: 0
+  FaceUp: 0
+  X: 0
 --- !u!136 &136539919928644128
 CapsuleCollider:
   m_ObjectHideFlags: 1

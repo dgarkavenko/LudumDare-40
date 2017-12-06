@@ -2,13 +2,13 @@
 
 public class FloatingController : MonoBehaviour
 {
-	[SerializeField] private AQUAS_Buoyancy _modelPrefab;
-	public AQUAS_Buoyancy Model;
+	[SerializeField] private Floating _modelPrefab;
+	public Floating Model;
 	public Vector3 Offset;
 
 	public virtual void Start()
 	{
-		Model = SteeringBuoy.Instantiate(_modelPrefab);
+		Model = Floating.Instantiate(_modelPrefab);
 		Model.transform.position = transform.position;
 		Model.transform.rotation = transform.rotation;
 		Model.OnCollisionEnterAction += OnCollisionEnterAction;

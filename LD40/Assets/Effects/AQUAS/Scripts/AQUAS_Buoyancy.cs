@@ -11,8 +11,6 @@ public class AQUAS_Buoyancy : Floating
     //<summary>
     //public variables
     //</summary>
-    public float waterLevel;
-    public float waterDensity;
     [Space(5)]
     public bool useBalanceFactor;
     public Vector3 balanceFactor;
@@ -33,7 +31,6 @@ public class AQUAS_Buoyancy : Floating
     Vector3[] vertices;
     int[] triangles;
     Mesh mesh;
-    public Rigidbody rb;
 
     //<summary>
     //Additional variables for surface dynamics simulation
@@ -42,18 +39,8 @@ public class AQUAS_Buoyancy : Floating
     float regWaterDensity;
     float maxWaterDensity;
     #endregion
-
-
-    public System.Action<Collision, FloatingController> OnCollisionEnterAction;
-    public bool FastUpdate = false;
     
-    private void OnCollisionEnter(Collision other)
-    {
-        var floating = other.gameObject.GetComponent<Floating>();
-
-        if (OnCollisionEnterAction != null)
-            OnCollisionEnterAction(other, floating == null ? null : floating.Controller);
-    }
+    
 
     //<summary>
     //cache object info at start and set max water density for surface dynamics simulation
@@ -68,22 +55,15 @@ public class AQUAS_Buoyancy : Floating
         maxWaterDensity = regWaterDensity + regWaterDensity * 0.5f * dynamicSurface;
     }
 
-
-    public float sinperiod;
-    public float sinln;
-    
 	//<summary>
     //Balance factor must not be zero, because it's used as a divisor
     //Check if balance factor is zero and run AddForce Method on fixed time frame
     //</summary>
 	public virtual void FixedUpdate () {
 
-	    if (FastUpdate)
-	        return;
-
-            if (balanceFactor.x < 0.001f){balanceFactor.x = 0.001f;}
-            if (balanceFactor.y < 0.001f){balanceFactor.y = 0.001f;}
-            if (balanceFactor.z < 0.001f){balanceFactor.z = 0.001f;}
+        if (balanceFactor.x < 0.001f){balanceFactor.x = 0.001f;}
+        if (balanceFactor.y < 0.001f){balanceFactor.y = 0.001f;}
+        if (balanceFactor.z < 0.001f){balanceFactor.z = 0.001f;}
 
         AddForce();
 	    
@@ -103,18 +83,8 @@ public class AQUAS_Buoyancy : Floating
     //The Update method dynamically alters the effective water density according to parameters given
     //to simulate surface dynamics and prevent floating objects from standing still
     //</summary>
-    void Update()
+    public override void Update()
     {
-        if (FastUpdate)
-        {
-            base.Update();
-            var s = FloatDirection * StreamPower;
-            var targetPosition = rb.transform.position;
-            targetPosition.y =1 + Mathf.Sin(Time.time * sinperiod) * sinln;
-            rb.MovePosition(targetPosition + s * Time.fixedDeltaTime);
-            return;
-        }
-        
         base.Update();
         regWaterDensity = waterDensity;
         maxWaterDensity = regWaterDensity + regWaterDensity * 0.5f * dynamicSurface;

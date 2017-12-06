@@ -23,6 +23,7 @@ public class CatSpawner : MonoBehaviour
 		"Max",
 		"Jasper",
 		"Trevor",
+		"Mr. Whiskers"
 	};
 
 	public int CatNumber;

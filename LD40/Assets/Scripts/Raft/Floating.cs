@@ -12,13 +12,26 @@ public class Floating : MonoBehaviour {
 	public float StreamLerp = 10;
 	public float Torque = 1;
 	public float MaxVelocity = 50;
-	
+	public float waterLevel;
+	public float waterDensity;
+
+	public Rigidbody rb;
+
 	public FloatingController Controller { get; set; }
 
+	public System.Action<Collision, FloatingController> OnCollisionEnterAction;
+    
+	private void OnCollisionEnter(Collision other)
+	{
+		var floating = other.gameObject.GetComponent<Floating>();
+
+		if (OnCollisionEnterAction != null)
+			OnCollisionEnterAction(other, floating == null ? null : floating.Controller);
+	}
 
 	public static float WaterLevel;
 
-	public void Update()
+	public virtual void Update()
 	{
 		Collider[] colliders = Physics.OverlapBox(transform.position, new Vector3(3, 3, 3), transform.rotation, LayerMask.GetMask("Stream"));
 		if (colliders.Length > 0)

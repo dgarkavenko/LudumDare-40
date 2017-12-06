@@ -997,7 +997,7 @@ MonoBehaviour:
   _hangingBar: {fileID: 114332277723672244}
   _startingColor: {r: 0.13725491, g: 0.24705882, b: 0.36862746, a: 1}
   _endingColor: {r: 0.8117647, g: 0.18039216, b: 0.25490198, a: 1}
-  _dot: {fileID: 0}
+  _text: {fileID: 114537555624004876}
 --- !u!114 &114294775349670874
 MonoBehaviour:
   m_ObjectHideFlags: 1

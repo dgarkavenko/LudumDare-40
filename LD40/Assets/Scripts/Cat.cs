@@ -1,5 +1,7 @@
 ﻿using System;
+using JetBrains.Annotations;
 using UnityEngine;
+using Random = System.Random;
 
 public class Cat : MonoBehaviour
 {
@@ -199,11 +201,14 @@ public class Cat : MonoBehaviour
     public class Hanging : CatState
     {
         public readonly float StartTime;
-
+        public string Word;
+        public string[] Words = new[] {"HALP", "HELP", "MEOW", "HELP"};
+        
         public Hanging(Cat cat)
         {
             StartTime = Time.time;
-
+            Word = Words[UnityEngine.Random.Range(0, Words.Length)];
+            
             var directionToRaftCenter = cat.transform.localPosition;
             var directionToCamera = cat.transform.position - Camera.main.transform.position;
             var angle = Vector3.Angle(directionToRaftCenter, directionToCamera);
