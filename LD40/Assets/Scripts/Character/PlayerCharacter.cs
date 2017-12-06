@@ -21,7 +21,7 @@ public class PlayerCharacter : MonoBehaviour
     private Action<string> _onInteractionEnter;
     private Action _onInteractionExit;
 
-    private Action<float, Action> _onInteraction;
+    protected Action<float, Action> _onInteraction;
     private Action<bool> _raftControl;
 
     private float _xScale;
@@ -30,7 +30,7 @@ public class PlayerCharacter : MonoBehaviour
     private bool _facedUp;
     private bool _controlRaft;
 
-    public void Init(RaftStick stick, float xScale, float zScale, Action<string> onInteractionEnter, Action onInteractionExit, Action<float, Action> onInteraction, Action<bool> raftControl)
+    public virtual void Init(RaftStick stick, float xScale, float zScale, Action<string> onInteractionEnter, Action onInteractionExit, Action<float, Action> onInteraction, Action<bool> raftControl)
     {
         _stick = stick;
 
@@ -140,7 +140,7 @@ public class PlayerCharacter : MonoBehaviour
         _controlRaft = false;
     }
 
-    protected virtual void GrabThePole()
+    public void GrabThePole()
     {
         _controlRaft = true;
         _raftControl(true);

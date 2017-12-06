@@ -4,15 +4,9 @@ public class TutorialPlayerCharacter : PlayerCharacter
 {
     public Action OnPoleGrab;
 
-    protected override void GrabThePole()
+    public override void Init(RaftStick stick, float xScale, float zScale, Action<string> onInteractionEnter, Action onInteractionExit,
+        Action<float, Action> onInteraction, Action<bool> raftControl)
     {
-        if (OnPoleGrab == null)
-            return;
-
-        OnPoleGrab.Invoke();
-
-        base.GrabThePole();
-
-        OnPoleGrab = null;
+        base.Init(stick, xScale, zScale, onInteractionEnter, onInteractionExit, onInteraction, raftControl);
     }
 }
