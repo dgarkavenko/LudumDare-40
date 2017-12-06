@@ -27,6 +27,8 @@ public class Raft : FloatingController
 	public Transform ViewTransform => _view;
 	public RaftStick RaftStick => _raftStick;
 
+	public SpriteRenderer tutorial;
+
 	public Action<Cat, Vector3> OnDrowningCatCollision;
 	private bool _playerControl;
 
