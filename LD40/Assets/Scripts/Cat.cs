@@ -283,7 +283,8 @@ public class Cat : MonoBehaviour
     }
 
     private CatState _state;
-    
+    private Raft _raft;
+
 
     public CatState State
     {
