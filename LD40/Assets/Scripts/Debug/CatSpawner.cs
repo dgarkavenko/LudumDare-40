@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -6,6 +7,7 @@ public class CatSpawner : MonoBehaviour
 {
 	[SerializeField] private Transform _raft;
 	[SerializeField] private MainApplication _main;
+    [SerializeField] private int _catsCount = 5;
 	public Raft Raft;
 
 	private readonly List<string> _catNames = new List<string> {
@@ -40,7 +42,7 @@ public class CatSpawner : MonoBehaviour
 	{
 		Shuffle(_catNames);
 
-		for (var i = 0; i < 5; i++) {
+		for (var i = 0; i < _catsCount; i++) {
 			var position = Random.insideUnitCircle * 2f;
 			SpawnCat(new Vector3(position.x, Cat.RaftSurfaceY, position.y));
 		}
@@ -48,7 +50,7 @@ public class CatSpawner : MonoBehaviour
 		Raft.OnDrowningCatCollision += OnDrowningCatCollision;
 	}
 
-	public void SpawnCat(Vector3 position, bool drowning = false)
+	public void SpawnCat(Vector3 position, bool drowning = false, Action onPicked = null, float hangTime = 0)
 	{
 		var cat = Instantiate(Links.Instance.Cats.PickRandom());
 
@@ -78,6 +80,11 @@ public class CatSpawner : MonoBehaviour
 
 		if (!drowning)
 			_main.PickCat(cat);
+
+	    cat.OnPickedOnce = onPicked;
+
+	    if (hangTime > 0)
+	        cat.HangingTime = hangTime;
 	}
 
 	private void OnDrowningCatCollision(Cat cat, Vector3 pos)

@@ -16,7 +16,7 @@ public class Cat : MonoBehaviour
     public bool DrownedForGood;
 
     private MainApplication _mainApplication;
-    private Raft _raft;
+    public Action OnPickedOnce;
 
     public string Name;
 
@@ -24,7 +24,7 @@ public class Cat : MonoBehaviour
     public float SlideFriction = 0.3f;
 
     public const float RaftSurfaceY = 0.58f;
-    public const float HangingTime = 10f;
+    public float HangingTime = 10f;
 
     public float MaxSpeed = 0.01f;
 
@@ -312,11 +312,17 @@ public class Cat : MonoBehaviour
 
     public void PickKitty()
     {
-        var shift = Vector3.ClampMagnitude(new Vector3(0f, RaftSurfaceY, 0f) - transform.localPosition, 1f);
+        var shift = Vector3.ClampMagnitude(new Vector3(0f, RaftSurfaceY, 0f) - transform.localPosition, 2f);
         transform.localPosition += shift;
         State = new Walking(this);
 
         _mainApplication.SavedCats++;
+
+        if (OnPickedOnce != null)
+        {
+            OnPickedOnce();
+            OnPickedOnce = null;
+        }
     }
 
     private void Update()

@@ -807,6 +807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _raft: {fileID: 1712198875}
   _main: {fileID: 388627630}
+  _catsCount: 5
   Raft: {fileID: 1173030888}
   CatNumber: 0
 --- !u!4 &582513889
@@ -1825,6 +1826,16 @@ Prefab:
       propertyPath: _stream
       value: 
       objectReference: {fileID: 1447228316}
+    - target: {fileID: 114091223651624526, guid: 398fc5fe8dcac4b4083493a389561505,
+        type: 2}
+      propertyPath: _position.x
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091223651624526, guid: 398fc5fe8dcac4b4083493a389561505,
+        type: 2}
+      propertyPath: _position.z
+      value: -3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 398fc5fe8dcac4b4083493a389561505, type: 2}
   m_IsPrefabParent: 0

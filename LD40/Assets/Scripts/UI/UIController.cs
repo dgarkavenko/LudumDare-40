@@ -136,7 +136,8 @@ public class UIController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (_helpScreen.activeSelf) {
+            if (_helpScreen.activeSelf)
+            {
                 _helpScreen.SetActive(false);
             }
 
@@ -145,7 +146,8 @@ public class UIController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            if (_pauseScreen.activeSelf) {
+            if (_pauseScreen.activeSelf)
+            {
                 _pauseScreen.SetActive(false);
             }
 

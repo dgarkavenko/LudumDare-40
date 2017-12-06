@@ -34,8 +34,8 @@ public class PlayerCharacter : MonoBehaviour
     {
         _stick = stick;
 
-        _xScale = xScale - .5f;
-        _zScale = zScale - .5f;
+        _xScale = xScale - .55f;
+        _zScale = zScale - .85f;
 
         _onInteractionEnter = onInteractionEnter;
         _onInteractionExit = () =>
@@ -118,12 +118,7 @@ public class PlayerCharacter : MonoBehaviour
 
             if (!_controlRaft)
             {
-                _interaction = new KeyValuePair<float, Action>(.2f, () =>
-                {
-                    _controlRaft = true;
-                    _raftControl(true);
-                    _onInteractionExit();
-                });
+                _interaction = new KeyValuePair<float, Action>(.2f, GrabThePole);
             }
             else
             {
@@ -140,6 +135,13 @@ public class PlayerCharacter : MonoBehaviour
 
         _onInteractionExit();
         _controlRaft = false;
+    }
+
+    protected virtual void GrabThePole()
+    {
+        _controlRaft = true;
+        _raftControl(true);
+        _onInteractionExit();
     }
 
     private void SetSavedCat(Cat cat)

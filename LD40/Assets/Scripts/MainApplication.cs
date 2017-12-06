@@ -8,6 +8,7 @@ public class MainApplication : MonoBehaviour
     [SerializeField] public UIController _uiController;
 
     [SerializeField] private PlayerCharacter _playerCharacter;
+    [SerializeField] private Vector3 _position;
     [SerializeField] private Raft _raft;
     [SerializeField] private Stream _stream;
 
@@ -18,13 +19,13 @@ public class MainApplication : MonoBehaviour
     public int DrownedCats;
     public int SavedCats;
 
-    private PlayerCharacter PlayerCharacter { get; set; }
+    protected PlayerCharacter PlayerCharacter { get; set; }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         Application.targetFrameRate = 50;
 
-        PlayerCharacter = Instantiate(_playerCharacter, _raft.transform);
+        PlayerCharacter = Instantiate(_playerCharacter, _position, Quaternion.identity, _raft.transform);
         PlayerCharacter.Init(_raft.RaftStick, _raft.ViewTransform.localScale.x / 2, _raft.ViewTransform .localScale.z / 2, arg =>
             {
                 _uiController.ShowInteractionButton(arg);
@@ -49,7 +50,7 @@ public class MainApplication : MonoBehaviour
         _stream.GenerateBanks();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         var dist = Vector3.Distance(_target.transform.position, PlayerCharacter.transform.position);
 

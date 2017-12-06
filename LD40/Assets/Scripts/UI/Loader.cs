@@ -7,8 +7,15 @@ public class Loader : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene("Main", LoadSceneMode.Single);
-            SceneManager.LoadScene("Level", LoadSceneMode.Additive);
+            if (PlayerPrefs.GetInt("BledNavalny") == 0)
+            {
+                SceneManager.LoadScene("Tutorial", LoadSceneMode.Single);
+            }
+            else
+            {
+                SceneManager.LoadScene("Main", LoadSceneMode.Single);
+                SceneManager.LoadScene("Level", LoadSceneMode.Additive);
+            }
         }
     }
 }
