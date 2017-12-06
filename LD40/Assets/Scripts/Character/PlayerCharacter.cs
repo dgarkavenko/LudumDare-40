@@ -96,6 +96,9 @@ public class PlayerCharacter : MonoBehaviour
 
         foreach (var cat in _cats)
         {
+            if(cat == null)
+                continue;
+            
             if (Vector3.Distance(transform.position, cat.transform.position) <= _pickUpDistance)
             {
                 if (cat.State is Cat.Fighting || cat.State is Cat.Hanging)

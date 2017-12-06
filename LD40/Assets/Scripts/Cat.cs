@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using JetBrains.Annotations;
 using UnityEngine;
 using Random = System.Random;
@@ -313,13 +314,25 @@ public class Cat : MonoBehaviour
 
             if (previous != null && value is Drowning)
             {
-                Debug.Log("ПОТОП ПИДОР");
-                if (_drowningCat.Model != null)
-                    _drowningCat.Model.Drown();
+                _drowningCat.Drown();
+                StartCoroutine(Hide());
 
             }
 
             UpdateVisuals();
+        }
+    }
+
+    public IEnumerator Hide()
+    {
+        float a = 1;
+        while (_renderer.material.color.a > 0)
+        {
+            a -= Time.deltaTime;
+            var c = _renderer.material.color;
+            c.a = a;
+            _renderer.material.color = c;
+            yield return null;
         }
     }
 

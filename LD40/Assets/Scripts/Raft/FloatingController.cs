@@ -6,6 +6,9 @@ public class FloatingController : MonoBehaviour
 	public Floating Model;
 	public Vector3 Offset;
 
+
+	public bool Drowned;
+	
 	public virtual void Start()
 	{
 		Model = Floating.Instantiate(_modelPrefab);
@@ -14,11 +17,22 @@ public class FloatingController : MonoBehaviour
 		Model.OnCollisionEnterAction += OnCollisionEnterAction;
 		Model.Controller = this;
 		Model.waterLevel = Stream.WATER_LEVEL;
+		
+		if(Drowned)
+			Model.Drown();
 	}
 
 	public virtual void OnCollisionEnterAction(Collision arg1, FloatingController arg2)
 	{
 
+	}
+	
+	public virtual void Drown()
+	{
+		Drowned = true;
+		
+		if(Model != null)
+        	Model.Drown();
 	}
 
 	private void OnDisable()

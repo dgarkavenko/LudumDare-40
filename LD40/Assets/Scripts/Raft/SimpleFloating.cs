@@ -15,7 +15,11 @@ public class SimpleFloating : Floating
         rb.MovePosition(targetPosition + s * Time.fixedDeltaTime);
 
         if (Drowned)
-            waterLevel -= Time.deltaTime;
+        {
+            waterLevel -= Time.deltaTime * 1;
+            if(waterLevel <= -5)
+                GameObject.Destroy(Controller.gameObject);
+        }
     }
 
     public override void Drown()

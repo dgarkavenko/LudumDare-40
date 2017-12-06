@@ -51,6 +51,6 @@ public class Floating : MonoBehaviour {
 
 	public virtual void Drown()
 	{
-		
+		Debug.Log(Controller.name + " : " + gameObject.name);
 	}
 }
