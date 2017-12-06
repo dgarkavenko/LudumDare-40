@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MainApplication : MonoBehaviour
@@ -48,6 +49,18 @@ public class MainApplication : MonoBehaviour
         _uiController.Init(PlayerCharacter.PickUpPoint, _target);
         _stream.GenerateStreamZones();
         _stream.GenerateBanks();
+        
+        StartCoroutine(Co_Wait(() =>
+        {
+            PlayerCharacter.GrabThePole();
+        }));
+    }
+    
+    private IEnumerator Co_Wait(System.Action callback)
+    {
+        yield return new WaitForSeconds(.2f);
+
+        callback();
     }
 
     protected virtual void Update()

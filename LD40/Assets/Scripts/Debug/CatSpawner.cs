@@ -7,7 +7,7 @@ public class CatSpawner : MonoBehaviour
 {
 	[SerializeField] private Transform _raft;
 	[SerializeField] private MainApplication _main;
-    [SerializeField] private int _catsCount = 5;
+    [SerializeField] private int _catsCount = 0;
 	public Raft Raft;
 
 	private readonly List<string> _catNames = new List<string> {
