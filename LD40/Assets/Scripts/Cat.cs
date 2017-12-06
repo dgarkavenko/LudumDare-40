@@ -298,18 +298,25 @@ public class Cat : MonoBehaviour
         {
             //Debug.Log($"{Name} -> {_state?.GetType().Name} to {value.GetType().Name}");
 
+            var previous = _state;
+            
             _state = value;
             _rigidbody.isKinematic = !(value is Flying);
 
-            if (_drowningCat.Model != null)
-                _drowningCat.Model.GetComponent<SimpleFloating>().enabled = _state is Drowning;
-
             _drowningCat.enabled = _state is Drowning;
-
+            
             if (value is Walking) {
                 var localPos = transform.localPosition;
                 localPos.y = RaftSurfaceY;
                 transform.localPosition = localPos;
+            }
+
+            if (previous != null && value is Drowning)
+            {
+                Debug.Log("ПОТОП ПИДОР");
+                if (_drowningCat.Model != null)
+                    _drowningCat.Model.Drown();
+
             }
 
             UpdateVisuals();
@@ -347,14 +354,6 @@ public class Cat : MonoBehaviour
             _mainApplication.DrownedCats++;
 
             transform.SetParent(RaftTransform.parent.parent);
-
-            var model = GetComponent<DrowningCat>().Model;
-            if (model != null) {
-                var collider = model.GetComponent<Collider>();
-
-                if (collider != null)
-                    collider.enabled = false;
-            }
 
             DrownedForGood = true;
 

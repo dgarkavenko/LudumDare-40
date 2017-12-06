@@ -49,4 +49,8 @@ public class Floating : MonoBehaviour {
 		}
 	}
 
+	public virtual void Drown()
+	{
+		
+	}
 }
