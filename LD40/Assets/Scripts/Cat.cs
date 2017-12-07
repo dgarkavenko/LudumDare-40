@@ -204,12 +204,12 @@ public class Cat : MonoBehaviour
         public readonly float StartTime;
         public string Word;
         public string[] Words = new[] {"HALP", "HELP", "MEOW", "HELP"};
-        
+
         public Hanging(Cat cat)
         {
             StartTime = Time.time;
             Word = Words[UnityEngine.Random.Range(0, Words.Length)];
-            
+
             var directionToRaftCenter = cat.transform.localPosition;
             var directionToCamera = cat.transform.position - Camera.main.transform.position;
             var angle = Vector3.Angle(directionToRaftCenter, directionToCamera);
@@ -283,7 +283,6 @@ public class Cat : MonoBehaviour
             if ((Time.time - _startTime > 0.5f) && other.gameObject.layer == LayerMask.NameToLayer("Raft")) {
                 Cat.State = new Walking(Cat);
                 Cat.transform.parent = Cat.RaftTransform.parent;
-                Cat._mainApplication.PickCat(Cat);
             }
         }
     }
@@ -300,12 +299,12 @@ public class Cat : MonoBehaviour
             //Debug.Log($"{Name} -> {_state?.GetType().Name} to {value.GetType().Name}");
 
             var previous = _state;
-            
+
             _state = value;
             _rigidbody.isKinematic = !(value is Flying);
 
             _drowningCat.enabled = _state is Drowning;
-            
+
             if (value is Walking) {
                 var localPos = transform.localPosition;
                 localPos.y = RaftSurfaceY;
